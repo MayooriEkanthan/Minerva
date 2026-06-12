@@ -131,7 +131,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                     width: (MediaQuery.of(context).size.width - 48 - 16) / 2, // 2 columns minus padding/spacing
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     decoration: BoxDecoration(
-                      color: isSelected ? AppTheme.primaryColor.withOpacity(0.1) : AppTheme.surfaceColor.withOpacity(0.5),
+                      color: isSelected ? AppTheme.primaryColor : AppTheme.primaryColor.withOpacity(0.1),
                       borderRadius: BorderRadius.circular(8),
                       border: isSelected ? Border.all(color: AppTheme.primaryColor.withOpacity(0.3)) : null,
                     ),
@@ -140,9 +140,9 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                       option,
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: isSelected ? AppTheme.primaryColor : AppTheme.textSecondary.withOpacity(0.6),
+                        color: isSelected ? Colors.white : AppTheme.primaryColor,
                         fontSize: 14,
-                        fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                        fontWeight: isSelected ? FontWeight.bold : FontWeight.w600,
                       ),
                     ),
                   ),
@@ -153,11 +153,12 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
             TextField(
               controller: _feedbackController,
               maxLines: 4,
+              style: const TextStyle(color: AppTheme.primaryColor),
               decoration: InputDecoration(
                 hintText: 'Tell us more about your experience...',
-                hintStyle: TextStyle(color: AppTheme.textSecondary.withOpacity(0.6), fontSize: 14),
+                hintStyle: TextStyle(color: AppTheme.primaryColor.withOpacity(0.6), fontSize: 14),
                 filled: true,
-                fillColor: AppTheme.surfaceColor.withOpacity(0.5),
+                fillColor: AppTheme.primaryColor.withOpacity(0.1),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(16),
                   borderSide: BorderSide.none,

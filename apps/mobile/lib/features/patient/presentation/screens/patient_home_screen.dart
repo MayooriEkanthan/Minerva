@@ -6,8 +6,15 @@ import '../../../../core/widgets/custom_segmented_control.dart';
 import '../widgets/health_data_card.dart';
 import '../widgets/notification_card.dart';
 
-class PatientHomeScreen extends StatelessWidget {
+class PatientHomeScreen extends StatefulWidget {
   const PatientHomeScreen({super.key});
+
+  @override
+  State<PatientHomeScreen> createState() => _PatientHomeScreenState();
+}
+
+class _PatientHomeScreenState extends State<PatientHomeScreen> {
+  int _selectedNotificationTab = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -207,27 +214,46 @@ class PatientHomeScreen extends StatelessWidget {
                     const SizedBox(height: 16),
                     CustomSegmentedControl(
                       options: const ['All', 'Appointments', 'Consultations'],
-                      onChanged: (index) {},
+                      onChanged: (index) {
+                        setState(() {
+                          _selectedNotificationTab = index;
+                        });
+                      },
                     ),
                     const SizedBox(height: 24),
-                    NotificationCard(
-                      title: 'Platform Update',
-                      description: 'Exciting new features have been added to Minerva! Check them out.',
-                      timestamp: '7/20/2024, 11:45:00 AM',
-                      icon: Icons.campaign_outlined,
-                      onMarkAsRead: () {},
-                      onViewDetails: () {},
-                      onDelete: () {},
-                    ),
-                    NotificationCard(
-                      title: 'Appointment Confirmed',
-                      description: 'Your appointment with Dr. Anya has been confirmed for 2024-07-18.',
-                      timestamp: '7/18/2024, 2:00:00 PM',
-                      icon: Icons.calendar_today_outlined,
-                      onMarkAsRead: () {},
-                      onViewDetails: () {},
-                      onDelete: () {},
-                    ),
+                    
+                    if (_selectedNotificationTab == 0 || _selectedNotificationTab == 1)
+                      NotificationCard(
+                        title: 'Appointment Confirmed',
+                        description: 'Your appointment with Dr. Anya has been confirmed for 2024-07-18.',
+                        timestamp: '7/18/2024, 2:00:00 PM',
+                        icon: Icons.calendar_today_outlined,
+                        onMarkAsRead: () {},
+                        onViewDetails: () {},
+                        onDelete: () {},
+                      ),
+                      
+                    if (_selectedNotificationTab == 0 || _selectedNotificationTab == 2)
+                      NotificationCard(
+                        title: 'Consultation Scheduled',
+                        description: 'Your voice consultation is scheduled for tomorrow at 10 AM.',
+                        timestamp: '7/19/2024, 10:00:00 AM',
+                        icon: Icons.chat_bubble_outline,
+                        onMarkAsRead: () {},
+                        onViewDetails: () {},
+                        onDelete: () {},
+                      ),
+                      
+                    if (_selectedNotificationTab == 0)
+                      NotificationCard(
+                        title: 'Platform Update',
+                        description: 'Exciting new features have been added to Minerva! Check them out.',
+                        timestamp: '7/20/2024, 11:45:00 AM',
+                        icon: Icons.campaign_outlined,
+                        onMarkAsRead: () {},
+                        onViewDetails: () {},
+                        onDelete: () {},
+                      ),
                     const SizedBox(height: 40),
                   ],
                 ),

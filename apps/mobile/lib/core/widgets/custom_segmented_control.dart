@@ -23,7 +23,8 @@ class _CustomSegmentedControlState extends State<CustomSegmentedControl> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 56,
+      height: 50,
+      padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
         color: AppTheme.surfaceColor,
         borderRadius: BorderRadius.circular(28),
@@ -49,8 +50,9 @@ class _CustomSegmentedControlState extends State<CustomSegmentedControl> {
                   widget.options[index],
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        color: isSelected ? Colors.white : AppTheme.textSecondary,
-                        fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+                        color: isSelected ? Colors.white : AppTheme.textSecondary.withOpacity(0.6),
+                        fontWeight: isSelected ? FontWeight.bold : FontWeight.w600,
+                        fontSize: 12,
                       ),
                 ),
               ),
