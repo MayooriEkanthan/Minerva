@@ -39,7 +39,7 @@ class LoginScreen extends StatelessWidget {
               PrimaryButton(
                 text: 'Continue',
                 onPressed: () {
-                  // Handle continue action
+                  context.go('/dashboard');
                 },
               ),
               const SizedBox(height: 32),
