@@ -4,6 +4,7 @@ import 'doctor_home_screen.dart';
 import 'doctor_patients_screen.dart';
 import 'doctor_consult_screen.dart';
 import 'doctor_feedback_screen.dart';
+import 'doctor_settings_screen.dart';
 
 class DoctorMainLayoutScreen extends StatefulWidget {
   const DoctorMainLayoutScreen({super.key});
@@ -20,7 +21,7 @@ class _DoctorMainLayoutScreenState extends State<DoctorMainLayoutScreen> {
     const DoctorPatientsScreen(),
     const DoctorConsultScreen(),
     const DoctorFeedbackScreen(),
-    const Center(child: Text('Settings Screen')),
+    const DoctorSettingsScreen(),
   ];
 
   @override
