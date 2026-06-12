@@ -8,6 +8,7 @@ import '../../features/auth/presentation/screens/login_screen.dart';
 import '../../features/patient/presentation/screens/main_layout_screen.dart';
 import '../../features/patient/presentation/screens/period_tracker_screen.dart';
 import '../../features/patient/presentation/screens/analytics_screen.dart';
+import '../../features/patient/presentation/screens/doctor_profile_screen.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/',
@@ -46,6 +47,10 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/analytics',
       builder: (context, state) => const AnalyticsScreen(),
+    ),
+    GoRoute(
+      path: '/doctor-profile',
+      builder: (context, state) => const DoctorProfileScreen(),
     ),
   ],
 );

@@ -76,7 +76,7 @@ class DoctorsScreen extends StatelessWidget {
                   rating: 4.9,
                   reviews: '1.2K',
                   hourlyRate: '\$80/hr',
-                  onBook: () {},
+                  onBook: () => context.push('/doctor-profile'),
                 ),
                 DoctorCard(
                   name: 'Dr. Sarah',
