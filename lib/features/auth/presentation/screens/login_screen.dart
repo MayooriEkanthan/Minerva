@@ -1,44 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/theme/app_theme.dart';
-import '../../../../core/widgets/minerva_logo.dart';
+import '../../../../core/widgets/custom_text_field.dart';
 import '../../../../core/widgets/primary_button.dart';
-import '../../../../core/widgets/secondary_button.dart';
+import '../../../../core/widgets/social_login_button.dart';
 
-class AuthSelectionScreen extends StatelessWidget {
-  final String role; // 'doctor' or 'patient'
-
-  const AuthSelectionScreen({super.key, required this.role});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new, color: AppTheme.textPrimary),
+          onPressed: () => context.pop(),
+        ),
+        title: Text(
+          'Log in',
+          style: Theme.of(context).textTheme.displayMedium?.copyWith(fontSize: 20),
+        ),
+        centerTitle: false,
+      ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 48.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const MinervaLogo(size: 64),
-              const SizedBox(height: 32),
-              Text(
-                "Your identity is protected. Minerva\noffers anonymous women's health\nconsultations.",
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: AppTheme.textSecondary,
-                      height: 1.5,
-                    ),
+              const CustomTextField(
+                label: 'Phone number or Email',
+                hintText: 'Enter your phone or email',
+                prefixIcon: Icons.smartphone_outlined,
               ),
-              const SizedBox(height: 64),
+              const SizedBox(height: 32),
               PrimaryButton(
-                text: "I'm new — Sign Up",
-                icon: Icons.monitor_heart_outlined,
+                text: 'Continue',
                 onPressed: () {
-                  if (role == 'patient') {
-                    context.push('/patient-signup');
-                  } else {
-                    // Navigate to specific signup based on doctor role later
-                  }
+                  // Handle continue action
                 },
               ),
               const SizedBox(height: 32),
@@ -58,11 +59,22 @@ class AuthSelectionScreen extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 32),
-              SecondaryButton(
-                text: "I already have an account — Log In",
-                onPressed: () {
-                  context.push('/login');
-                },
+              SocialLoginButton(
+                text: 'Continue with Email',
+                icon: Icons.email_outlined,
+                onPressed: () {},
+              ),
+              const SizedBox(height: 16),
+              SocialLoginButton(
+                text: 'Continue with Apple',
+                icon: Icons.apple, // Standard material icon available
+                onPressed: () {},
+              ),
+              const SizedBox(height: 16),
+              SocialLoginButton(
+                text: 'Continue with Google',
+                icon: Icons.public, // Placeholder for Google icon without extra packages
+                onPressed: () {},
               ),
               const Spacer(),
               Text(

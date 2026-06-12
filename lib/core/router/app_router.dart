@@ -4,6 +4,7 @@ import '../../features/auth/presentation/screens/splash_screen.dart';
 import '../../features/auth/presentation/screens/role_selection_screen.dart';
 import '../../features/auth/presentation/screens/auth_selection_screen.dart';
 import '../../features/patient/presentation/screens/patient_sign_up_screen.dart';
+import '../../features/auth/presentation/screens/login_screen.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/',
@@ -26,6 +27,10 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/patient-signup',
       builder: (context, state) => const PatientSignUpScreen(),
+    ),
+    GoRoute(
+      path: '/login',
+      builder: (context, state) => const LoginScreen(),
     ),
   ],
 );
