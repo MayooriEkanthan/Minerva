@@ -71,7 +71,9 @@ class DoctorSignUpScreen extends StatelessWidget {
             const SizedBox(height: 24),
             PrimaryButton(
               text: 'Create Account',
-              onPressed: () {},
+              onPressed: () {
+                context.go('/doctor-dashboard');
+              },
             ),
             const SizedBox(height: 16),
             Container(
