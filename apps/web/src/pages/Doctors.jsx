@@ -1,134 +1,191 @@
-import React from 'react'
-import { CheckCircle, XCircle, Clock, Search, FileText } from 'lucide-react'
+import React from 'react';
+import { Check, X, FileText, ExternalLink } from 'lucide-react';
 
 export default function Doctors() {
   const doctors = [
-    { id: 'DOC-5021', name: 'Dr. Anya Sharma', specialty: 'Gynecology', status: 'Verified', experience: '12 yrs', rating: 4.9 },
-    { id: 'DOC-5022', name: 'Dr. Sarah Jenkins', specialty: 'Pediatrics', status: 'Pending', experience: '8 yrs', rating: '-' },
-    { id: 'DOC-5023', name: 'Dr. Anna Chen', specialty: 'Endocrinology', status: 'Verified', experience: '15 yrs', rating: 4.8 },
-    { id: 'DOC-5024', name: 'Dr. Lisa Brown', specialty: 'Dermatology', status: 'Rejected', experience: '5 yrs', rating: '-' },
+    { id: 'DOC-501', name: 'Dr. Sarah Chen', spec: 'Dermatology', license: 'MD-19284', status: 'Pending Review' },
+    { id: 'DOC-502', name: 'Dr. James Wilson', spec: 'General Physician', license: 'MD-99212', status: 'Pending Review' },
+    { id: 'DOC-503', name: 'Dr. Michael Roberts', spec: 'Pediatrics', license: 'MD-33211', status: 'Approved' },
+    { id: 'DOC-504', name: 'Dr. Emily White', spec: 'Orthopedics', license: 'MD-88123', status: 'Rejected' },
   ];
 
   return (
-    <div className="space-y-6 h-full flex flex-col">
-      <div className="flex justify-between items-end">
+    <div style={containerStyle}>
+      <div style={headerRowStyle}>
         <div>
-          <h1 className="text-2xl font-bold text-brand-dark">Doctor Verification & Management</h1>
-          <p className="text-brand-textLight text-sm mt-1">Review credentials and manage verified female practitioners.</p>
+          <h1 style={titleStyle}>Doctors Verification</h1>
+          <p style={subtitleStyle}>Review and verify professional credentials for new practitioners.</p>
         </div>
-        <div className="flex gap-3">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
-            <input 
-              type="text" 
-              placeholder="Search doctors..." 
-              className="pl-9 pr-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-pink/50"
-            />
+      </div>
+
+      <div className="glass-panel" style={listContainerStyle}>
+        {doctors.map((doc, i) => (
+          <div key={doc.id} style={{
+            ...cardStyle,
+            borderBottom: i === doctors.length - 1 ? 'none' : '1px solid rgba(0,0,0,0.05)'
+          }}>
+            <div style={docInfoStyle}>
+              <div style={avatarStyle}>
+                <span style={{ color: 'var(--primary)', fontWeight: 'bold' }}>{doc.name.charAt(4)}</span>
+              </div>
+              <div>
+                <h3 style={docNameStyle}>{doc.name}</h3>
+                <p style={docSubStyle}>{doc.spec} • ID: {doc.id}</p>
+              </div>
+            </div>
+
+            <div style={documentsStyle}>
+              <div style={docLinkStyle}>
+                <FileText size={14} /> Medical License ({doc.license}) <ExternalLink size={12} />
+              </div>
+              <div style={docLinkStyle}>
+                <FileText size={14} /> Government ID <ExternalLink size={12} />
+              </div>
+            </div>
+
+            <div style={statusStyle}>
+              <span style={{
+                padding: '4px 12px',
+                borderRadius: '12px',
+                fontSize: '12px',
+                fontWeight: 500,
+                backgroundColor: doc.status === 'Approved' ? '#D1FAE5' : doc.status === 'Rejected' ? '#FEE2E2' : '#FEF3C7',
+                color: doc.status === 'Approved' ? '#059669' : doc.status === 'Rejected' ? '#DC2626' : '#D97706',
+              }}>
+                {doc.status}
+              </span>
+            </div>
+
+            <div style={actionsStyle}>
+              {doc.status === 'Pending Review' ? (
+                <>
+                  <button style={{...actionBtnStyle, color: '#DC2626', backgroundColor: '#FEE2E2'}}>
+                    <X size={16} /> Reject
+                  </button>
+                  <button style={{...actionBtnStyle, color: 'white', backgroundColor: '#10C655'}}>
+                    <Check size={16} /> Approve
+                  </button>
+                </>
+              ) : (
+                <button style={{...actionBtnStyle, color: '#6B7280', backgroundColor: '#F3F4F6'}}>
+                  View Profile
+                </button>
+              )}
+            </div>
           </div>
-          <button className="bg-brand-pink hover:bg-brand-pinkHover text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
-            Invite Doctor
-          </button>
-        </div>
-      </div>
-
-      {/* Analytics Cards specific to doctors */}
-      <div className="grid grid-cols-3 gap-6">
-        <div className="glass p-5 rounded-2xl border-l-4 border-l-green-500">
-          <div className="text-sm text-gray-500 font-medium mb-1">Fully Verified</div>
-          <div className="text-2xl font-bold text-brand-dark">142</div>
-        </div>
-        <div className="glass p-5 rounded-2xl border-l-4 border-l-orange-500">
-          <div className="text-sm text-gray-500 font-medium mb-1">Verification Pending</div>
-          <div className="text-2xl font-bold text-brand-dark">14</div>
-        </div>
-        <div className="glass p-5 rounded-2xl border-l-4 border-l-red-500">
-          <div className="text-sm text-gray-500 font-medium mb-1">Rejected / Suspended</div>
-          <div className="text-2xl font-bold text-brand-dark">3</div>
-        </div>
-      </div>
-
-      <div className="glass rounded-2xl flex-1 overflow-hidden flex flex-col">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="bg-gray-50/80 border-b border-gray-200 text-sm font-semibold text-brand-dark">
-                <th className="py-4 px-6">ID</th>
-                <th className="py-4 px-6">Doctor Name</th>
-                <th className="py-4 px-6">Specialty</th>
-                <th className="py-4 px-6">Experience</th>
-                <th className="py-4 px-6">Verification Status</th>
-                <th className="py-4 px-6 text-right">Actions</th>
-              </tr>
-            </thead>
-            <tbody className="text-sm text-gray-700">
-              {doctors.map((d) => (
-                <tr key={d.id} className="border-b border-gray-100 hover:bg-gray-50/50 transition-colors">
-                  <td className="py-4 px-6 font-medium text-brand-dark">{d.id}</td>
-                  <td className="py-4 px-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-brand-pinkLight flex items-center justify-center text-brand-pink font-bold">
-                        {d.name.split(' ')[1].charAt(0)}
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="font-semibold">{d.name}</span>
-                        {d.rating !== '-' && (
-                          <span className="text-xs text-brand-textLight flex items-center gap-1">
-                            <span className="text-yellow-400">★</span> {d.rating} Rating
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                  </td>
-                  <td className="py-4 px-6">{d.specialty}</td>
-                  <td className="py-4 px-6 text-brand-textLight">{d.experience}</td>
-                  <td className="py-4 px-6">
-                    <StatusBadge status={d.status} />
-                  </td>
-                  <td className="py-4 px-6 text-right">
-                    <div className="flex items-center justify-end gap-2">
-                      <button className="p-1.5 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded transition-colors" title="View Credentials">
-                        <FileText size={18} />
-                      </button>
-                      {d.status === 'Pending' && (
-                        <>
-                          <button className="p-1.5 text-gray-400 hover:text-green-600 hover:bg-green-50 rounded transition-colors" title="Approve">
-                            <CheckCircle size={18} />
-                          </button>
-                          <button className="p-1.5 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded transition-colors" title="Reject">
-                            <XCircle size={18} />
-                          </button>
-                        </>
-                      )}
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        ))}
       </div>
     </div>
-  )
+  );
 }
 
-function StatusBadge({ status }) {
-  if (status === 'Verified') {
-    return (
-      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700 border border-green-200">
-        <CheckCircle size={12} /> Verified
-      </span>
-    )
-  }
-  if (status === 'Pending') {
-    return (
-      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-700 border border-orange-200">
-        <Clock size={12} /> Pending Review
-      </span>
-    )
-  }
-  return (
-    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-red-100 text-red-700 border border-red-200">
-      <XCircle size={12} /> Rejected
-    </span>
-  )
-}
+const containerStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  width: '100%',
+};
+
+const headerRowStyle = {
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'flex-start',
+  marginBottom: '32px',
+};
+
+const titleStyle = {
+  fontSize: '28px',
+  fontWeight: 'bold',
+  color: 'var(--secondary)',
+  marginBottom: '8px',
+};
+
+const subtitleStyle = {
+  fontSize: '14px',
+  color: '#6B7280',
+};
+
+const listContainerStyle = {
+  width: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+};
+
+const cardStyle = {
+  padding: '24px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+};
+
+const docInfoStyle = {
+  display: 'flex',
+  alignItems: 'center',
+  gap: '16px',
+  flex: 1.5,
+};
+
+const avatarStyle = {
+  width: '48px',
+  height: '48px',
+  borderRadius: '50%',
+  background: 'var(--primary-light)',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  border: '2px solid white',
+  fontSize: '18px',
+};
+
+const docNameStyle = {
+  fontSize: '16px',
+  fontWeight: 'bold',
+  color: 'var(--secondary)',
+  marginBottom: '4px',
+};
+
+const docSubStyle = {
+  fontSize: '13px',
+  color: '#6B7280',
+};
+
+const documentsStyle = {
+  flex: 1.5,
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '8px',
+};
+
+const docLinkStyle = {
+  display: 'flex',
+  alignItems: 'center',
+  gap: '6px',
+  fontSize: '13px',
+  color: 'var(--primary)',
+  cursor: 'pointer',
+  fontWeight: 500,
+};
+
+const statusStyle = {
+  flex: 1,
+  display: 'flex',
+  justifyContent: 'center',
+};
+
+const actionsStyle = {
+  flex: 1,
+  display: 'flex',
+  justifyContent: 'flex-end',
+  gap: '8px',
+};
+
+const actionBtnStyle = {
+  display: 'flex',
+  alignItems: 'center',
+  gap: '6px',
+  padding: '8px 16px',
+  border: 'none',
+  borderRadius: '8px',
+  fontSize: '13px',
+  fontWeight: 600,
+  cursor: 'pointer',
+};

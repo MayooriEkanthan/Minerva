@@ -1,23 +1,26 @@
-import React from 'react'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import Layout from './components/Layout'
-import Overview from './pages/Overview'
-import Patients from './pages/Patients'
-import Doctors from './pages/Doctors'
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import Dashboard from './pages/Dashboard';
+import Patients from './pages/Patients';
+import Doctors from './pages/Doctors';
+
+// Mock Pages for now
+const Reports = () => <div className="glass-panel" style={{ padding: '32px', flex: 1 }}><h1>Reports</h1></div>;
+const Settings = () => <div className="glass-panel" style={{ padding: '32px', flex: 1 }}><h1>Settings</h1></div>;
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Navigate to="/overview" replace />} />
-          <Route path="overview" element={<Overview />} />
-          <Route path="patients" element={<Patients />} />
-          <Route path="doctors" element={<Doctors />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  )
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Dashboard />} />
+        <Route path="patients" element={<Patients />} />
+        <Route path="doctors" element={<Doctors />} />
+        <Route path="reports" element={<Reports />} />
+        <Route path="settings" element={<Settings />} />
+      </Route>
+    </Routes>
+  );
 }
 
-export default App
+export default App;

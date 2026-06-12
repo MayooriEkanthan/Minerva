@@ -1,88 +1,147 @@
-import React from 'react'
-import { MoreVertical, ShieldAlert } from 'lucide-react'
+import React from 'react';
+import { MoreVertical, Mail, Filter } from 'lucide-react';
 
 export default function Patients() {
   const patients = [
-    { id: 'PAT-1042', alias: 'Patient A', status: 'Active', joined: 'Oct 12, 2025', permissions: 2 },
-    { id: 'PAT-1043', alias: 'Patient B', status: 'Active', joined: 'Nov 04, 2025', permissions: 0 },
-    { id: 'PAT-1044', alias: 'Patient C', status: 'Inactive', joined: 'Dec 19, 2025', permissions: 1 },
-    { id: 'PAT-1045', alias: 'Patient D', status: 'Active', joined: 'Jan 02, 2026', permissions: 3 },
+    { id: 'PAT-1042', name: 'Emily White', email: 'emily.w@example.com', joined: 'Oct 24, 2025', status: 'Active' },
+    { id: 'PAT-1043', name: 'Sarah Johnson', email: 'sarah.j@example.com', joined: 'Oct 23, 2025', status: 'Inactive' },
+    { id: 'PAT-1044', name: 'Jessica Chen', email: 'jess.chen@example.com', joined: 'Oct 22, 2025', status: 'Active' },
+    { id: 'PAT-1045', name: 'Amanda Davis', email: 'amanda.d@example.com', joined: 'Oct 20, 2025', status: 'Active' },
+    { id: 'PAT-1046', name: 'Luna Smith', email: 'luna.s@example.com', joined: 'Oct 19, 2025', status: 'Active' },
   ];
 
   return (
-    <div className="space-y-6 h-full flex flex-col">
-      <div className="flex justify-between items-center">
+    <div style={containerStyle}>
+      <div style={headerRowStyle}>
         <div>
-          <h1 className="text-2xl font-bold text-brand-dark">Patient Management</h1>
-          <p className="text-brand-textLight text-sm mt-1">Manage patient accounts and monitor privacy settings.</p>
+          <h1 style={titleStyle}>Patients Management</h1>
+          <p style={subtitleStyle}>View and manage all registered patients on the platform.</p>
         </div>
-        <div className="flex items-center gap-2 bg-yellow-50 text-yellow-700 px-4 py-2 rounded-lg border border-yellow-200">
-          <ShieldAlert size={18} />
-          <span className="text-sm font-medium">Strict Privacy Enforced</span>
-        </div>
+        <button style={filterButtonStyle}>
+          <Filter size={16} />
+          <span>Filter</span>
+        </button>
       </div>
 
-      <div className="glass rounded-2xl flex-1 overflow-hidden flex flex-col">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="bg-gray-50/80 border-b border-gray-200 text-sm font-semibold text-brand-dark">
-                <th className="py-4 px-6">ID</th>
-                <th className="py-4 px-6">Alias</th>
-                <th className="py-4 px-6">Status</th>
-                <th className="py-4 px-6">Joined</th>
-                <th className="py-4 px-6">Active Doctor Consents</th>
-                <th className="py-4 px-6 text-right">Actions</th>
+      <div className="glass-panel" style={tableContainerStyle}>
+        <table style={tableStyle}>
+          <thead>
+            <tr>
+              <th style={thStyle}>Patient ID</th>
+              <th style={thStyle}>Name</th>
+              <th style={thStyle}>Email</th>
+              <th style={thStyle}>Joined Date</th>
+              <th style={thStyle}>Status</th>
+              <th style={{...thStyle, textAlign: 'right'}}>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {patients.map((p, i) => (
+              <tr key={p.id} style={{ borderBottom: i === patients.length - 1 ? 'none' : '1px solid rgba(0,0,0,0.05)' }}>
+                <td style={tdStyle}>{p.id}</td>
+                <td style={{...tdStyle, fontWeight: 600}}>{p.name}</td>
+                <td style={{...tdStyle, color: '#6B7280'}}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Mail size={14} /> {p.email}
+                  </div>
+                </td>
+                <td style={tdStyle}>{p.joined}</td>
+                <td style={tdStyle}>
+                  <span style={{
+                    padding: '4px 12px',
+                    borderRadius: '12px',
+                    fontSize: '12px',
+                    fontWeight: 500,
+                    backgroundColor: p.status === 'Active' ? '#D1FAE5' : '#F3F4F6',
+                    color: p.status === 'Active' ? '#059669' : '#4B5563',
+                  }}>
+                    {p.status}
+                  </span>
+                </td>
+                <td style={{...tdStyle, textAlign: 'right'}}>
+                  <button style={actionButtonStyle}>
+                    <MoreVertical size={16} color="#6B7280" />
+                  </button>
+                </td>
               </tr>
-            </thead>
-            <tbody className="text-sm text-gray-700">
-              {patients.map((p) => (
-                <tr key={p.id} className="border-b border-gray-100 hover:bg-gray-50/50 transition-colors">
-                  <td className="py-4 px-6 font-medium text-brand-dark">{p.id}</td>
-                  <td className="py-4 px-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center text-xs font-bold text-gray-500">
-                        {p.alias.charAt(8)}
-                      </div>
-                      {p.alias}
-                    </div>
-                  </td>
-                  <td className="py-4 px-6">
-                    <span className={`px-2.5 py-1 rounded-full text-xs font-medium ${
-                      p.status === 'Active' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-700'
-                    }`}>
-                      {p.status}
-                    </span>
-                  </td>
-                  <td className="py-4 px-6 text-brand-textLight">{p.joined}</td>
-                  <td className="py-4 px-6">
-                    <div className="flex items-center gap-2">
-                      <div className="w-full bg-gray-200 rounded-full h-1.5 max-w-[100px]">
-                        <div className="bg-brand-pink h-1.5 rounded-full" style={{ width: `${(p.permissions / 5) * 100}%` }}></div>
-                      </div>
-                      <span className="text-xs font-medium">{p.permissions} doctors</span>
-                    </div>
-                  </td>
-                  <td className="py-4 px-6 text-right">
-                    <button className="p-2 hover:bg-gray-100 rounded-lg text-gray-500 transition-colors">
-                      <MoreVertical size={18} />
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        
-        {/* Pagination placeholder */}
-        <div className="p-4 border-t border-gray-100 flex items-center justify-between text-sm text-gray-500 mt-auto bg-white/50">
-          <span>Showing 1 to 4 of 1,248 patients</span>
-          <div className="flex gap-2">
-            <button className="px-3 py-1 border border-gray-200 rounded-md hover:bg-gray-50 disabled:opacity-50" disabled>Previous</button>
-            <button className="px-3 py-1 border border-gray-200 rounded-md hover:bg-gray-50">Next</button>
-          </div>
-        </div>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
-  )
+  );
 }
+
+const containerStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  width: '100%',
+};
+
+const headerRowStyle = {
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'flex-start',
+  marginBottom: '32px',
+};
+
+const titleStyle = {
+  fontSize: '28px',
+  fontWeight: 'bold',
+  color: 'var(--secondary)',
+  marginBottom: '8px',
+};
+
+const subtitleStyle = {
+  fontSize: '14px',
+  color: '#6B7280',
+};
+
+const filterButtonStyle = {
+  display: 'flex',
+  alignItems: 'center',
+  gap: '8px',
+  padding: '8px 16px',
+  backgroundColor: 'white',
+  border: '1px solid rgba(0,0,0,0.1)',
+  borderRadius: '8px',
+  color: 'var(--secondary)',
+  fontWeight: 500,
+  fontSize: '14px',
+};
+
+const tableContainerStyle = {
+  width: '100%',
+  overflow: 'hidden',
+};
+
+const tableStyle = {
+  width: '100%',
+  borderCollapse: 'collapse',
+  textAlign: 'left',
+};
+
+const thStyle = {
+  padding: '16px 24px',
+  fontSize: '12px',
+  fontWeight: 600,
+  color: '#6B7280',
+  textTransform: 'uppercase',
+  letterSpacing: '0.05em',
+  borderBottom: '1px solid rgba(0,0,0,0.1)',
+  backgroundColor: 'rgba(255,255,255,0.3)',
+};
+
+const tdStyle = {
+  padding: '20px 24px',
+  fontSize: '14px',
+  color: 'var(--secondary)',
+};
+
+const actionButtonStyle = {
+  background: 'transparent',
+  border: 'none',
+  padding: '8px',
+  cursor: 'pointer',
+  borderRadius: '50%',
+};
