@@ -45,7 +45,14 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
             ),
             child: IconButton(
               icon: const Icon(Icons.notifications_none, color: AppTheme.primaryColor),
-              onPressed: () {},
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text('There aren\'t any new notifications yet.'),
+                    behavior: SnackBarBehavior.floating,
+                  ),
+                );
+              },
             ),
           ),
           const SizedBox(width: 12),
@@ -56,7 +63,9 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
             ),
             child: IconButton(
               icon: const Icon(Icons.calendar_today_outlined, color: AppTheme.primaryColor),
-              onPressed: () {},
+              onPressed: () {
+                context.push('/period-tracker');
+              },
             ),
           ),
           const SizedBox(width: 24),
