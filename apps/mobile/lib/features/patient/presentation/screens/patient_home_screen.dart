@@ -13,12 +13,54 @@ class PatientHomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppTheme.surfaceColor,
+      appBar: AppBar(
+        backgroundColor: AppTheme.primaryColor,
+        elevation: 0,
+        title: const Row(
+          children: [
+            MinervaLogo(size: 32, showText: false),
+            SizedBox(width: 8),
+            Text(
+              'Minerva',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          Container(
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              shape: BoxShape.circle,
+            ),
+            child: IconButton(
+              icon: const Icon(Icons.notifications_none, color: AppTheme.primaryColor),
+              onPressed: () {},
+            ),
+          ),
+          const SizedBox(width: 12),
+          Container(
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              shape: BoxShape.circle,
+            ),
+            child: IconButton(
+              icon: const Icon(Icons.calendar_today_outlined, color: AppTheme.primaryColor),
+              onPressed: () {},
+            ),
+          ),
+          const SizedBox(width: 24),
+        ],
+      ),
       body: SingleChildScrollView(
         child: Stack(
           children: [
-            // 1. The large curvy pink header
+            // 1. The large curvy pink header (below the AppBar)
             Container(
-              height: 380,
+              height: 260,
               width: double.infinity,
               decoration: const BoxDecoration(
                 color: AppTheme.primaryColor,
@@ -26,56 +68,11 @@ class PatientHomeScreen extends StatelessWidget {
                   bottom: Radius.circular(40),
                 ),
               ),
-              padding: const EdgeInsets.only(top: 60, left: 24, right: 24),
-              child: Column(
+              padding: const EdgeInsets.only(left: 24, right: 24),
+              child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Top Row
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Row(
-                        children: [
-                          MinervaLogo(size: 32, showText: false),
-                          SizedBox(width: 8),
-                          Text(
-                            'Minerva',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          Container(
-                            decoration: const BoxDecoration(
-                              color: Colors.white,
-                              shape: BoxShape.circle,
-                            ),
-                            child: IconButton(
-                              icon: const Icon(Icons.notifications_none, color: AppTheme.primaryColor),
-                              onPressed: () {},
-                            ),
-                          ),
-                          const SizedBox(width: 12),
-                          Container(
-                            decoration: const BoxDecoration(
-                              color: Colors.white,
-                              shape: BoxShape.circle,
-                            ),
-                            child: IconButton(
-                              icon: const Icon(Icons.person_outline, color: AppTheme.primaryColor),
-                              onPressed: () {},
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 40),
+                  SizedBox(height: 16),
                   // Greeting
                   const Text(
                     'Hello,\nMinervaUser',
@@ -99,10 +96,10 @@ class PatientHomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            
+          
             // 2. The Overlapping Content
             Padding(
-              padding: const EdgeInsets.only(top: 320), // Overlaps the bottom of the pink area
+              padding: const EdgeInsets.only(top: 200), // Overlaps the bottom of the pink area
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24.0),
                 child: Column(
