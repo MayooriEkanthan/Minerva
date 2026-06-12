@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/widgets/minerva_logo.dart';
 import '../../../../core/widgets/primary_button.dart';
@@ -33,7 +34,11 @@ class AuthSelectionScreen extends StatelessWidget {
                 text: "I'm new — Sign Up",
                 icon: Icons.monitor_heart_outlined,
                 onPressed: () {
-                  // Navigate to specific signup based on role
+                  if (role == 'patient') {
+                    context.push('/patient-signup');
+                  } else {
+                    // Navigate to specific signup based on doctor role later
+                  }
                 },
               ),
               const SizedBox(height: 32),

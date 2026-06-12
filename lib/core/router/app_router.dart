@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../features/auth/presentation/screens/splash_screen.dart';
 import '../../features/auth/presentation/screens/role_selection_screen.dart';
 import '../../features/auth/presentation/screens/auth_selection_screen.dart';
+import '../../features/patient/presentation/screens/patient_sign_up_screen.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/',
@@ -21,6 +22,10 @@ final appRouter = GoRouter(
         final role = state.extra as String? ?? 'patient';
         return AuthSelectionScreen(role: role);
       },
+    ),
+    GoRoute(
+      path: '/patient-signup',
+      builder: (context, state) => const PatientSignUpScreen(),
     ),
   ],
 );
