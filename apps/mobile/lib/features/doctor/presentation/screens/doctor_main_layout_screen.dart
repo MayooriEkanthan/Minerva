@@ -3,6 +3,7 @@ import '../../../../core/theme/app_theme.dart';
 import 'doctor_home_screen.dart';
 import 'doctor_patients_screen.dart';
 import 'doctor_consult_screen.dart';
+import 'doctor_feedback_screen.dart';
 
 class DoctorMainLayoutScreen extends StatefulWidget {
   const DoctorMainLayoutScreen({super.key});
@@ -18,7 +19,7 @@ class _DoctorMainLayoutScreenState extends State<DoctorMainLayoutScreen> {
     const DoctorHomeScreen(),
     const DoctorPatientsScreen(),
     const DoctorConsultScreen(),
-    const Center(child: Text('Feedback Screen')),
+    const DoctorFeedbackScreen(),
     const Center(child: Text('Settings Screen')),
   ];
 
