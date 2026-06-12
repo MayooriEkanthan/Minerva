@@ -31,7 +31,7 @@ class RoleSelectionScreen extends StatelessWidget {
                 text: "I'm Doctor",
                 icon: Icons.monitor_heart_outlined,
                 onPressed: () {
-                  context.push('/auth-selection', extra: 'doctor');
+                  context.push('/doctor-signup');
                 },
               ),
               const SizedBox(height: 24),
