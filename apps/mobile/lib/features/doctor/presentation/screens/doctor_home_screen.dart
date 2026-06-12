@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/widgets/minerva_logo.dart';
 import '../../patient/presentation/widgets/health_data_card.dart';
+import '../widgets/doctor_profile_header.dart';
 
 class DoctorHomeScreen extends StatelessWidget {
   const DoctorHomeScreen({super.key});
@@ -39,56 +40,7 @@ class DoctorHomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Doctor Profile Header
-            Row(
-              children: [
-                const CircleAvatar(
-                  radius: 36,
-                  backgroundColor: AppTheme.primaryColorLight,
-                  // We'll leave it blank to represent the mock image
-                  child: Icon(Icons.person, color: AppTheme.primaryColor, size: 40),
-                ),
-                const SizedBox(width: 16),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'Dr. Anya Sharma',
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                          color: AppTheme.textSecondary,
-                        ),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        'General Physician | Telehealth\nSpecialist',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: AppTheme.textSecondary.withOpacity(0.5),
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
-                        decoration: BoxDecoration(
-                          color: const Color(0xFF10C655), // Bright green from mockup
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        child: const Text(
-                          'Available Now',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 12,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+            const DoctorProfileHeader(),
             
             const SizedBox(height: 32),
             
