@@ -1,29 +1,126 @@
-# Node.js
+# Dependency directories
 node_modules/
+.pub-cache/
+.pub/
+.dart_tool/
+
+# Build outputs
+dist/
+dist-ssr/
+build/
+bin/
+obj/
+out/
+**/android/app/debug/
+**/android/app/profile/
+**/android/app/release/
+app.*.symbols
+app.*.map.json
+
+# Environment variables and secrets - NEVER commit these
 .env
 .env.local
 .env.*.local
-npm-debug.log
-yarn-error.log
-
-# Flutter/Dart
-.dart_tool/
-.packages
-build/
-.flutter-plugins
-.flutter-plugins-dependencies
-
-# Firebase
-.firebase/
-firebase-export-*/
+*.local
+local.properties
+**/google-services.json
+**/GoogleService-Info.plist
+**/*service-account*.json
+**/*dialogflow-key*.json
+!**/.env.example
 
 # IDEs and Editors
 .idea/
 .vscode/
 *.swp
 *.swo
-.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.iml
+*.ipr
+*.iws
 
-# Windows
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
-Desktop.ini
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+firebase-debug.log
+firestore-debug.log
+database-debug.log
+ui-debug.log
+
+# Firebase
+.firebase/
+
+# Flutter/Dart specific
+**/ios/Flutter/.last_build_id
+.flutter-plugins
+.flutter-plugins-dependencies
+**/doc/api/
+/coverage/
+**/devtools_options.yaml
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/Flutter/flutter_lldb_helper.py
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
+**/ios/Runner/GeneratedPluginRegistrant.h
+**/ios/Runner/GeneratedPluginRegistrant.m
+**/ios/Runner/GeneratedPluginRegistrant.swift
+**/ios/flutter_lldbinit
+**/macos/Flutter/ephemeral/
+**/ios/Flutter/ephemeral/
+**/ephemeral/
+**/macos/Flutter/GeneratedPluginRegistrant.swift
+**/macos/Flutter/flutter_export_environment.sh
+**/macos/Flutter/Flutter-Generated.xcconfig
+**/ios/.flutter-plugins
+**/macos/.flutter-plugins
+**/ios/.flutter-plugins-dependencies
+**/macos/.flutter-plugins-dependencies
+
+# Miscellaneous
+*.class
+*.pyc
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# AI and Agent Tools
+.gemini/
+.antigravity/
+**/.gemini/
+**/.antigravity/
+*.scratch
+.system_generated/
+
+# Flutter generated desktop files
+**/generated_plugin_registrant.*
+**/generated_plugins.cmake
+**/GeneratedPluginRegistrant.swift
+
+# Scratch files and scripts
+**/scratch/
+
+# Staging directory for configurations and secrets to share with team
+minerva-configs-for-share/
