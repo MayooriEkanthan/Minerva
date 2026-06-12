@@ -6,6 +6,7 @@ class HealthDataCard extends StatelessWidget {
   final String value;
   final IconData icon;
   final Color color;
+  final VoidCallback? onTap;
 
   const HealthDataCard({
     super.key,
@@ -13,12 +14,15 @@ class HealthDataCard extends StatelessWidget {
     required this.value,
     required this.icon,
     required this.color,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
@@ -51,16 +55,27 @@ class HealthDataCard extends StatelessWidget {
                 ),
           ),
           const SizedBox(height: 4),
-          Text(
-            value,
-            style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                  color: color,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 22,
-                ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.baseline,
+            textBaseline: TextBaseline.alphabetic,
+            children: [
+              Text(
+                value,
+                style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                      color: color,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 22,
+                    ),
+              ),
+              if (onTap != null) ...[
+                const SizedBox(width: 4),
+                Icon(Icons.edit, size: 14, color: AppTheme.textSecondary.withOpacity(0.4)),
+              ]
+            ],
           ),
         ],
       ),
+    ),
     );
   }
 }

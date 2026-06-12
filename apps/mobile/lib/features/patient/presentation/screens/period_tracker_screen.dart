@@ -16,7 +16,6 @@ class _PeriodTrackerScreenState extends State<PeriodTrackerScreen> {
   bool _periodStartReminder = true;
   bool _contraceptionReminder = false;
   bool _medicationReminder = true;
-  bool _syncWearable = false;
 
   @override
   Widget build(BuildContext context) {
@@ -130,23 +129,6 @@ class _PeriodTrackerScreenState extends State<PeriodTrackerScreen> {
                       Text(
                         'Your data is private and secure.',
                         style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.7)),
-                      ),
-                    ],
-                  ),
-                  const Divider(height: 32),
-                  Row(
-                    children: [
-                      const Icon(Icons.watch_outlined, color: AppTheme.primaryColor),
-                      const SizedBox(width: 12),
-                      Text(
-                        'Sync with wearable data',
-                        style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.7)),
-                      ),
-                      const Spacer(),
-                      Switch(
-                        value: _syncWearable,
-                        onChanged: (val) => setState(() => _syncWearable = val),
-                        activeColor: AppTheme.primaryColor,
                       ),
                     ],
                   ),

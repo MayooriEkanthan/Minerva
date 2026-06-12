@@ -16,6 +16,47 @@ class PatientHomeScreen extends StatefulWidget {
 class _PatientHomeScreenState extends State<PatientHomeScreen> {
   int _selectedNotificationTab = 0;
 
+  String _heartRate = '72 bpm';
+  String _mood = 'Calm';
+  String _sleep = '7.5 hrs';
+  String _activity = 'Active';
+  String _bloodPressure = '120/80';
+
+  Future<void> _showEditDialog(String title, String currentValue, Function(String) onSave) async {
+    final controller = TextEditingController(text: currentValue);
+    return showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Edit $title'),
+          content: TextField(
+            controller: controller,
+            decoration: InputDecoration(
+              hintText: 'Enter new value',
+              focusedBorder: const UnderlineInputBorder(
+                borderSide: BorderSide(color: AppTheme.primaryColor),
+              ),
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Cancel', style: TextStyle(color: AppTheme.textSecondary)),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                onSave(controller.text);
+                Navigator.pop(context);
+              },
+              style: ElevatedButton.styleFrom(backgroundColor: AppTheme.primaryColor),
+              child: const Text('Save', style: TextStyle(color: Colors.white)),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -155,55 +196,65 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
                             children: [
-                              const HealthDataCard(
+                              HealthDataCard(
                                 title: 'Heart Rate',
-                                value: '72 bpm',
+                                value: _heartRate,
                                 icon: Icons.favorite_border,
                                 color: Colors.lightBlue,
+                                onTap: () => _showEditDialog('Heart Rate', _heartRate, (val) => setState(() => _heartRate = val)),
                               ),
-                              const HealthDataCard(
+                              HealthDataCard(
                                 title: 'Mood',
-                                value: 'Calm',
+                                value: _mood,
                                 icon: Icons.sentiment_satisfied_alt,
                                 color: AppTheme.primaryColor,
+                                onTap: () => _showEditDialog('Mood', _mood, (val) => setState(() => _mood = val)),
                               ),
-                              const HealthDataCard(
+                              HealthDataCard(
                                 title: 'Sleep',
-                                value: '7.5 hrs',
+                                value: _sleep,
                                 icon: Icons.nightlight_round,
                                 color: Colors.orangeAccent,
+                                onTap: () => _showEditDialog('Sleep', _sleep, (val) => setState(() => _sleep = val)),
                               ),
-                              const HealthDataCard(
+                              HealthDataCard(
                                 title: 'Activity',
-                                value: 'Active',
+                                value: _activity,
                                 icon: Icons.sentiment_neutral,
                                 color: Colors.deepPurpleAccent,
+                                onTap: () => _showEditDialog('Activity', _activity, (val) => setState(() => _activity = val)),
                               ),
-                              const HealthDataCard(
+                              HealthDataCard(
                                 title: 'Blood Pressure',
-                                value: '120/80',
+                                value: _bloodPressure,
                                 icon: Icons.water_drop_outlined,
                                 color: Colors.greenAccent,
-                              ),
-                              GestureDetector(
-                                onTap: () => context.push('/analytics'),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: AppTheme.primaryColor,
-                                    borderRadius: BorderRadius.circular(20),
-                                  ),
-                                  alignment: Alignment.center,
-                                  child: const Text(
-                                    'See Analytics',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16,
-                                    ),
-                                  ),
-                                ),
+                                onTap: () => _showEditDialog('Blood Pressure', _bloodPressure, (val) => setState(() => _bloodPressure = val)),
                               ),
                             ],
+                          ),
+                          const SizedBox(height: 24),
+                          SizedBox(
+                            width: double.infinity,
+                            height: 56,
+                            child: ElevatedButton(
+                              onPressed: () => context.push('/analytics'),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: AppTheme.primaryColor,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(16),
+                                ),
+                                elevation: 0,
+                              ),
+                              child: const Text(
+                                'See Analytics Dashboard',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            ),
                           ),
                         ],
                       ),
