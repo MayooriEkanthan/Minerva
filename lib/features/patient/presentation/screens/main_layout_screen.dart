@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../../../../core/theme/app_theme.dart';
 import 'patient_home_screen.dart';
 import 'doctors_screen.dart';
+import 'consult_screen.dart';
+import 'feedback_screen.dart';
 
 class MainLayoutScreen extends StatefulWidget {
   const MainLayoutScreen({super.key});
@@ -16,8 +18,8 @@ class _MainLayoutScreenState extends State<MainLayoutScreen> {
   final List<Widget> _screens = [
     const PatientHomeScreen(),
     const DoctorsScreen(),
-    const Center(child: Text('Consult Screen')),
-    const Center(child: Text('Feedback Screen')),
+    const ConsultScreen(),
+    const FeedbackScreen(),
     const Center(child: Text('Settings Screen')),
   ];
 
