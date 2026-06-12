@@ -9,190 +9,240 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  bool _anonymousMode = true;
-  bool _voiceMasking = true;
-  bool _autoDeleteChats = false;
-  bool _autoDeleteReports = false;
+  bool _notifications = true;
+  bool _isLoggedIn = false; // Toggle this to test guest vs logged-in state
+  final String _userName = 'Mayoori';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: const Text(
-          'Settings',
-          style: TextStyle(color: AppTheme.textSecondary, fontWeight: FontWeight.bold, fontSize: 18),
-        ),
-        centerTitle: true,
-      ),
+      backgroundColor: AppTheme.background,
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _buildSectionHeader('Privacy Controls'),
-            _buildToggleTile(
-              title: 'Anonymous mode',
-              subtitle: 'Your identity is completely hidden from doctors and other users.',
-              value: _anonymousMode,
-              onChanged: (val) => setState(() => _anonymousMode = val),
+            // Curvy Header
+            Container(
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                color: AppTheme.primaryColor,
+                borderRadius: BorderRadius.vertical(bottom: Radius.circular(40)),
+              ),
+              padding: const EdgeInsets.only(bottom: 32),
+              child: SafeArea(
+                bottom: false,
+                child: Column(
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(left: 24.0, top: 16.0),
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'My Profile',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 32),
+                    Container(
+                      height: 120,
+                      width: 120,
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.2),
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(
+                        Icons.person_outline,
+                        size: 60,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(height: 24),
+                    _isLoggedIn
+                        ? Column(
+                            children: [
+                              Text(
+                                _userName,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(height: 8),
+                              GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    _isLoggedIn = false;
+                                  });
+                                },
+                                child: Text(
+                                  'Tap to Logout (Testing)',
+                                  style: TextStyle(
+                                    color: Colors.white.withOpacity(0.8),
+                                    fontSize: 12,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                        : ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                _isLoggedIn = true;
+                              });
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              foregroundColor: AppTheme.primaryColor,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(30),
+                              ),
+                              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 14),
+                              elevation: 0,
+                            ),
+                            child: const Text(
+                              'Login / Sign Up',
+                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                  ],
+                ),
+              ),
             ),
-            const Divider(color: AppTheme.surfaceColor),
-            _buildToggleTile(
-              title: 'Voice masking',
-              subtitle: 'Disguise your voice during calls for added anonymity.',
-              value: _voiceMasking,
-              onChanged: (val) => setState(() => _voiceMasking = val),
-            ),
-            const Divider(color: AppTheme.surfaceColor),
-            _buildToggleTile(
-              title: 'Auto-delete chats',
-              subtitle: 'Automatically clear chat history after consultations are complete.',
-              value: _autoDeleteChats,
-              onChanged: (val) => setState(() => _autoDeleteChats = val),
-            ),
-            const Divider(color: AppTheme.surfaceColor),
-            _buildToggleTile(
-              title: 'Auto-delete reports',
-              subtitle: 'Remove consultation reports from your device after a set period.',
-              value: _autoDeleteReports,
-              onChanged: (val) => setState(() => _autoDeleteReports = val),
-            ),
-            const Divider(color: AppTheme.surfaceColor),
             
-            const SizedBox(height: 32),
-            _buildSectionHeader('User Preferences'),
-            _buildNavTile(title: 'Consultation type', trailingText: 'Chat'),
-            const Divider(color: AppTheme.surfaceColor),
-            _buildNavTile(title: 'Voice style', trailingText: 'Deep Tone'),
-            const Divider(color: AppTheme.surfaceColor),
-            _buildNavTile(title: 'Language', trailingText: 'English'),
-            const Divider(color: AppTheme.surfaceColor),
-            _buildNavTile(title: 'Font size', trailingText: 'Medium'),
-            const Divider(color: AppTheme.surfaceColor),
-            
-            const SizedBox(height: 32),
-            _buildSectionHeader('Support & Account'),
-            _buildNavTile(title: 'Report doctor'),
-            const Divider(color: AppTheme.surfaceColor),
-            _buildNavTile(title: 'Help & support'),
-            const Divider(color: AppTheme.surfaceColor),
-            _buildNavTile(title: 'Emergency contacts'),
-            const Divider(color: AppTheme.surfaceColor),
-            _buildNavTile(title: 'Logout'),
-            const Divider(color: AppTheme.surfaceColor),
-            _buildNavTile(title: 'Delete account permanently', isDestructive: true),
-            const Divider(color: AppTheme.surfaceColor),
-            const SizedBox(height: 32),
+            // Body Content
+            Padding(
+              padding: const EdgeInsets.all(24.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'GENERAL SETTINGS',
+                    style: TextStyle(
+                      color: AppTheme.textSecondary.withOpacity(0.6),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 13,
+                      letterSpacing: 1.2,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  _buildCardTile(
+                    icon: Icons.notifications_active_outlined,
+                    iconColor: Colors.blue,
+                    iconBgColor: Colors.blue.withOpacity(0.1),
+                    title: 'Notifications',
+                    subtitle: 'Toggle push alerts',
+                    trailing: Switch(
+                      value: _notifications,
+                      onChanged: (val) => setState(() => _notifications = val),
+                      activeColor: Colors.white,
+                      activeTrackColor: AppTheme.primaryColor.withOpacity(0.8),
+                      inactiveThumbColor: Colors.white,
+                      inactiveTrackColor: Colors.grey.withOpacity(0.3),
+                    ),
+                  ),
+                  _buildCardTile(
+                    icon: Icons.language,
+                    iconColor: Colors.teal,
+                    iconBgColor: Colors.teal.withOpacity(0.1),
+                    title: 'Language',
+                    subtitle: 'Current: English',
+                    trailing: Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey.shade400),
+                  ),
+                  _buildCardTile(
+                    icon: Icons.dark_mode_outlined,
+                    iconColor: Colors.deepPurpleAccent,
+                    iconBgColor: Colors.deepPurpleAccent.withOpacity(0.1),
+                    title: 'Appearance',
+                    subtitle: 'Current: Light Mode',
+                    trailing: Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey.shade400),
+                  ),
+                  
+                  const SizedBox(height: 32),
+                  Text(
+                    'SUPPORT & INFO',
+                    style: TextStyle(
+                      color: AppTheme.textSecondary.withOpacity(0.6),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 13,
+                      letterSpacing: 1.2,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  _buildCardTile(
+                    icon: Icons.help_outline,
+                    iconColor: Colors.grey.shade700,
+                    iconBgColor: Colors.grey.withOpacity(0.1),
+                    title: 'Help Center',
+                    subtitle: 'FAQ and support',
+                    trailing: Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey.shade400),
+                  ),
+                  const SizedBox(height: 40),
+                ],
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildSectionHeader(String title) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 16.0),
-      child: Text(
-        title,
-        style: const TextStyle(
-          color: AppTheme.textSecondary,
-          fontWeight: FontWeight.bold,
-          fontSize: 16,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildToggleTile({
+  Widget _buildCardTile({
+    required IconData icon,
+    required Color iconColor,
+    required Color iconBgColor,
     required String title,
     required String subtitle,
-    required bool value,
-    required ValueChanged<bool> onChanged,
+    Widget? trailing,
   }) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12.0),
+    return Container(
+      margin: const EdgeInsets.only(bottom: 16),
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.03),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: iconBgColor,
+              shape: BoxShape.circle,
+            ),
+            child: Icon(icon, color: iconColor, size: 24),
+          ),
+          const SizedBox(width: 16),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   title,
-                  style: TextStyle(
-                    color: AppTheme.textSecondary.withOpacity(0.8),
-                    fontSize: 14,
-                  ),
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   subtitle,
-                  style: TextStyle(
-                    color: AppTheme.textSecondary.withOpacity(0.4),
-                    fontSize: 12,
-                  ),
+                  style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.6), fontSize: 13),
                 ),
               ],
             ),
           ),
-          const SizedBox(width: 16),
-          Switch(
-            value: value,
-            onChanged: onChanged,
-            activeColor: AppTheme.primaryColor,
-            activeTrackColor: AppTheme.primaryColor.withOpacity(0.3),
-            inactiveThumbColor: Colors.white,
-            inactiveTrackColor: Colors.grey.withOpacity(0.3),
-          ),
+          if (trailing != null) trailing,
         ],
-      ),
-    );
-  }
-
-  Widget _buildNavTile({
-    required String title,
-    String? trailingText,
-    bool isDestructive = false,
-  }) {
-    return InkWell(
-      onTap: () {},
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              title,
-              style: TextStyle(
-                color: isDestructive ? AppTheme.primaryColor.withOpacity(0.8) : AppTheme.textSecondary.withOpacity(0.8),
-                fontSize: 14,
-              ),
-            ),
-            Row(
-              children: [
-                if (trailingText != null) ...[
-                  Text(
-                    trailingText,
-                    style: TextStyle(
-                      color: AppTheme.textSecondary.withOpacity(0.4),
-                      fontSize: 12,
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                ],
-                if (!isDestructive)
-                  Icon(
-                    Icons.arrow_forward_ios,
-                    color: AppTheme.textSecondary.withOpacity(0.4),
-                    size: 14,
-                  ),
-              ],
-            ),
-          ],
-        ),
       ),
     );
   }
