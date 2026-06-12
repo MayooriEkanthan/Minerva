@@ -123,8 +123,13 @@ class PatientHomeScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Your Health Data',
-                            style: Theme.of(context).textTheme.displayMedium?.copyWith(fontSize: 18, color: AppTheme.textSecondary),
+                            'YOUR HEALTH DATA',
+                            style: TextStyle(
+                              color: AppTheme.textSecondary.withOpacity(0.6),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 13,
+                              letterSpacing: 1.2,
+                            ),
                           ),
                           const SizedBox(height: 16),
                           GridView.count(
@@ -191,8 +196,13 @@ class PatientHomeScreen extends StatelessWidget {
                     
                     // Notifications Section
                     Text(
-                      'Notifications',
-                      style: Theme.of(context).textTheme.displayMedium?.copyWith(fontSize: 18, color: AppTheme.textSecondary),
+                      'NOTIFICATIONS',
+                      style: TextStyle(
+                        color: AppTheme.textSecondary.withOpacity(0.6),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 13,
+                        letterSpacing: 1.2,
+                      ),
                     ),
                     const SizedBox(height: 16),
                     CustomSegmentedControl(

@@ -25,27 +25,59 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.surfaceColor,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppTheme.primaryColor,
         elevation: 0,
         title: const Text(
           'Feedback',
-          style: TextStyle(color: AppTheme.textSecondary, fontWeight: FontWeight.bold, fontSize: 18),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 22),
         ),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 48.0),
-        child: Column(
+        child: Stack(
           children: [
-            const SizedBox(height: 64),
-            Text(
-              'How was your consultation?',
-              style: Theme.of(context).textTheme.displayMedium?.copyWith(
-                    fontSize: 20,
-                    color: AppTheme.textSecondary.withOpacity(0.8),
-                  ),
+            // Curvy pink background
+            Container(
+              height: 180,
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                color: AppTheme.primaryColor,
+                borderRadius: BorderRadius.vertical(
+                  bottom: Radius.circular(40),
+                ),
+              ),
             ),
+            Padding(
+              padding: const EdgeInsets.only(top: 24, left: 24, right: 24, bottom: 48),
+              child: Column(
+                children: [
+                  // White Card Container
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(24.0),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.03),
+                          blurRadius: 10,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        const SizedBox(height: 16),
+                        Text(
+                          'How was your consultation?',
+                          style: Theme.of(context).textTheme.displayMedium?.copyWith(
+                                fontSize: 18,
+                                color: AppTheme.textSecondary.withOpacity(0.8),
+                              ),
+                        ),
             const SizedBox(height: 24),
             
             // Star Rating
@@ -111,13 +143,19 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
               }).toList(),
             ),
             
-            const SizedBox(height: 64),
-            
-            PrimaryButton(
-              text: 'Submit Feedback',
-              onPressed: () {
-                // Submit logic
-              },
+                        const SizedBox(height: 48),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 40),
+                  PrimaryButton(
+                    text: 'Submit Feedback',
+                    onPressed: () {
+                      // Submit logic
+                    },
+                  ),
+                ],
+              ),
             ),
           ],
         ),

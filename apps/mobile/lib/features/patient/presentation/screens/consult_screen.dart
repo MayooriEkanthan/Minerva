@@ -17,12 +17,13 @@ class _ConsultScreenState extends State<ConsultScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.surfaceColor,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppTheme.primaryColor,
         elevation: 0,
         title: const Text(
           'Consultation',
-          style: TextStyle(color: AppTheme.textSecondary, fontWeight: FontWeight.bold, fontSize: 18),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
         ),
         centerTitle: true,
       ),
@@ -136,7 +137,6 @@ class _ConsultScreenState extends State<ConsultScreen> {
             ),
             
             const SizedBox(height: 48),
-            
             PrimaryButton(
               text: _isChatSelected ? 'Start Chat' : 'Start Call',
               onPressed: () {},

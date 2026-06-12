@@ -10,8 +10,9 @@ class DoctorsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppTheme.surfaceColor,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppTheme.primaryColor,
         elevation: 0,
         title: const Row(
           children: [
@@ -19,13 +20,30 @@ class DoctorsScreen extends StatelessWidget {
             SizedBox(width: 8),
             Text(
               'Doctors',
-              style: TextStyle(color: AppTheme.textSecondary, fontWeight: FontWeight.bold, fontSize: 18),
+              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 22),
             ),
           ],
         ),
       ),
-      body: Column(
-        children: [
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            // Curvy pink background
+            Container(
+              height: 180,
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                color: AppTheme.primaryColor,
+                borderRadius: BorderRadius.vertical(
+                  bottom: Radius.circular(40),
+                ),
+              ),
+            ),
+            // Content
+            Padding(
+              padding: const EdgeInsets.only(top: 16),
+              child: Column(
+                children: [
           // Search Bar
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),
@@ -63,66 +81,71 @@ class DoctorsScreen extends StatelessWidget {
           const SizedBox(height: 8),
           
           // Grid
-          Expanded(
-            child: GridView.count(
-              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),
-              crossAxisCount: 2,
-              childAspectRatio: 0.65,
-              crossAxisSpacing: 16,
-              mainAxisSpacing: 16,
-              children: [
-                DoctorCard(
-                  name: 'Dr. Anya',
-                  specialty: 'Gynecology',
-                  rating: 4.9,
-                  reviews: '1.2K',
-                  hourlyRate: '\$80/hr',
-                  onBook: () => context.push('/doctor-profile'),
-                ),
-                DoctorCard(
-                  name: 'Dr. Sarah',
-                  specialty: 'Pediatrics',
-                  rating: 4.7,
-                  reviews: '950',
-                  hourlyRate: '\$75/hr',
-                  onBook: () {},
-                ),
-                DoctorCard(
-                  name: 'Dr. Anna Chen',
-                  specialty: 'Endocrinology',
-                  rating: 4.8,
-                  reviews: '1.5K',
-                  hourlyRate: '\$90/hr',
-                  onBook: () {},
-                ),
-                DoctorCard(
-                  name: 'Dr. Lisa Brown',
-                  specialty: 'Dermatology',
-                  rating: 4.6,
-                  reviews: '800',
-                  hourlyRate: '\$85/hr',
-                  onBook: () {},
-                ),
-                DoctorCard(
-                  name: 'Dr. Sophia Lee',
-                  specialty: 'Nutrition',
-                  rating: 4.9,
-                  reviews: '1.1K',
-                  hourlyRate: '\$70/hr',
-                  onBook: () {},
-                ),
-                DoctorCard(
-                  name: 'Dr.', // From the image, name is cut off or just "Dr."
-                  specialty: 'Psychology',
-                  rating: 4.7,
-                  reviews: '1.3K',
-                  hourlyRate: '\$95/hr',
-                  onBook: () {},
-                ),
-              ],
-            ),
+          GridView.count(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),
+            crossAxisCount: 2,
+            childAspectRatio: 0.65,
+            crossAxisSpacing: 16,
+            mainAxisSpacing: 16,
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            children: [
+              DoctorCard(
+                name: 'Dr. Anya',
+                specialty: 'Gynecology',
+                rating: 4.9,
+                reviews: '1.2K',
+                hourlyRate: '\$80/hr',
+                onBook: () => context.push('/doctor-profile'),
+              ),
+              DoctorCard(
+                name: 'Dr. Sarah',
+                specialty: 'Pediatrics',
+                rating: 4.7,
+                reviews: '950',
+                hourlyRate: '\$75/hr',
+                onBook: () {},
+              ),
+              DoctorCard(
+                name: 'Dr. Anna Chen',
+                specialty: 'Endocrinology',
+                rating: 4.8,
+                reviews: '1.5K',
+                hourlyRate: '\$90/hr',
+                onBook: () {},
+              ),
+              DoctorCard(
+                name: 'Dr. Lisa Brown',
+                specialty: 'Dermatology',
+                rating: 4.6,
+                reviews: '800',
+                hourlyRate: '\$85/hr',
+                onBook: () {},
+              ),
+              DoctorCard(
+                name: 'Dr. Sophia Lee',
+                specialty: 'Nutrition',
+                rating: 4.9,
+                reviews: '1.1K',
+                hourlyRate: '\$70/hr',
+                onBook: () {},
+              ),
+              DoctorCard(
+                name: 'Dr. John Doe',
+                specialty: 'Psychology',
+                rating: 4.7,
+                reviews: '1.3K',
+                hourlyRate: '\$95/hr',
+                onBook: () {},
+              ),
+            ],
           ),
+          const SizedBox(height: 32),
         ],
+      ),
+    ),
+          ],
+        ),
       ),
     );
   }
