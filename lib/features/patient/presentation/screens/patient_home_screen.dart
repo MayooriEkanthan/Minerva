@@ -122,18 +122,21 @@ class PatientHomeScreen extends StatelessWidget {
                   icon: Icons.water_drop_outlined,
                   color: Colors.greenAccent,
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: AppTheme.primaryColor,
-                    borderRadius: BorderRadius.circular(50),
-                  ),
-                  alignment: Alignment.center,
-                  child: const Text(
-                    'See Analytics',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
+                GestureDetector(
+                  onTap: () => context.push('/analytics'),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: AppTheme.primaryColor,
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    alignment: Alignment.center,
+                    child: const Text(
+                      'See Analytics',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ),
