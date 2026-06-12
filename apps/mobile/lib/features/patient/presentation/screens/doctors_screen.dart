@@ -24,22 +24,22 @@ class DoctorsScreen extends StatefulWidget {
 
 class _DoctorsScreenState extends State<DoctorsScreen> {
   final List<_Doctor> _allDoctors = [
-    _Doctor('Dr. Anya', 'Gynecology', 4.9, '1.2K', 80, 10),
-    _Doctor('Dr. Sarah', 'Pediatrics', 4.7, '950', 75, 5),
-    _Doctor('Dr. Anna Chen', 'Endocrinology', 4.8, '1.5K', 90, 15),
-    _Doctor('Dr. Lisa Brown', 'Dermatology', 4.6, '800', 85, 3),
-    _Doctor('Dr. Sophia Lee', 'Nutrition', 4.9, '1.1K', 70, 8),
-    _Doctor('Dr. John Doe', 'Psychology', 4.7, '1.3K', 95, 12),
+    _Doctor('Dr. Anya', 'Gynecology', 4.9, '1.2K', 1200, 10),
+    _Doctor('Dr. Sarah', 'Pediatrics', 4.7, '950', 1400, 5),
+    _Doctor('Dr. Anna Chen', 'Endocrinology', 4.8, '1.5K', 1250, 15),
+    _Doctor('Dr. Lisa Brown', 'Dermatology', 4.6, '800', 1000, 3),
+    _Doctor('Dr. Sophia Lee', 'Nutrition', 4.9, '1.1K', 1100, 8),
+    _Doctor('Dr. John Doe', 'Psychology', 4.7, '1.3K', 1500, 12),
   ];
 
-  String _selectedCategory = 'Category';
-  String _selectedExperience = 'Experience';
-  String _selectedRate = 'Rate';
+  String _selectedCategory = 'Any';
+  String _selectedExperience = 'Any';
+  String _selectedRate = 'Any';
   String _searchQuery = '';
 
-  List<String> get _categories => ['Category', 'Gynecology', 'Pediatrics', 'Endocrinology', 'Dermatology', 'Nutrition', 'Psychology'];
-  List<String> get _experienceSorts => ['Experience', 'High to Low', 'Low to High'];
-  List<String> get _rateSorts => ['Rate', 'High to Low', 'Low to High'];
+  List<String> get _categories => ['Any', 'Gynecology', 'Pediatrics', 'Endocrinology', 'Dermatology', 'Nutrition', 'Psychology'];
+  List<String> get _experienceSorts => ['Any', 'High to Low', 'Low to High'];
+  List<String> get _rateSorts => ['Any', 'High to Low', 'Low to High'];
 
   List<_Doctor> get _filteredDoctors {
     List<_Doctor> docs = List.from(_allDoctors);
@@ -51,11 +51,11 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
       ).toList();
     }
 
-    if (_selectedCategory != 'Category') {
+    if (_selectedCategory != 'Any') {
       docs = docs.where((d) => d.specialty == _selectedCategory).toList();
     }
 
-    if (_selectedExperience != 'Experience') {
+    if (_selectedExperience != 'Any') {
       if (_selectedExperience == 'High to Low') {
         docs.sort((a, b) => b.experienceYears.compareTo(a.experienceYears));
       } else {
@@ -63,7 +63,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
       }
     }
 
-    if (_selectedRate != 'Rate') {
+    if (_selectedRate != 'Any') {
       if (_selectedRate == 'High to Low') {
         docs.sort((a, b) => b.hourlyRate.compareTo(a.hourlyRate));
       } else {
@@ -141,11 +141,11 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),
                     child: Row(
                       children: [
-                        Expanded(child: _buildFilterDropdown(_selectedCategory, _categories, (val) => setState(() => _selectedCategory = val))),
+                        Expanded(child: _buildFilterDropdown('Category', _selectedCategory, _categories, (val) => setState(() => _selectedCategory = val))),
                         const SizedBox(width: 8),
-                        Expanded(child: _buildFilterDropdown(_selectedExperience, _experienceSorts, (val) => setState(() => _selectedExperience = val))),
+                        Expanded(child: _buildFilterDropdown('Experience', _selectedExperience, _experienceSorts, (val) => setState(() => _selectedExperience = val))),
                         const SizedBox(width: 8),
-                        Expanded(child: _buildFilterDropdown(_selectedRate, _rateSorts, (val) => setState(() => _selectedRate = val))),
+                        Expanded(child: _buildFilterDropdown('Rate', _selectedRate, _rateSorts, (val) => setState(() => _selectedRate = val))),
                       ],
                     ),
                   ),
@@ -183,7 +183,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                           specialty: doctor.specialty,
                           rating: doctor.rating,
                           reviews: doctor.reviews,
-                          hourlyRate: '\$${doctor.hourlyRate}/hr',
+                          hourlyRate: '${doctor.hourlyRate}/- per hr',
                           onBook: () => context.push('/doctor-profile'),
                         );
                       },
@@ -198,7 +198,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
     );
   }
 
-  Widget _buildFilterDropdown(String currentValue, List<String> options, ValueChanged<String> onChanged) {
+  Widget _buildFilterDropdown(String title, String currentValue, List<String> options, ValueChanged<String> onChanged) {
     return PopupMenuButton<String>(
       onSelected: onChanged,
       itemBuilder: (BuildContext context) {
@@ -216,7 +216,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
         }).toList();
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(16),
@@ -225,14 +225,28 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Expanded(
-              child: Text(
-                currentValue,
-                style: TextStyle(
-                  color: currentValue == options.first ? AppTheme.textSecondary.withOpacity(0.8) : AppTheme.primaryColor,
-                  fontWeight: currentValue == options.first ? FontWeight.normal : FontWeight.bold,
-                  fontSize: 12,
-                ),
-                overflow: TextOverflow.ellipsis,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(
+                      color: AppTheme.textSecondary.withOpacity(0.6),
+                      fontSize: 10,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    currentValue,
+                    style: TextStyle(
+                      color: currentValue == 'Any' ? AppTheme.textSecondary.withOpacity(0.8) : AppTheme.primaryColor,
+                      fontWeight: currentValue == 'Any' ? FontWeight.normal : FontWeight.bold,
+                      fontSize: 12,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
               ),
             ),
             Icon(Icons.keyboard_arrow_down, color: AppTheme.textSecondary.withOpacity(0.6), size: 16),
