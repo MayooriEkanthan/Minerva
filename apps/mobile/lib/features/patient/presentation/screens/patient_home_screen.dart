@@ -12,7 +12,7 @@ class PatientHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.background,
+      backgroundColor: AppTheme.surfaceColor,
       body: SingleChildScrollView(
         child: Stack(
           children: [
@@ -154,6 +154,18 @@ class PatientHomeScreen extends StatelessWidget {
                                 value: '7.5 hrs',
                                 icon: Icons.nightlight_round,
                                 color: Colors.orangeAccent,
+                              ),
+                              const HealthDataCard(
+                                title: 'Activity',
+                                value: 'Active',
+                                icon: Icons.sentiment_neutral,
+                                color: Colors.deepPurpleAccent,
+                              ),
+                              const HealthDataCard(
+                                title: 'Blood Pressure',
+                                value: '120/80',
+                                icon: Icons.water_drop_outlined,
+                                color: Colors.greenAccent,
                               ),
                               GestureDetector(
                                 onTap: () => context.push('/analytics'),

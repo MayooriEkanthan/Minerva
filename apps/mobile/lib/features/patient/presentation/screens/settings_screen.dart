@@ -9,14 +9,17 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  bool _notifications = true;
+  bool _anonymousMode = true;
+  bool _voiceMasking = true;
+  bool _autoDeleteChats = false;
+  bool _autoDeleteReports = false;
   bool _isLoggedIn = false; // Toggle this to test guest vs logged-in state
   final String _userName = 'Mayoori';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.background,
+      backgroundColor: AppTheme.surfaceColor,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -122,7 +125,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'GENERAL SETTINGS',
+                    'PRIVACY CONTROLS',
                     style: TextStyle(
                       color: AppTheme.textSecondary.withOpacity(0.6),
                       fontWeight: FontWeight.bold,
@@ -132,14 +135,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   const SizedBox(height: 16),
                   _buildCardTile(
-                    icon: Icons.notifications_active_outlined,
-                    iconColor: Colors.blue,
-                    iconBgColor: Colors.blue.withOpacity(0.1),
-                    title: 'Notifications',
-                    subtitle: 'Toggle push alerts',
+                    icon: Icons.visibility_off,
+                    iconColor: Colors.deepPurple,
+                    iconBgColor: Colors.deepPurple.withOpacity(0.1),
+                    title: 'Anonymous mode',
+                    subtitle: 'Hide your identity completely',
                     trailing: Switch(
-                      value: _notifications,
-                      onChanged: (val) => setState(() => _notifications = val),
+                      value: _anonymousMode,
+                      onChanged: (val) => setState(() => _anonymousMode = val),
                       activeColor: Colors.white,
                       activeTrackColor: AppTheme.primaryColor.withOpacity(0.8),
                       inactiveThumbColor: Colors.white,
@@ -147,25 +150,39 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                   ),
                   _buildCardTile(
-                    icon: Icons.language,
-                    iconColor: Colors.teal,
-                    iconBgColor: Colors.teal.withOpacity(0.1),
-                    title: 'Language',
-                    subtitle: 'Current: English',
-                    trailing: Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey.shade400),
+                    icon: Icons.record_voice_over,
+                    iconColor: Colors.blue,
+                    iconBgColor: Colors.blue.withOpacity(0.1),
+                    title: 'Voice masking',
+                    subtitle: 'Disguise voice during calls',
+                    trailing: Switch(
+                      value: _voiceMasking,
+                      onChanged: (val) => setState(() => _voiceMasking = val),
+                      activeColor: Colors.white,
+                      activeTrackColor: AppTheme.primaryColor.withOpacity(0.8),
+                      inactiveThumbColor: Colors.white,
+                      inactiveTrackColor: Colors.grey.withOpacity(0.3),
+                    ),
                   ),
                   _buildCardTile(
-                    icon: Icons.dark_mode_outlined,
-                    iconColor: Colors.deepPurpleAccent,
-                    iconBgColor: Colors.deepPurpleAccent.withOpacity(0.1),
-                    title: 'Appearance',
-                    subtitle: 'Current: Light Mode',
-                    trailing: Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey.shade400),
+                    icon: Icons.auto_delete,
+                    iconColor: Colors.redAccent,
+                    iconBgColor: Colors.redAccent.withOpacity(0.1),
+                    title: 'Auto-delete chats',
+                    subtitle: 'Clear history after consult',
+                    trailing: Switch(
+                      value: _autoDeleteChats,
+                      onChanged: (val) => setState(() => _autoDeleteChats = val),
+                      activeColor: Colors.white,
+                      activeTrackColor: AppTheme.primaryColor.withOpacity(0.8),
+                      inactiveThumbColor: Colors.white,
+                      inactiveTrackColor: Colors.grey.withOpacity(0.3),
+                    ),
                   ),
                   
                   const SizedBox(height: 32),
                   Text(
-                    'SUPPORT & INFO',
+                    'USER PREFERENCES',
                     style: TextStyle(
                       color: AppTheme.textSecondary.withOpacity(0.6),
                       fontWeight: FontWeight.bold,
@@ -175,12 +192,64 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   const SizedBox(height: 16),
                   _buildCardTile(
+                    icon: Icons.chat_bubble_outline,
+                    iconColor: Colors.teal,
+                    iconBgColor: Colors.teal.withOpacity(0.1),
+                    title: 'Consultation type',
+                    subtitle: 'Current: Chat',
+                    trailing: Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey.shade400),
+                  ),
+                  _buildCardTile(
+                    icon: Icons.spatial_audio_off,
+                    iconColor: Colors.indigo,
+                    iconBgColor: Colors.indigo.withOpacity(0.1),
+                    title: 'Voice style',
+                    subtitle: 'Current: Deep Tone',
+                    trailing: Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey.shade400),
+                  ),
+                  _buildCardTile(
+                    icon: Icons.language,
+                    iconColor: Colors.green,
+                    iconBgColor: Colors.green.withOpacity(0.1),
+                    title: 'Language',
+                    subtitle: 'Current: English',
+                    trailing: Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey.shade400),
+                  ),
+                  
+                  const SizedBox(height: 32),
+                  Text(
+                    'SUPPORT & ACCOUNT',
+                    style: TextStyle(
+                      color: AppTheme.textSecondary.withOpacity(0.6),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 13,
+                      letterSpacing: 1.2,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  _buildCardTile(
+                    icon: Icons.report_problem_outlined,
+                    iconColor: Colors.orange,
+                    iconBgColor: Colors.orange.withOpacity(0.1),
+                    title: 'Report doctor',
+                    subtitle: 'File a confidential report',
+                    trailing: Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey.shade400),
+                  ),
+                  _buildCardTile(
                     icon: Icons.help_outline,
                     iconColor: Colors.grey.shade700,
                     iconBgColor: Colors.grey.withOpacity(0.1),
-                    title: 'Help Center',
-                    subtitle: 'FAQ and support',
+                    title: 'Help & support',
+                    subtitle: 'FAQ and support center',
                     trailing: Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey.shade400),
+                  ),
+                  _buildCardTile(
+                    icon: Icons.delete_forever,
+                    iconColor: Colors.red,
+                    iconBgColor: Colors.red.withOpacity(0.1),
+                    title: 'Delete account permanently',
+                    subtitle: 'This action cannot be undone',
+                    trailing: Icon(Icons.arrow_forward_ios, size: 16, color: Colors.red.withOpacity(0.5)),
                   ),
                   const SizedBox(height: 40),
                 ],
