@@ -127,9 +127,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   Text(
                     'PRIVACY CONTROLS',
                     style: TextStyle(
-                      color: AppTheme.textSecondary.withOpacity(0.6),
+                      color: AppTheme.textSecondary.withOpacity(0.8),
                       fontWeight: FontWeight.bold,
-                      fontSize: 13,
+                      fontSize: 14,
                       letterSpacing: 1.2,
                     ),
                   ),
@@ -184,9 +184,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   Text(
                     'USER PREFERENCES',
                     style: TextStyle(
-                      color: AppTheme.textSecondary.withOpacity(0.6),
+                      color: AppTheme.textSecondary.withOpacity(0.8),
                       fontWeight: FontWeight.bold,
-                      fontSize: 13,
+                      fontSize: 14,
                       letterSpacing: 1.2,
                     ),
                   ),
@@ -220,9 +220,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   Text(
                     'SUPPORT & ACCOUNT',
                     style: TextStyle(
-                      color: AppTheme.textSecondary.withOpacity(0.6),
+                      color: AppTheme.textSecondary.withOpacity(0.8),
                       fontWeight: FontWeight.bold,
-                      fontSize: 13,
+                      fontSize: 14,
                       letterSpacing: 1.2,
                     ),
                   ),
@@ -305,7 +305,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 const SizedBox(height: 4),
                 Text(
                   subtitle,
-                  style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.6), fontSize: 13),
+                  style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14),
                 ),
               ],
             ),

@@ -125,9 +125,9 @@ class PatientHomeScreen extends StatelessWidget {
                           Text(
                             'YOUR HEALTH DATA',
                             style: TextStyle(
-                              color: AppTheme.textSecondary.withOpacity(0.6),
+                              color: AppTheme.textSecondary.withOpacity(0.8),
                               fontWeight: FontWeight.bold,
-                              fontSize: 13,
+                              fontSize: 14,
                               letterSpacing: 1.2,
                             ),
                           ),
@@ -198,9 +198,9 @@ class PatientHomeScreen extends StatelessWidget {
                     Text(
                       'NOTIFICATIONS',
                       style: TextStyle(
-                        color: AppTheme.textSecondary.withOpacity(0.6),
+                        color: AppTheme.textSecondary.withOpacity(0.8),
                         fontWeight: FontWeight.bold,
-                        fontSize: 13,
+                        fontSize: 14,
                         letterSpacing: 1.2,
                       ),
                     ),

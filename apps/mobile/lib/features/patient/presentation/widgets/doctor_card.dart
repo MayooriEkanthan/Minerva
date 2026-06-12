@@ -68,7 +68,7 @@ class DoctorCard extends StatelessWidget {
               specialty,
               style: const TextStyle(
                 color: AppTheme.primaryColor,
-                fontSize: 10,
+                fontSize: 12,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -85,8 +85,8 @@ class DoctorCard extends StatelessWidget {
                 child: Text(
                   '$rating ($reviews Reviews)',
                   style: TextStyle(
-                    color: AppTheme.textSecondary.withOpacity(0.6),
-                    fontSize: 10,
+                    color: AppTheme.textSecondary.withOpacity(0.8),
+                    fontSize: 12,
                   ),
                   maxLines: 2,
                   textAlign: TextAlign.center,
@@ -126,7 +126,7 @@ class DoctorCard extends StatelessWidget {
                 'Book Appointment',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 11,
+                  fontSize: 13,
                   fontWeight: FontWeight.bold,
                 ),
               ),

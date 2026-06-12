@@ -192,8 +192,8 @@ class _ConsultScreenState extends State<ConsultScreen> {
               description,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 10,
-                color: AppTheme.textSecondary.withOpacity(0.5),
+                fontSize: 12,
+                color: AppTheme.textSecondary.withOpacity(0.7),
                 height: 1.4,
               ),
             ),

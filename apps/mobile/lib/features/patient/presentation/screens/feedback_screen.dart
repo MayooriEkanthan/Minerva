@@ -12,6 +12,13 @@ class FeedbackScreen extends StatefulWidget {
 class _FeedbackScreenState extends State<FeedbackScreen> {
   int _rating = 0;
   final Set<String> _selectedChips = {};
+  final TextEditingController _feedbackController = TextEditingController();
+
+  @override
+  void dispose() {
+    _feedbackController.dispose();
+    super.dispose();
+  }
 
   final List<String> _feedbackOptions = [
     'Helpful',
@@ -133,8 +140,8 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                       option,
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: isSelected ? AppTheme.primaryColor : AppTheme.textSecondary.withOpacity(0.4),
-                        fontSize: 12,
+                        color: isSelected ? AppTheme.primaryColor : AppTheme.textSecondary.withOpacity(0.6),
+                        fontSize: 14,
                         fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
                       ),
                     ),
@@ -142,8 +149,23 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                 );
               }).toList(),
             ),
-            
-                        const SizedBox(height: 48),
+            const SizedBox(height: 32),
+            TextField(
+              controller: _feedbackController,
+              maxLines: 4,
+              decoration: InputDecoration(
+                hintText: 'Tell us more about your experience...',
+                hintStyle: TextStyle(color: AppTheme.textSecondary.withOpacity(0.6), fontSize: 14),
+                filled: true,
+                fillColor: AppTheme.surfaceColor.withOpacity(0.5),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: BorderSide.none,
+                ),
+                contentPadding: const EdgeInsets.all(16),
+              ),
+            ),
+            const SizedBox(height: 24),
                       ],
                     ),
                   ),
