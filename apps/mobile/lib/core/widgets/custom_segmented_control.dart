@@ -4,11 +4,13 @@ import '../theme/app_theme.dart';
 class CustomSegmentedControl extends StatefulWidget {
   final List<String> options;
   final ValueChanged<int> onChanged;
+  final Color? activeColor;
 
   const CustomSegmentedControl({
     super.key,
     required this.options,
     required this.onChanged,
+    this.activeColor,
   });
 
   @override
@@ -39,7 +41,7 @@ class _CustomSegmentedControlState extends State<CustomSegmentedControl> {
               },
               child: Container(
                 decoration: BoxDecoration(
-                  color: isSelected ? AppTheme.primaryColor : Colors.transparent,
+                  color: isSelected ? (widget.activeColor ?? AppTheme.primaryColor) : Colors.transparent,
                   borderRadius: BorderRadius.circular(28),
                 ),
                 alignment: Alignment.center,

@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 class AppTheme {
   // Primary soft wellness pink
   static const Color primaryColor = Color(0xFFE98DA4);
+  static const Color primaryColorLight = Color(0xFFFDE8ED);
   static const Color backgroundColor = Color(0xFFFFFFFF);
   static const Color surfaceColor = Color(0xFFF8F9FA); // Crisp light canvas
   static const Color textPrimary = Color(0xFF2D3142);
@@ -28,7 +29,7 @@ class AppTheme {
         bodyLarge: GoogleFonts.inter(color: textPrimary),
         bodyMedium: GoogleFonts.inter(color: textSecondary),
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: surfaceColor,
         elevation: 0,
         shape: RoundedRectangleBorder(

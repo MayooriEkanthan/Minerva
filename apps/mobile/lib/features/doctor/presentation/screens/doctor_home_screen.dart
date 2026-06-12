@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/widgets/minerva_logo.dart';
-import '../../patient/presentation/widgets/health_data_card.dart';
+import '../../../patient/presentation/widgets/health_data_card.dart';
 import '../widgets/doctor_profile_header.dart';
 
 class DoctorHomeScreen extends StatelessWidget {

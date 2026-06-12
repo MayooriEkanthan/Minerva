@@ -1,0 +1,29 @@
+# Node.js
+node_modules/
+.env
+.env.local
+.env.*.local
+npm-debug.log
+yarn-error.log
+
+# Flutter/Dart
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Firebase
+.firebase/
+firebase-export-*/
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
