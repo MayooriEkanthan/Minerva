@@ -43,7 +43,8 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                 _buildCategoryTab(0, 'Heart Rate', Icons.favorite_border, const Color(0xFF6B7BFF)),
                 _buildCategoryTab(1, 'Mood', Icons.sentiment_satisfied_alt, AppTheme.primaryColor),
                 _buildCategoryTab(2, 'Sleep', Icons.nightlight_round, Colors.orangeAccent),
-                _buildCategoryTab(3, 'Activity', Icons.sentiment_neutral, Colors.deepOrangeAccent),
+                _buildCategoryTab(3, 'Activity', Icons.directions_run, Colors.deepOrangeAccent),
+                _buildCategoryTab(4, 'Blood Pressure', Icons.bloodtype, Colors.redAccent),
               ],
             ),
           ),
@@ -102,6 +103,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
       case 1: return _buildMoodContent();
       case 2: return _buildSleepContent();
       case 3: return _buildActivityContent();
+      case 4: return _buildBloodPressureContent();
       default: return const SizedBox();
     }
   }
@@ -167,7 +169,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
               description: 'Ensure 7-9 hours of quality sleep per night. Good sleep is crucial for cardiovascular recovery and overall health.',
             ),
           ],
-          summaryValue: '120/80 mmHg', // Note: User's blood pressure image had this, heart rate didn't show a specific button, but I'll add one.
+          summaryValue: '72 BPM',
           color: const Color(0xFF6B7BFF),
         ),
       ],
@@ -246,7 +248,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
         const SizedBox(height: 32),
         const MockChart(
           normalizedData: [0.6, 0.65, 0.55, 0.7, 0.7, 0.75, 0.7], // Mock bar data
-          color: Color(0xFF8A56E0), // Purple bars shown in the sleep image
+          color: Colors.orangeAccent,
           isBarChart: true,
         ),
         const SizedBox(height: 32),
@@ -258,7 +260,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
             InsightTip(icon: Icons.check_circle_outline, description: 'Avoid caffeine and heavy meals before bed.'),
           ],
           summaryValue: '7.8 hrs',
-          color: const Color(0xFF8A56E0),
+          color: Colors.orangeAccent,
         ),
       ],
     );
@@ -304,6 +306,69 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
           ],
           summaryValue: 'Active',
           color: Colors.deepOrangeAccent,
+        ),
+      ],
+    );
+  }
+
+  Widget _buildBloodPressureContent() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Blood Pressure', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                Text('Trend', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+              ],
+            ),
+            const SizedBox(width: 16),
+            Expanded(
+              child: CustomSegmentedControl(
+                options: const ['Day', 'Week', 'Month'],
+                onChanged: (i) {},
+                activeColor: Colors.redAccent,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 32),
+        const MockChart(
+          normalizedData: [0.4, 0.42, 0.38, 0.41, 0.45, 0.40, 0.42], // Mock trend
+          color: Colors.redAccent,
+          isBarChart: false,
+        ),
+        const SizedBox(height: 16),
+        Center(
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(width: 8, height: 8, decoration: const BoxDecoration(color: Colors.redAccent, shape: BoxShape.circle)),
+              const SizedBox(width: 8),
+              Text('Blood Pressure (mmHg)', style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.5), fontSize: 12)),
+            ],
+          ),
+        ),
+        const SizedBox(height: 32),
+        MetricInsightSection(
+          insightText: 'Your blood pressure is within the healthy range. Keep up the good work!',
+          tips: [
+            InsightTip(
+              icon: Icons.local_drink,
+              title: 'Stay Hydrated',
+              description: 'Drinking enough water helps maintain healthy blood pressure levels.',
+            ),
+            InsightTip(
+              icon: Icons.restaurant_menu,
+              title: 'Balanced Diet',
+              description: 'Continue eating a diet low in sodium and rich in potassium.',
+            ),
+          ],
+          summaryValue: '118/78 mmHg',
+          color: Colors.redAccent,
         ),
       ],
     );
