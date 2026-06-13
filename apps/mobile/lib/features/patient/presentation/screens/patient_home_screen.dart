@@ -285,8 +285,8 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                     if (_selectedNotificationTab == 0 || _selectedNotificationTab == 1)
                       NotificationCard(
                         title: 'Appointment Confirmed',
-                        description: 'Your appointment with Dr. Anya has been confirmed for 2024-07-18.',
-                        timestamp: '7/18/2024, 2:00:00 PM',
+                        description: 'Your appointment with Dr. Anya has been confirmed for 2026-06-15.',
+                        timestamp: '6/15/2026, 2:00:00 PM',
                         icon: Icons.calendar_today_outlined,
                         onMarkAsRead: () {},
                         onViewDetails: () {},
@@ -297,7 +297,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                       NotificationCard(
                         title: 'Consultation Scheduled',
                         description: 'Your voice consultation is scheduled for tomorrow at 10 AM.',
-                        timestamp: '7/19/2024, 10:00:00 AM',
+                        timestamp: '6/16/2026, 10:00:00 AM',
                         icon: Icons.chat_bubble_outline,
                         onMarkAsRead: () {},
                         onViewDetails: () {},
@@ -308,7 +308,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                       NotificationCard(
                         title: 'Platform Update',
                         description: 'Exciting new features have been added to Minerva! Check them out.',
-                        timestamp: '7/20/2024, 11:45:00 AM',
+                        timestamp: '6/17/2026, 11:45:00 AM',
                         icon: Icons.campaign_outlined,
                         onMarkAsRead: () {},
                         onViewDetails: () {},

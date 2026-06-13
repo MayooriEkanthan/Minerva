@@ -148,32 +148,32 @@ class DoctorFeedbackScreen extends StatelessWidget {
             // List of Reviews
             const PatientReviewCard(
               name: 'Patient Alpha_7',
-              date: '2024-07-28',
+              date: '2026-06-13',
               rating: 5.0,
               reviewText: 'Dr. Evelyn was incredibly attentive and thorough. Felt very comfortable discussing my concerns. Highly recommended!',
             ),
             const PatientReviewCard(
               name: 'Patient Beta_2',
-              date: '2024-07-25',
+              date: '2026-06-11',
               rating: 4.0,
               reviewText: 'Good consultation, clear explanations. Just a small delay in starting, but overall a positive experience.',
               initialReply: 'Thank you for your feedback! We are working to minimize any wait times and appreciate your understanding.',
             ),
             const PatientReviewCard(
               name: 'Patient Gamma_9',
-              date: '2024-07-20',
+              date: '2026-06-08',
               rating: 5.0,
               reviewText: 'Excellent listener and provided clear, actionable advice. Very professional and empathetic.',
             ),
             const PatientReviewCard(
               name: 'Patient Delta_1',
-              date: '2024-07-18',
+              date: '2026-06-05',
               rating: 3.0,
               reviewText: 'The consultation was okay, but I felt a bit rushed. The advice was generally helpful.',
             ),
             const PatientReviewCard(
               name: 'Patient Epsilon_5',
-              date: '2024-07-10',
+              date: '2026-06-01',
               rating: 5.0,
               reviewText: 'Outstanding support and a very pleasant experience. Dr. Evelyn truly cares.',
             ),
