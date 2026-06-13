@@ -120,10 +120,13 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                 Text('Trend', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
               ],
             ),
-            CustomSegmentedControl(
-              options: const ['Day', 'Week', 'Month'],
-              onChanged: (i) {},
-              activeColor: const Color(0xFF6B7BFF),
+            const SizedBox(width: 16),
+            Expanded(
+              child: CustomSegmentedControl(
+                options: const ['Day', 'Week', 'Month'],
+                onChanged: (i) {},
+                activeColor: const Color(0xFF6B7BFF),
+              ),
             ),
           ],
         ),
@@ -185,10 +188,13 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                 Text('Mood', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
               ],
             ),
-            CustomSegmentedControl(
-              options: const ['Day', 'Week', 'Month'],
-              onChanged: (i) {},
-              activeColor: AppTheme.primaryColor,
+            const SizedBox(width: 16),
+            Expanded(
+              child: CustomSegmentedControl(
+                options: const ['Day', 'Week', 'Month'],
+                onChanged: (i) {},
+                activeColor: AppTheme.primaryColor,
+              ),
             ),
           ],
         ),
@@ -227,10 +233,13 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                 Text('Sleep', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
               ],
             ),
-            CustomSegmentedControl(
-              options: const ['Day', 'Week', 'Month'],
-              onChanged: (i) {},
-              activeColor: Colors.orangeAccent,
+            const SizedBox(width: 16),
+            Expanded(
+              child: CustomSegmentedControl(
+                options: const ['Day', 'Week', 'Month'],
+                onChanged: (i) {},
+                activeColor: Colors.orangeAccent,
+              ),
             ),
           ],
         ),
@@ -269,10 +278,13 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
                 Text('Activity', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
               ],
             ),
-            CustomSegmentedControl(
-              options: const ['Day', 'Week', 'Month'],
-              onChanged: (i) {},
-              activeColor: Colors.deepOrangeAccent,
+            const SizedBox(width: 16),
+            Expanded(
+              child: CustomSegmentedControl(
+                options: const ['Day', 'Week', 'Month'],
+                onChanged: (i) {},
+                activeColor: Colors.deepOrangeAccent,
+              ),
             ),
           ],
         ),

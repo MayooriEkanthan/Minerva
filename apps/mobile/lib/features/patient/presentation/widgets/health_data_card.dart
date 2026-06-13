@@ -23,7 +23,7 @@ class HealthDataCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppTheme.primaryColorLight,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
