@@ -25,7 +25,7 @@ class ApplePayPaymentScreen extends StatelessWidget {
             const Text(
               'Your appointment has been booked via Apple Pay.',
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.grey),
+              style: TextStyle(color: Colors.grey[800]),
             ),
             const SizedBox(height: 24),
             PrimaryButton(

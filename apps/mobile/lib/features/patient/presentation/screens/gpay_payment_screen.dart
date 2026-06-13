@@ -25,7 +25,7 @@ class GPayPaymentScreen extends StatelessWidget {
             const Text(
               'Your appointment has been booked via Google Pay.',
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.grey),
+              style: TextStyle(color: Colors.grey[800]),
             ),
             const SizedBox(height: 24),
             PrimaryButton(
@@ -64,14 +64,14 @@ class GPayPaymentScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(Icons.g_mobiledata, size: 64, color: Colors.blue[600]),
-                  const Text('Pay', style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.grey)),
+                  const Text('Pay', style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.grey[800])),
                 ],
               ),
               const SizedBox(height: 48),
               Container(
                 padding: const EdgeInsets.all(24),
                 decoration: BoxDecoration(
-                  color: Colors.grey[100],
+                  color: Colors.grey[800],
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: const Column(
@@ -88,11 +88,11 @@ class GPayPaymentScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.credit_card, color: Colors.grey[700]),
+                  Icon(Icons.credit_card, color: Colors.grey[800]),
                   const SizedBox(width: 12),
                   const Text('Visa •••• 1234', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
                   const SizedBox(width: 12),
-                  Icon(Icons.arrow_drop_down, color: Colors.grey[700]),
+                  Icon(Icons.arrow_drop_down, color: Colors.grey[800]),
                 ],
               ),
               const SizedBox(height: 48),

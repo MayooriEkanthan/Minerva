@@ -68,7 +68,7 @@ class _DoctorMainLayoutScreenState extends State<DoctorMainLayoutScreen> {
 
   Widget _buildNavItem(int index, IconData icon, String label) {
     final isSelected = _currentIndex == index;
-    final color = isSelected ? AppTheme.primaryColor : AppTheme.textSecondary.withOpacity(0.4);
+    final color = isSelected ? AppTheme.primaryColor : AppTheme.textSecondary.withOpacity(0.8);
     
     return GestureDetector(
       onTap: () {

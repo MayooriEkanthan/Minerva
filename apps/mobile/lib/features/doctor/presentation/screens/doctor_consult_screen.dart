@@ -26,7 +26,7 @@ class DoctorConsultScreen extends StatelessWidget {
             Text(
               'Luna_4829',
               style: TextStyle(
-                color: AppTheme.textSecondary.withOpacity(0.6),
+                color: AppTheme.textSecondary.withOpacity(0.8),
                 fontSize: 14,
               ),
             ),
@@ -133,7 +133,7 @@ class DoctorConsultScreen extends StatelessWidget {
                         'Waiting',
                         style: TextStyle(
                           fontSize: 12,
-                          color: AppTheme.textSecondary.withOpacity(0.5),
+                          color: AppTheme.textSecondary.withOpacity(0.8),
                         ),
                       ),
                       const SizedBox(width: 16),
@@ -142,7 +142,7 @@ class DoctorConsultScreen extends StatelessWidget {
                           'Awaiting patient to join\nthe consultation.',
                           style: TextStyle(
                             fontSize: 12,
-                            color: AppTheme.textSecondary.withOpacity(0.5),
+                            color: AppTheme.textSecondary.withOpacity(0.8),
                           ),
                         ),
                       ),
@@ -161,7 +161,7 @@ class DoctorConsultScreen extends StatelessWidget {
               'Patient identity is anonymized for your privacy.',
               style: TextStyle(
                 fontSize: 12,
-                color: AppTheme.textSecondary.withOpacity(0.4),
+                color: AppTheme.textSecondary.withOpacity(0.8),
               ),
             ),
             const SizedBox(height: 48), // Padding above bottom nav bar

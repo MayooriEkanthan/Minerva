@@ -37,7 +37,7 @@ class _CardPaymentScreenState extends State<CardPaymentScreen> {
             const Text(
               'Your appointment has been booked.',
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.grey),
+              style: TextStyle(color: Colors.grey[800]),
             ),
             const SizedBox(height: 24),
             PrimaryButton(

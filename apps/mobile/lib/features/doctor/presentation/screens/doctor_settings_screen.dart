@@ -222,7 +222,7 @@ class _DoctorSettingsScreenState extends State<DoctorSettingsScreen> {
           label,
           style: TextStyle(
             fontSize: 10,
-            color: AppTheme.textSecondary.withOpacity(0.5),
+            color: AppTheme.textSecondary.withOpacity(0.8),
           ),
         ),
         const SizedBox(height: 8),
@@ -283,7 +283,7 @@ class _DoctorSettingsScreenState extends State<DoctorSettingsScreen> {
                 subtitle,
                 style: TextStyle(
                   fontSize: 10,
-                  color: AppTheme.textSecondary.withOpacity(0.5),
+                  color: AppTheme.textSecondary.withOpacity(0.8),
                   height: 1.5,
                 ),
               ),
@@ -296,7 +296,7 @@ class _DoctorSettingsScreenState extends State<DoctorSettingsScreen> {
           activeColor: Colors.white,
           activeTrackColor: AppTheme.primaryColor,
           inactiveThumbColor: Colors.white,
-          inactiveTrackColor: AppTheme.textSecondary.withOpacity(0.3),
+          inactiveTrackColor: AppTheme.textSecondary.withOpacity(0.8),
         ),
       ],
     );

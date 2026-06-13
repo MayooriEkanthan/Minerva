@@ -69,7 +69,7 @@ class HealthDataCard extends StatelessWidget {
               ),
               if (onTap != null) ...[
                 const SizedBox(width: 4),
-                Icon(Icons.edit, size: 14, color: AppTheme.textSecondary.withOpacity(0.4)),
+                Icon(Icons.edit, size: 14, color: AppTheme.textSecondary.withOpacity(0.8)),
               ]
             ],
           ),

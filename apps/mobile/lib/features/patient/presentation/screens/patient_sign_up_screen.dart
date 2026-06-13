@@ -126,7 +126,7 @@ class _PatientSignUpScreenState extends State<PatientSignUpScreen> {
               'Optional — used only for verification, kept private.',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     fontSize: 12,
-                    color: AppTheme.textSecondary.withOpacity(0.7),
+                    color: AppTheme.textSecondary.withOpacity(0.8),
                   ),
             ),
             const SizedBox(height: 24),
@@ -265,7 +265,7 @@ class _PatientSignUpScreenState extends State<PatientSignUpScreen> {
               child: Text(
                 'No profile required — we protect your identity.',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: AppTheme.textSecondary.withOpacity(0.5),
+                      color: AppTheme.textSecondary.withOpacity(0.8),
                     ),
               ),
             ),

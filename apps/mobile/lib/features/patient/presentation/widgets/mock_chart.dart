@@ -38,7 +38,7 @@ class MockChart extends StatelessWidget {
                     label,
                     style: TextStyle(
                       fontSize: 10,
-                      color: AppTheme.textSecondary.withOpacity(0.5),
+                      color: AppTheme.textSecondary.withOpacity(0.8),
                     ),
                   ))
               .toList(),
@@ -127,7 +127,7 @@ class _ChartPainter extends CustomPainter {
     
     // Draw horizontal dashed guide lines
     final guidePaint = Paint()
-      ..color = Colors.grey.withOpacity(0.2)
+      ..color = Colors.grey[800]
       ..strokeWidth = 1
       ..style = PaintingStyle.stroke;
       

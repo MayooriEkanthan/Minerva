@@ -127,8 +127,8 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                         },
                         decoration: const InputDecoration(
                           hintText: 'Search doctors, specialties...',
-                          hintStyle: TextStyle(color: Colors.grey, fontSize: 14),
-                          prefixIcon: Icon(Icons.search, color: Colors.grey),
+                          hintStyle: TextStyle(color: Colors.grey[800], fontSize: 14),
+                          prefixIcon: Icon(Icons.search, color: Colors.grey[800]),
                           border: InputBorder.none,
                           contentPadding: EdgeInsets.symmetric(vertical: 14),
                         ),
@@ -239,7 +239,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                   Text(
                     title,
                     style: TextStyle(
-                      color: AppTheme.textSecondary.withOpacity(0.6),
+                      color: AppTheme.textSecondary.withOpacity(0.8),
                       fontSize: 10,
                     ),
                   ),
@@ -256,7 +256,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                 ],
               ),
             ),
-            Icon(Icons.keyboard_arrow_down, color: AppTheme.textSecondary.withOpacity(0.6), size: 16),
+            Icon(Icons.keyboard_arrow_down, color: AppTheme.textSecondary.withOpacity(0.8), size: 16),
           ],
         ),
       ),

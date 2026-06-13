@@ -36,7 +36,7 @@ class _ConsultScreenState extends State<ConsultScreen> {
               'This is a safe space where you can talk\nfreely about your health. No one knows who\nyou are. Only care, not judgment.',
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: AppTheme.textSecondary.withOpacity(0.5),
+                color: AppTheme.textSecondary.withOpacity(0.8),
                 height: 1.5,
                 fontSize: 14,
               ),
@@ -116,7 +116,7 @@ class _ConsultScreenState extends State<ConsultScreen> {
                         Text(
                           'Enhance patient privacy during calls.',
                           style: TextStyle(
-                            color: AppTheme.textSecondary.withOpacity(0.5),
+                            color: AppTheme.textSecondary.withOpacity(0.8),
                             fontSize: 12,
                           ),
                         ),
@@ -174,7 +174,7 @@ class _ConsultScreenState extends State<ConsultScreen> {
             Icon(
               icon,
               size: 32,
-              color: isSelected ? AppTheme.textSecondary : AppTheme.textSecondary.withOpacity(0.7),
+              color: isSelected ? AppTheme.textSecondary : AppTheme.textSecondary.withOpacity(0.8),
             ),
             const SizedBox(height: 16),
             Text(
@@ -193,7 +193,7 @@ class _ConsultScreenState extends State<ConsultScreen> {
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 12,
-                color: AppTheme.textSecondary.withOpacity(0.7),
+                color: AppTheme.textSecondary.withOpacity(0.8),
                 height: 1.4,
               ),
             ),

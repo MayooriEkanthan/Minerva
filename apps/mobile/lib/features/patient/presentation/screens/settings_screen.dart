@@ -146,7 +146,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       activeColor: Colors.white,
                       activeTrackColor: AppTheme.primaryColor.withOpacity(0.8),
                       inactiveThumbColor: Colors.white,
-                      inactiveTrackColor: Colors.grey.withOpacity(0.3),
+                      inactiveTrackColor: Colors.grey[800],
                     ),
                   ),
                   _buildCardTile(
@@ -161,7 +161,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       activeColor: Colors.white,
                       activeTrackColor: AppTheme.primaryColor.withOpacity(0.8),
                       inactiveThumbColor: Colors.white,
-                      inactiveTrackColor: Colors.grey.withOpacity(0.3),
+                      inactiveTrackColor: Colors.grey[800],
                     ),
                   ),
                   _buildCardTile(
@@ -176,7 +176,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       activeColor: Colors.white,
                       activeTrackColor: AppTheme.primaryColor.withOpacity(0.8),
                       inactiveThumbColor: Colors.white,
-                      inactiveTrackColor: Colors.grey.withOpacity(0.3),
+                      inactiveTrackColor: Colors.grey[800],
                     ),
                   ),
                   
@@ -238,7 +238,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   _buildCardTile(
                     icon: Icons.help_outline,
                     iconColor: Colors.grey.shade700,
-                    iconBgColor: Colors.grey.withOpacity(0.1),
+                    iconBgColor: Colors.grey[800],
                     title: 'Help & support',
                     subtitle: 'FAQ and support center',
                     trailing: Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey.shade400),

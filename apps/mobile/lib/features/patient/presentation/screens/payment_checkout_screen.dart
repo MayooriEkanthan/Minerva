@@ -75,7 +75,7 @@ class _PaymentCheckoutScreenState extends State<PaymentCheckoutScreen> {
                   CircleAvatar(
                     radius: 30,
                     backgroundColor: AppTheme.surfaceColor,
-                    child: Icon(Icons.person, size: 30, color: AppTheme.textSecondary.withOpacity(0.5)),
+                    child: Icon(Icons.person, size: 30, color: AppTheme.textSecondary.withOpacity(0.8)),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
@@ -94,7 +94,7 @@ class _PaymentCheckoutScreenState extends State<PaymentCheckoutScreen> {
                         Text(
                           durationText,
                           style: TextStyle(
-                            color: AppTheme.textSecondary.withOpacity(0.6),
+                            color: AppTheme.textSecondary.withOpacity(0.8),
                             fontSize: 14,
                           ),
                         ),
@@ -128,7 +128,7 @@ class _PaymentCheckoutScreenState extends State<PaymentCheckoutScreen> {
             const SizedBox(height: 8),
             const Text(
               '* Minimum charge is 30 minutes. You can end the call earlier, but the base fee applies.',
-              style: TextStyle(color: Colors.grey, fontSize: 12),
+              style: TextStyle(color: Colors.grey[800], fontSize: 12),
             ),
             const SizedBox(height: 32),
 
@@ -312,7 +312,7 @@ class _PaymentCheckoutScreenState extends State<PaymentCheckoutScreen> {
         ),
         child: Row(
           children: [
-            Icon(icon, size: 28, color: isSelected ? AppTheme.primaryColor : AppTheme.textSecondary.withOpacity(0.6)),
+            Icon(icon, size: 28, color: isSelected ? AppTheme.primaryColor : AppTheme.textSecondary.withOpacity(0.8)),
             const SizedBox(width: 16),
             Expanded(
               child: Text(

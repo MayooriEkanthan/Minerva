@@ -34,7 +34,7 @@ class DoctorProfileScreen extends StatelessWidget {
         ),
         title: Text(
           doctorName,
-          style: const TextStyle(color: AppTheme.textSecondary, fontWeight: FontWeight.bold, fontSize: 18),
+          style: const TextStyle(color: AppTheme.textSecondary, fontWeight: FontWeight.bold, fontSize: 22),
         ),
         centerTitle: true,
       ),
@@ -50,17 +50,17 @@ class DoctorProfileScreen extends StatelessWidget {
                   CircleAvatar(
                     radius: 40,
                     backgroundColor: AppTheme.surfaceColor,
-                    child: Icon(Icons.person, size: 50, color: AppTheme.textSecondary.withOpacity(0.5)),
+                    child: Icon(Icons.person, size: 50, color: AppTheme.textSecondary.withOpacity(0.8)),
                   ),
                   const SizedBox(height: 16),
                   Text(
                     doctorName,
-                    style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: AppTheme.textSecondary),
+                    style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold, color: AppTheme.textSecondary),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     specialty,
-                    style: TextStyle(fontSize: 14, color: AppTheme.textSecondary.withOpacity(0.6)),
+                    style: TextStyle(fontSize: 16, color: AppTheme.textSecondary.withOpacity(0.8)),
                   ),
                   const SizedBox(height: 8),
                   Row(
@@ -68,14 +68,14 @@ class DoctorProfileScreen extends StatelessWidget {
                     children: [
                       Text(
                         '$experience years experience',
-                        style: TextStyle(fontSize: 12, color: AppTheme.textSecondary.withOpacity(0.6)),
+                        style: TextStyle(fontSize: 14, color: AppTheme.textSecondary.withOpacity(0.8)),
                       ),
                       const SizedBox(width: 8),
-                      Text('•', style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.6))),
+                      Text('•', style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8))),
                       const SizedBox(width: 8),
                       Text(
                         rating.toString(),
-                        style: const TextStyle(fontSize: 12, color: AppTheme.primaryColor),
+                        style: const TextStyle(fontSize: 14, color: AppTheme.primaryColor),
                       ),
                       const SizedBox(width: 2),
                       const Icon(Icons.star_border, color: AppTheme.primaryColor, size: 12),
@@ -89,7 +89,7 @@ class DoctorProfileScreen extends StatelessWidget {
             // 2. Verifications Section
             Text(
               'Doctor Verification',
-              style: Theme.of(context).textTheme.displayMedium?.copyWith(fontSize: 18, color: AppTheme.textSecondary),
+              style: Theme.of(context).textTheme.displayMedium?.copyWith(fontSize: 22, color: AppTheme.textSecondary),
             ),
             const SizedBox(height: 16),
             VerificationBadge(text: 'Board Certified in $specialty'),
@@ -114,7 +114,7 @@ class DoctorProfileScreen extends StatelessWidget {
             // 3. Experience Details
             Text(
               'Experience Details',
-              style: Theme.of(context).textTheme.displayMedium?.copyWith(fontSize: 18, color: AppTheme.textSecondary),
+              style: Theme.of(context).textTheme.displayMedium?.copyWith(fontSize: 22, color: AppTheme.textSecondary),
             ),
             const SizedBox(height: 16),
             ExperienceCard(
@@ -138,7 +138,7 @@ class DoctorProfileScreen extends StatelessWidget {
                 tilePadding: EdgeInsets.zero,
                 title: Text(
                   'Ratings & Feedback',
-                  style: Theme.of(context).textTheme.displayMedium?.copyWith(fontSize: 18, color: AppTheme.textSecondary),
+                  style: Theme.of(context).textTheme.displayMedium?.copyWith(fontSize: 22, color: AppTheme.textSecondary),
                 ),
                 initiallyExpanded: true,
                 children: [
@@ -146,12 +146,12 @@ class DoctorProfileScreen extends StatelessWidget {
                     children: [
                       Text(
                         'Overall Rating: $rating ',
-                        style: const TextStyle(fontWeight: FontWeight.bold, color: AppTheme.textSecondary),
+                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: AppTheme.textSecondary),
                       ),
-                      const Icon(Icons.star_border, color: AppTheme.primaryColor, size: 16),
+                      const Icon(Icons.star_border, color: AppTheme.primaryColor, size: 20),
                       Text(
                         ' ($reviews reviews)',
-                        style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.6), fontWeight: FontWeight.bold),
+                        style: TextStyle(fontSize: 16, color: AppTheme.textSecondary.withOpacity(0.8), fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),
@@ -234,7 +234,7 @@ class DoctorProfileScreen extends StatelessWidget {
             const SizedBox(height: 16),
             const Text(
               'All documents have been verified by Minerva\'s medical review board.',
-              style: TextStyle(color: Colors.grey, fontSize: 14),
+              style: TextStyle(color: Colors.grey[800], fontSize: 14),
             ),
             const SizedBox(height: 24),
             Expanded(

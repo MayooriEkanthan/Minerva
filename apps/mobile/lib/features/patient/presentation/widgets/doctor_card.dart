@@ -41,7 +41,7 @@ class DoctorCard extends StatelessWidget {
           CircleAvatar(
             radius: 36,
             backgroundColor: AppTheme.surfaceColor,
-            child: Icon(Icons.person, size: 40, color: AppTheme.textSecondary.withOpacity(0.5)),
+            child: Icon(Icons.person, size: 40, color: AppTheme.textSecondary.withOpacity(0.8)),
           ),
           const SizedBox(height: 12),
           

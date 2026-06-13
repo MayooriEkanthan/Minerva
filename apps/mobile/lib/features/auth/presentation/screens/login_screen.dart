@@ -80,7 +80,7 @@ class LoginScreen extends StatelessWidget {
               Text(
                 "Your identity is protected.",
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: AppTheme.textSecondary.withOpacity(0.5),
+                      color: AppTheme.textSecondary.withOpacity(0.8),
                       fontSize: 12,
                     ),
               ),

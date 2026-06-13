@@ -26,7 +26,7 @@ class VerificationBadge extends StatelessWidget {
               style: const TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.w600,
-                fontSize: 12,
+                fontSize: 14,
               ),
             ),
           ),
@@ -72,22 +72,22 @@ class ExperienceCard extends StatelessWidget {
         children: [
           Text(
             hospital,
-            style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold),
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.bold, fontSize: 18),
           ),
           const SizedBox(height: 4),
           Text(
             role,
-            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.6), fontSize: 12),
+            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14),
           ),
           const SizedBox(height: 4),
           Text(
             dateRange,
-            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.4), fontSize: 10),
+            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 12),
           ),
           const SizedBox(height: 8),
           Text(
             description,
-            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.6), fontSize: 12, height: 1.4),
+            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14, height: 1.4),
           ),
         ],
       ),
@@ -134,7 +134,7 @@ class ReviewCard extends StatelessWidget {
               CircleAvatar(
                 radius: 20,
                 backgroundColor: AppTheme.surfaceColor,
-                child: Icon(Icons.person, color: AppTheme.textSecondary.withOpacity(0.3)),
+                child: Icon(Icons.person, color: AppTheme.textSecondary.withOpacity(0.8)),
               ),
               const SizedBox(width: 12),
               Expanded(
@@ -143,11 +143,11 @@ class ReviewCard extends StatelessWidget {
                   children: [
                     Text(
                       patientName,
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
+                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold, fontSize: 16),
                     ),
                     Text(
                       timeAgo,
-                      style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.4), fontSize: 10),
+                      style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 12),
                     ),
                   ],
                 ),
@@ -168,7 +168,7 @@ class ReviewCard extends StatelessWidget {
           const SizedBox(height: 8),
           Text(
             review,
-            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.6), fontSize: 12, height: 1.4),
+            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14, height: 1.4),
           ),
         ],
       ),

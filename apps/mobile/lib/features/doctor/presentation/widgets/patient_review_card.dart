@@ -80,7 +80,7 @@ class _PatientReviewCardState extends State<PatientReviewCard> {
                     widget.date,
                     style: TextStyle(
                       fontSize: 10,
-                      color: AppTheme.textSecondary.withOpacity(0.5),
+                      color: AppTheme.textSecondary.withOpacity(0.8),
                     ),
                   ),
                 ],
@@ -104,7 +104,7 @@ class _PatientReviewCardState extends State<PatientReviewCard> {
             widget.reviewText,
             style: TextStyle(
               fontSize: 12,
-              color: AppTheme.textSecondary.withOpacity(0.6),
+              color: AppTheme.textSecondary.withOpacity(0.8),
               height: 1.5,
             ),
           ),
@@ -134,7 +134,7 @@ class _PatientReviewCardState extends State<PatientReviewCard> {
                     _submittedReply!,
                     style: TextStyle(
                       fontSize: 12,
-                      color: AppTheme.textSecondary.withOpacity(0.6),
+                      color: AppTheme.textSecondary.withOpacity(0.8),
                     ),
                   ),
                 ],
@@ -158,7 +158,7 @@ class _PatientReviewCardState extends State<PatientReviewCard> {
                         hintText: 'Reply to review...',
                         hintStyle: TextStyle(
                           fontSize: 12,
-                          color: AppTheme.textSecondary.withOpacity(0.4),
+                          color: AppTheme.textSecondary.withOpacity(0.8),
                         ),
                         border: InputBorder.none,
                       ),

@@ -50,7 +50,7 @@ class _CustomSegmentedControlState extends State<CustomSegmentedControl> {
                   widget.options[index],
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                        color: isSelected ? Colors.white : AppTheme.textSecondary.withOpacity(0.6),
+                        color: isSelected ? Colors.white : AppTheme.textSecondary.withOpacity(0.8),
                         fontWeight: isSelected ? FontWeight.bold : FontWeight.w600,
                         fontSize: 12,
                       ),
