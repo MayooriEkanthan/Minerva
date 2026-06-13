@@ -11,6 +11,7 @@ import '../../features/patient/presentation/screens/analytics_screen.dart';
 import '../../features/patient/presentation/screens/doctor_profile_screen.dart';
 import '../../features/doctor/presentation/screens/doctor_sign_up_screen.dart';
 import '../../features/doctor/presentation/screens/doctor_main_layout_screen.dart';
+import '../../features/patient/presentation/screens/payment_checkout_screen.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/',
@@ -61,6 +62,10 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/doctor-profile',
       builder: (context, state) => const DoctorProfileScreen(),
+    ),
+    GoRoute(
+      path: '/payment-checkout',
+      builder: (context, state) => const PaymentCheckoutScreen(),
     ),
   ],
 );
