@@ -61,7 +61,16 @@ final appRouter = GoRouter(
     ),
     GoRoute(
       path: '/doctor-profile',
-      builder: (context, state) => const DoctorProfileScreen(),
+      builder: (context, state) {
+        final params = state.extra as Map<String, dynamic>? ?? {};
+        return DoctorProfileScreen(
+          doctorName: params['name'] ?? 'Dr. Anya Sharma',
+          specialty: params['specialty'] ?? 'Gynecologist',
+          experience: params['experience'] ?? 12,
+          rating: params['rating'] ?? 4.9,
+          reviews: params['reviews'] ?? '256',
+        );
+      },
     ),
     GoRoute(
       path: '/payment-checkout',

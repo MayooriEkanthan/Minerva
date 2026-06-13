@@ -5,7 +5,20 @@ import '../../../../core/widgets/primary_button.dart';
 import '../widgets/doctor_profile_components.dart';
 
 class DoctorProfileScreen extends StatelessWidget {
-  const DoctorProfileScreen({super.key});
+  final String doctorName;
+  final String specialty;
+  final int experience;
+  final double rating;
+  final String reviews;
+
+  const DoctorProfileScreen({
+    super.key,
+    this.doctorName = 'Dr. Anya Sharma',
+    this.specialty = 'Gynecologist',
+    this.experience = 12,
+    this.rating = 4.9,
+    this.reviews = '256',
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +30,9 @@ class DoctorProfileScreen extends StatelessWidget {
           icon: const Icon(Icons.arrow_back_ios_new, color: AppTheme.textPrimary),
           onPressed: () => context.pop(),
         ),
-        title: const Text(
-          'Dr. Anya Sharma',
-          style: TextStyle(color: AppTheme.textSecondary, fontWeight: FontWeight.bold, fontSize: 18),
+        title: Text(
+          doctorName,
+          style: const TextStyle(color: AppTheme.textSecondary, fontWeight: FontWeight.bold, fontSize: 18),
         ),
         centerTitle: true,
       ),
@@ -28,15 +41,58 @@ class DoctorProfileScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Verifications Section
+            // 1. Profile Header
+            Center(
+              child: Column(
+                children: [
+                  CircleAvatar(
+                    radius: 40,
+                    backgroundColor: AppTheme.surfaceColor,
+                    child: Icon(Icons.person, size: 50, color: AppTheme.textSecondary.withOpacity(0.5)),
+                  ),
+                  const SizedBox(height: 16),
+                  Text(
+                    doctorName,
+                    style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: AppTheme.textSecondary),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    specialty,
+                    style: TextStyle(fontSize: 14, color: AppTheme.textSecondary.withOpacity(0.6)),
+                  ),
+                  const SizedBox(height: 8),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        '$experience years experience',
+                        style: TextStyle(fontSize: 12, color: AppTheme.textSecondary.withOpacity(0.6)),
+                      ),
+                      const SizedBox(width: 8),
+                      Text('•', style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.6))),
+                      const SizedBox(width: 8),
+                      Text(
+                        rating.toString(),
+                        style: const TextStyle(fontSize: 12, color: AppTheme.primaryColor),
+                      ),
+                      const SizedBox(width: 2),
+                      const Icon(Icons.star_border, color: AppTheme.primaryColor, size: 12),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 32),
+
+            // 2. Verifications Section
             Text(
               'Doctor Verification',
               style: Theme.of(context).textTheme.displayMedium?.copyWith(fontSize: 18, color: AppTheme.textSecondary),
             ),
             const SizedBox(height: 16),
-            const VerificationBadge(text: 'Board Certified in Gynecology'),
-            const VerificationBadge(text: 'Awarded \'Top Women\'s Health Specialist\' 2023'),
-            const VerificationBadge(text: '10+ Years of Clinical Experience'),
+            VerificationBadge(text: 'Board Certified in $specialty'),
+            const VerificationBadge(text: 'Verified Medical License'),
+            VerificationBadge(text: '$experience+ Years of Clinical Experience'),
             const SizedBox(height: 16),
             Center(
               child: TextButton.icon(
@@ -53,112 +109,75 @@ class DoctorProfileScreen extends StatelessWidget {
             ),
             const SizedBox(height: 32),
 
-            // Ratings & Feedback
+            // 3. Experience Details
             Text(
-              'Ratings & Feedback',
+              'Experience Details',
               style: Theme.of(context).textTheme.displayMedium?.copyWith(fontSize: 18, color: AppTheme.textSecondary),
             ),
             const SizedBox(height: 16),
-            Row(
-              children: [
-                const Text(
-                  'Overall Rating: 4.9 ',
-                  style: TextStyle(fontWeight: FontWeight.bold, color: AppTheme.textSecondary),
-                ),
-                const Icon(Icons.star_border, color: AppTheme.primaryColor, size: 16),
-                Text(
-                  ' (256 reviews)',
-                  style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.6), fontWeight: FontWeight.bold),
-                ),
-              ],
+            ExperienceCard(
+              hospital: 'City General Hospital',
+              role: 'Senior Consultant $specialty',
+              dateRange: '2018 - Present',
+              description: 'Leading procedures and patient care, specializing in $specialty.',
             ),
-            const SizedBox(height: 16),
-            const ReviewCard(
-              patientName: 'Anonymous Patient A',
-              timeAgo: '2 days ago',
-              rating: 5,
-              review: 'Dr. Anya was incredibly compassionate and made me feel heard. The consultation was thorough and very helpful.',
-            ),
-            const ReviewCard(
-              patientName: 'Anonymous Patient B',
-              timeAgo: '1 week ago',
-              rating: 4,
-              review: 'Professional and knowledgeable. She clearly explained my options. Highly recommend her for gynecological advice.',
-            ),
-            const ReviewCard(
-              patientName: 'Anonymous Patient C',
-              timeAgo: '3 weeks ago',
-              rating: 5,
-              review: 'A truly exceptional doctor. Her approach is kind and empathetic, which is so important for sensitive topics.',
+            const ExperienceCard(
+              hospital: 'Health Clinic',
+              role: 'Associate Doctor',
+              dateRange: '2012-2018',
+              description: 'Provided comprehensive health services and consultations.',
             ),
             const SizedBox(height: 32),
-            
-            // Profile Header
-            Center(
-              child: Column(
+
+            // 4. Ratings & Feedback (Collapsible)
+            Theme(
+              data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+              child: ExpansionTile(
+                tilePadding: EdgeInsets.zero,
+                title: Text(
+                  'Ratings & Feedback',
+                  style: Theme.of(context).textTheme.displayMedium?.copyWith(fontSize: 18, color: AppTheme.textSecondary),
+                ),
+                initiallyExpanded: true,
                 children: [
-                  CircleAvatar(
-                    radius: 40,
-                    backgroundColor: AppTheme.surfaceColor,
-                    child: Icon(Icons.person, size: 50, color: AppTheme.textSecondary.withOpacity(0.5)),
-                  ),
-                  const SizedBox(height: 16),
-                  const Text(
-                    'Dr. Anya Sharma',
-                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: AppTheme.textSecondary),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    'Gynecologist',
-                    style: TextStyle(fontSize: 14, color: AppTheme.textSecondary.withOpacity(0.6)),
-                  ),
-                  const SizedBox(height: 8),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        '12 years experience',
-                        style: TextStyle(fontSize: 12, color: AppTheme.textSecondary.withOpacity(0.6)),
+                        'Overall Rating: $rating ',
+                        style: const TextStyle(fontWeight: FontWeight.bold, color: AppTheme.textSecondary),
                       ),
-                      const SizedBox(width: 8),
-                      Text('•', style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.6))),
-                      const SizedBox(width: 8),
-                      const Text(
-                        '4.9',
-                        style: TextStyle(fontSize: 12, color: AppTheme.primaryColor),
+                      const Icon(Icons.star_border, color: AppTheme.primaryColor, size: 16),
+                      Text(
+                        ' ($reviews reviews)',
+                        style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.6), fontWeight: FontWeight.bold),
                       ),
-                      const SizedBox(width: 2),
-                      const Icon(Icons.star_border, color: AppTheme.primaryColor, size: 12),
                     ],
+                  ),
+                  const SizedBox(height: 16),
+                  const ReviewCard(
+                    patientName: 'Anonymous Patient A',
+                    timeAgo: '2 days ago',
+                    rating: 5,
+                    review: 'Incredibly compassionate and made me feel heard. The consultation was thorough and very helpful.',
+                  ),
+                  const ReviewCard(
+                    patientName: 'Anonymous Patient B',
+                    timeAgo: '1 week ago',
+                    rating: 4,
+                    review: 'Professional and knowledgeable. Clearly explained my options. Highly recommend.',
+                  ),
+                  const ReviewCard(
+                    patientName: 'Anonymous Patient C',
+                    timeAgo: '3 weeks ago',
+                    rating: 5,
+                    review: 'A truly exceptional doctor. Approach is kind and empathetic, which is so important for sensitive topics.',
                   ),
                 ],
               ),
             ),
             const SizedBox(height: 32),
             
-            // Experience Details
-            Text(
-              'Experience Details',
-              style: Theme.of(context).textTheme.displayMedium?.copyWith(fontSize: 18, color: AppTheme.textSecondary),
-            ),
-            const SizedBox(height: 16),
-            const ExperienceCard(
-              hospital: 'City General Hospital',
-              role: 'Senior Consultant Gynecologist',
-              dateRange: '2018 - Present',
-              description: 'Leading gynecological procedures and patient care, specializing in reproductive health.',
-            ),
-            const ExperienceCard(
-              hospital: 'Women\'s Health Clinic',
-              role: 'Associate Gynecologist',
-              dateRange: '2012-2018',
-              description: 'Provided comprehensive women\'s health services, including prenatal and postnatal care.',
-            ),
-            const SizedBox(height: 32),
-            
-
-            
-            // Action Buttons
+            // 5. Action Buttons (Only Book Appointment)
             PrimaryButton(
               text: 'Book Appointment & Get Consultation',
               onPressed: () {
@@ -166,28 +185,6 @@ class DoctorProfileScreen extends StatelessWidget {
               },
             ),
             const SizedBox(height: 16),
-            SizedBox(
-              width: double.infinity,
-              height: 48,
-              child: ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppTheme.primaryColor.withOpacity(0.6),
-                  elevation: 0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                child: const Text(
-                  'Submit Feedback',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-            ),
           ],
         ),
       ),

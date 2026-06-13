@@ -184,7 +184,13 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                           rating: doctor.rating,
                           reviews: doctor.reviews,
                           hourlyRate: '${doctor.hourlyRate}/- per hr',
-                          onBook: () => context.push('/doctor-profile'),
+                          onBook: () => context.push('/doctor-profile', extra: {
+                            'name': doctor.name,
+                            'specialty': doctor.specialty,
+                            'experience': doctor.experienceYears,
+                            'rating': doctor.rating,
+                            'reviews': doctor.reviews,
+                          }),
                         );
                       },
                     ),
