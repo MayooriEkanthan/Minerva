@@ -28,18 +28,18 @@ class RoleSelectionScreen extends StatelessWidget {
               ),
               const SizedBox(height: 64),
               PrimaryButton(
-                text: "I'm Doctor",
-                icon: Icons.monitor_heart_outlined,
-                onPressed: () {
-                  context.push('/doctor-signup');
-                },
-              ),
-              const SizedBox(height: 24),
-              PrimaryButton(
                 text: "I'm Minerva User",
                 icon: Icons.monitor_heart_outlined,
                 onPressed: () {
                   context.push('/auth-selection', extra: 'patient');
+                },
+              ),
+              const SizedBox(height: 24),
+              PrimaryButton(
+                text: "I'm Doctor",
+                icon: Icons.monitor_heart_outlined,
+                onPressed: () {
+                  context.push('/doctor-signup');
                 },
               ),
               const Spacer(),
