@@ -4,7 +4,14 @@ import '../../../../core/theme/app_theme.dart';
 import '../../../../core/widgets/primary_button.dart';
 
 class PaymentCheckoutScreen extends StatefulWidget {
-  const PaymentCheckoutScreen({super.key});
+  final String doctorName;
+  final double hourlyRate;
+
+  const PaymentCheckoutScreen({
+    super.key,
+    this.doctorName = 'Dr. Anya Sharma',
+    this.hourlyRate = 1500.0,
+  });
 
   @override
   State<PaymentCheckoutScreen> createState() => _PaymentCheckoutScreenState();
@@ -12,12 +19,18 @@ class PaymentCheckoutScreen extends StatefulWidget {
 
 class _PaymentCheckoutScreenState extends State<PaymentCheckoutScreen> {
   String _selectedMethod = 'card'; // 'apple', 'google', 'card'
+  double _selectedDuration = 0.5; // Default to 30 mins
 
   @override
   Widget build(BuildContext context) {
-    const double doctorFee = 1500.0;
+    final double doctorFee = widget.hourlyRate * _selectedDuration;
     const double minervaFee = 200.0;
-    const double totalAmount = doctorFee + minervaFee;
+    final double totalAmount = doctorFee + minervaFee;
+
+    String durationText = '';
+    if (_selectedDuration == 0.5) durationText = '30 Min Voice Consultation';
+    else if (_selectedDuration == 1.0) durationText = '1 Hour Voice Consultation';
+    else if (_selectedDuration == 2.0) durationText = '2 Hours Voice Consultation';
 
     return Scaffold(
       backgroundColor: AppTheme.surfaceColor,
@@ -65,29 +78,57 @@ class _PaymentCheckoutScreenState extends State<PaymentCheckoutScreen> {
                     child: Icon(Icons.person, size: 30, color: AppTheme.textSecondary.withOpacity(0.5)),
                   ),
                   const SizedBox(width: 16),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text(
-                        'Dr. Anya Sharma',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          color: AppTheme.textSecondary,
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          widget.doctorName,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: AppTheme.textSecondary,
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        '1 Hour Voice Consultation',
-                        style: TextStyle(
-                          color: AppTheme.textSecondary.withOpacity(0.6),
-                          fontSize: 14,
+                        const SizedBox(height: 4),
+                        Text(
+                          durationText,
+                          style: TextStyle(
+                            color: AppTheme.textSecondary.withOpacity(0.6),
+                            fontSize: 14,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ],
               ),
+            ),
+            const SizedBox(height: 32),
+
+            // Duration Selection
+            const Text(
+              'Select Consultation Duration',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+                color: AppTheme.textSecondary,
+              ),
+            ),
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                Expanded(child: _buildDurationOption(0.5, '30 Min')),
+                const SizedBox(width: 12),
+                Expanded(child: _buildDurationOption(1.0, '1 Hour')),
+                const SizedBox(width: 12),
+                Expanded(child: _buildDurationOption(2.0, '2 Hours')),
+              ],
+            ),
+            const SizedBox(height: 8),
+            const Text(
+              '* Minimum charge is 30 minutes. You can end the call earlier, but the base fee applies.',
+              style: TextStyle(color: Colors.grey, fontSize: 12),
             ),
             const SizedBox(height: 32),
 
@@ -160,9 +201,9 @@ class _PaymentCheckoutScreenState extends State<PaymentCheckoutScreen> {
             ),
             const SizedBox(height: 16),
             _buildPaymentMethodOption(
-              'apple',
-              'Apple Pay',
-              Icons.apple,
+              'card',
+              'Credit / Debit Card',
+              Icons.credit_card,
             ),
             const SizedBox(height: 12),
             _buildPaymentMethodOption(
@@ -172,24 +213,56 @@ class _PaymentCheckoutScreenState extends State<PaymentCheckoutScreen> {
             ),
             const SizedBox(height: 12),
             _buildPaymentMethodOption(
-              'card',
-              'Credit / Debit Card',
-              Icons.credit_card,
+              'apple',
+              'Apple Pay',
+              Icons.apple,
             ),
             const SizedBox(height: 40),
 
             // Pay Button
             PrimaryButton(
-              text: 'Pay LKR $totalAmount & Confirm',
+              text: 'Proceed to Pay LKR $totalAmount',
               onPressed: () {
-                // Mock confirmation
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Payment Successful! Appointment Booked.')),
-                );
-                context.pop(); // Go back to profile
+                if (_selectedMethod == 'card') {
+                  context.push('/payment-card');
+                } else if (_selectedMethod == 'google') {
+                  context.push('/payment-gpay');
+                } else if (_selectedMethod == 'apple') {
+                  context.push('/payment-apple');
+                }
               },
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildDurationOption(double duration, String label) {
+    final isSelected = _selectedDuration == duration;
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _selectedDuration = duration;
+        });
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 12),
+        decoration: BoxDecoration(
+          color: isSelected ? AppTheme.primaryColor : Colors.white,
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+            color: AppTheme.primaryColor,
+            width: 1,
+          ),
+        ),
+        alignment: Alignment.center,
+        child: Text(
+          label,
+          style: TextStyle(
+            color: isSelected ? Colors.white : AppTheme.primaryColor,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );

@@ -11,7 +11,11 @@ import '../../features/patient/presentation/screens/analytics_screen.dart';
 import '../../features/patient/presentation/screens/doctor_profile_screen.dart';
 import '../../features/doctor/presentation/screens/doctor_sign_up_screen.dart';
 import '../../features/doctor/presentation/screens/doctor_main_layout_screen.dart';
+import '../../features/doctor/presentation/screens/doctor_main_layout_screen.dart';
 import '../../features/patient/presentation/screens/payment_checkout_screen.dart';
+import '../../features/patient/presentation/screens/card_payment_screen.dart';
+import '../../features/patient/presentation/screens/gpay_payment_screen.dart';
+import '../../features/patient/presentation/screens/apple_pay_payment_screen.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/',
@@ -69,12 +73,31 @@ final appRouter = GoRouter(
           experience: params['experience'] ?? 12,
           rating: params['rating'] ?? 4.9,
           reviews: params['reviews'] ?? '256',
+          hourlyRate: params['hourlyRate'] ?? 1500.0,
         );
       },
     ),
     GoRoute(
       path: '/payment-checkout',
-      builder: (context, state) => const PaymentCheckoutScreen(),
+      builder: (context, state) {
+        final params = state.extra as Map<String, dynamic>? ?? {};
+        return PaymentCheckoutScreen(
+          doctorName: params['name'] ?? 'Dr. Anya Sharma',
+          hourlyRate: params['hourlyRate'] ?? 1500.0,
+        );
+      },
+    ),
+    GoRoute(
+      path: '/payment-card',
+      builder: (context, state) => const CardPaymentScreen(),
+    ),
+    GoRoute(
+      path: '/payment-gpay',
+      builder: (context, state) => const GPayPaymentScreen(),
+    ),
+    GoRoute(
+      path: '/payment-apple',
+      builder: (context, state) => const ApplePayPaymentScreen(),
     ),
   ],
 );

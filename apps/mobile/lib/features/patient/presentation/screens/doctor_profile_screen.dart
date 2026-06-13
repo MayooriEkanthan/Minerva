@@ -10,6 +10,7 @@ class DoctorProfileScreen extends StatelessWidget {
   final int experience;
   final double rating;
   final String reviews;
+  final double hourlyRate;
 
   const DoctorProfileScreen({
     super.key,
@@ -18,6 +19,7 @@ class DoctorProfileScreen extends StatelessWidget {
     this.experience = 12,
     this.rating = 4.9,
     this.reviews = '256',
+    this.hourlyRate = 1500.0,
   });
 
   @override
@@ -181,7 +183,10 @@ class DoctorProfileScreen extends StatelessWidget {
             PrimaryButton(
               text: 'Book Appointment & Get Consultation',
               onPressed: () {
-                context.push('/payment-checkout');
+                context.push('/payment-checkout', extra: {
+                  'name': doctorName,
+                  'hourlyRate': hourlyRate,
+                });
               },
             ),
             const SizedBox(height: 16),

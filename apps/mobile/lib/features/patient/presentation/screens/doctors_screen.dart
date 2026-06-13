@@ -190,6 +190,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                             'experience': doctor.experienceYears,
                             'rating': doctor.rating,
                             'reviews': doctor.reviews,
+                            'hourlyRate': doctor.hourlyRate.toDouble(),
                           }),
                         );
                       },
