@@ -41,7 +41,7 @@ class _PeriodTrackerScreenState extends State<PeriodTrackerScreen> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(24.0),
+        padding: const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 80.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

@@ -63,7 +63,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                   // White Card Container
                   Container(
                     width: double.infinity,
-                    padding: const EdgeInsets.all(24.0),
+                    padding: const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 80.0),
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),

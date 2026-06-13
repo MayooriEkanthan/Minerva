@@ -52,7 +52,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
           
           Expanded(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.all(24.0),
+              padding: const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 80.0),
               child: _buildSelectedCategoryContent(),
             ),
           ),

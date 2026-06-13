@@ -39,7 +39,7 @@ class DoctorProfileScreen extends StatelessWidget {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(24.0),
+        padding: const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 80.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -234,7 +234,7 @@ class DoctorProfileScreen extends StatelessWidget {
             const SizedBox(height: 16),
             const Text(
               'All documents have been verified by Minerva\'s medical review board.',
-              style: TextStyle(color: Colors.grey[800], fontSize: 14),
+              style: TextStyle(color: Color(0xFF424242), fontSize: 14),
             ),
             const SizedBox(height: 24),
             Expanded(

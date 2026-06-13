@@ -25,7 +25,7 @@ class ApplePayPaymentScreen extends StatelessWidget {
             const Text(
               'Your appointment has been booked via Apple Pay.',
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.grey[800]),
+              style: TextStyle(color: Color(0xFF424242)),
             ),
             const SizedBox(height: 24),
             PrimaryButton(
@@ -55,7 +55,7 @@ class ApplePayPaymentScreen extends StatelessWidget {
       ),
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.all(32.0),
+          padding: const EdgeInsets.fromLTRB(32.0, 32.0, 32.0, 80.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

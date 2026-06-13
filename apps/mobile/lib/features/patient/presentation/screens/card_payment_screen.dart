@@ -37,7 +37,7 @@ class _CardPaymentScreenState extends State<CardPaymentScreen> {
             const Text(
               'Your appointment has been booked.',
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.grey[800]),
+              style: TextStyle(color: Color(0xFF424242)),
             ),
             const SizedBox(height: 24),
             PrimaryButton(
@@ -75,7 +75,7 @@ class _CardPaymentScreenState extends State<CardPaymentScreen> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(24.0),
+        padding: const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 80.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

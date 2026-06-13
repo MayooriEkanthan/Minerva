@@ -164,7 +164,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                   children: [
                     // Top overlapping card (similar to 'From/To' in ridesync, we use Health Data here)
                     Container(
-                      padding: const EdgeInsets.all(24.0),
+                      padding: const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 80.0),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20),

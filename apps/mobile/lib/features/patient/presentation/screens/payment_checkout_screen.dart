@@ -52,7 +52,7 @@ class _PaymentCheckoutScreenState extends State<PaymentCheckoutScreen> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(24.0),
+        padding: const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 80.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -128,7 +128,7 @@ class _PaymentCheckoutScreenState extends State<PaymentCheckoutScreen> {
             const SizedBox(height: 8),
             const Text(
               '* Minimum charge is 30 minutes. You can end the call earlier, but the base fee applies.',
-              style: TextStyle(color: Colors.grey[800], fontSize: 12),
+              style: TextStyle(color: Color(0xFF424242), fontSize: 12),
             ),
             const SizedBox(height: 32),
 

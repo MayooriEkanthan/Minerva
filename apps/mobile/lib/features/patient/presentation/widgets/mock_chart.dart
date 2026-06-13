@@ -127,7 +127,7 @@ class _ChartPainter extends CustomPainter {
     
     // Draw horizontal dashed guide lines
     final guidePaint = Paint()
-      ..color = Colors.grey[800]
+      ..color = Color(0xFF424242)
       ..strokeWidth = 1
       ..style = PaintingStyle.stroke;
       

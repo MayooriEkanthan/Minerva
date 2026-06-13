@@ -120,7 +120,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             
             // Body Content
             Padding(
-              padding: const EdgeInsets.all(24.0),
+              padding: const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 80.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -146,7 +146,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       activeColor: Colors.white,
                       activeTrackColor: AppTheme.primaryColor.withOpacity(0.8),
                       inactiveThumbColor: Colors.white,
-                      inactiveTrackColor: Colors.grey[800],
+                      inactiveTrackColor: Color(0xFF424242),
                     ),
                   ),
                   _buildCardTile(
@@ -161,7 +161,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       activeColor: Colors.white,
                       activeTrackColor: AppTheme.primaryColor.withOpacity(0.8),
                       inactiveThumbColor: Colors.white,
-                      inactiveTrackColor: Colors.grey[800],
+                      inactiveTrackColor: Color(0xFF424242),
                     ),
                   ),
                   _buildCardTile(
@@ -176,7 +176,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       activeColor: Colors.white,
                       activeTrackColor: AppTheme.primaryColor.withOpacity(0.8),
                       inactiveThumbColor: Colors.white,
-                      inactiveTrackColor: Colors.grey[800],
+                      inactiveTrackColor: Color(0xFF424242),
                     ),
                   ),
                   
@@ -238,7 +238,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   _buildCardTile(
                     icon: Icons.help_outline,
                     iconColor: Colors.grey.shade700,
-                    iconBgColor: Colors.grey[800],
+                    iconBgColor: Color(0xFF424242),
                     title: 'Help & support',
                     subtitle: 'FAQ and support center',
                     trailing: Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey.shade400),

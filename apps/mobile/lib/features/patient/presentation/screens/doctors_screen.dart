@@ -127,8 +127,8 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                         },
                         decoration: const InputDecoration(
                           hintText: 'Search doctors, specialties...',
-                          hintStyle: TextStyle(color: Colors.grey[800], fontSize: 14),
-                          prefixIcon: Icon(Icons.search, color: Colors.grey[800]),
+                          hintStyle: TextStyle(color: Color(0xFF424242), fontSize: 14),
+                          prefixIcon: Icon(Icons.search, color: Color(0xFF424242)),
                           border: InputBorder.none,
                           contentPadding: EdgeInsets.symmetric(vertical: 14),
                         ),
