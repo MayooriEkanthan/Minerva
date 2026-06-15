@@ -159,7 +159,7 @@ class DoctorHomeScreen extends StatelessWidget {
                 Expanded(
                   child: GestureDetector(
                     onTap: () {
-                      context.push('/analytics');
+                      context.push('/doctor-analytics');
                     },
                     child: Container(
                       padding: const EdgeInsets.all(20),
