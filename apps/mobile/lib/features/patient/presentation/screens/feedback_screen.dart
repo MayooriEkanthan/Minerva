@@ -82,7 +82,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                           'How was your consultation?',
                           style: Theme.of(context).textTheme.displayMedium?.copyWith(
                                 fontSize: 18,
-                                color: AppTheme.textSecondary.withOpacity(0.8),
+                                color: AppTheme.textSecondary,
                               ),
                         ),
             const SizedBox(height: 24),

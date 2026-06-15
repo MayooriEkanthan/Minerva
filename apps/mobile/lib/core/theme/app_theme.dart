@@ -8,7 +8,7 @@ class AppTheme {
   static const Color backgroundColor = Color(0xFFFFFFFF);
   static const Color surfaceColor = Color(0xFFF8F9FA); // Crisp light canvas
   static const Color textPrimary = Color(0xFF2D3142);
-  static const Color textSecondary = Color(0xFF9094A6);
+  static const Color textSecondary = Color(0xFF424242);
 
   // Border Radius for rounded containers
   static const double defaultRadius = 16.0;

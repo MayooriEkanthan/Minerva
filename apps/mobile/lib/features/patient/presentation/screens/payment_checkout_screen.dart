@@ -75,7 +75,7 @@ class _PaymentCheckoutScreenState extends State<PaymentCheckoutScreen> {
                   CircleAvatar(
                     radius: 30,
                     backgroundColor: AppTheme.surfaceColor,
-                    child: Icon(Icons.person, size: 30, color: AppTheme.textSecondary.withOpacity(0.8)),
+                    child: Icon(Icons.person, size: 30, color: AppTheme.textSecondary),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
@@ -94,7 +94,7 @@ class _PaymentCheckoutScreenState extends State<PaymentCheckoutScreen> {
                         Text(
                           durationText,
                           style: TextStyle(
-                            color: AppTheme.textSecondary.withOpacity(0.8),
+                            color: AppTheme.textSecondary,
                             fontSize: 14,
                           ),
                         ),
@@ -275,7 +275,7 @@ class _PaymentCheckoutScreenState extends State<PaymentCheckoutScreen> {
         Text(
           label,
           style: TextStyle(
-            color: isFee ? AppTheme.textSecondary : AppTheme.textSecondary.withOpacity(0.8),
+            color: isFee ? AppTheme.textSecondary : AppTheme.textSecondary,
             fontWeight: isFee ? FontWeight.w500 : FontWeight.normal,
             fontSize: 14,
           ),
@@ -312,7 +312,7 @@ class _PaymentCheckoutScreenState extends State<PaymentCheckoutScreen> {
         ),
         child: Row(
           children: [
-            Icon(icon, size: 28, color: isSelected ? AppTheme.primaryColor : AppTheme.textSecondary.withOpacity(0.8)),
+            Icon(icon, size: 28, color: isSelected ? AppTheme.primaryColor : AppTheme.textSecondary),
             const SizedBox(width: 16),
             Expanded(
               child: Text(

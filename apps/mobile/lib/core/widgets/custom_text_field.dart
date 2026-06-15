@@ -45,7 +45,7 @@ class CustomTextField extends StatelessWidget {
           maxLines: maxLines,
           decoration: InputDecoration(
             hintText: hintText,
-            hintStyle: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8)),
+            hintStyle: TextStyle(color: AppTheme.textSecondary),
             prefixIcon: prefixIcon != null ? Icon(prefixIcon, color: AppTheme.textSecondary) : null,
             suffixIcon: suffixIcon,
           ),
@@ -56,7 +56,7 @@ class CustomTextField extends StatelessWidget {
             helperText!,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   fontSize: 12,
-                  color: AppTheme.textSecondary.withOpacity(0.8),
+                  color: AppTheme.textSecondary,
                 ),
           ),
         ],

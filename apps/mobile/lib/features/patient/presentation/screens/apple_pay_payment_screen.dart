@@ -71,7 +71,7 @@ class ApplePayPaymentScreen extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(24),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.1),
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: const Column(
@@ -106,7 +106,7 @@ class ApplePayPaymentScreen extends StatelessWidget {
               // Double click to pay simulation
               Column(
                 children: [
-                  Icon(Icons.fingerprint, size: 64, color: Colors.white.withOpacity(0.8)),
+                  Icon(Icons.fingerprint, size: 64, color: Colors.white),
                   const SizedBox(height: 16),
                   const Text('Confirm with Touch ID / Face ID', style: TextStyle(color: Colors.white70)),
                   const SizedBox(height: 24),

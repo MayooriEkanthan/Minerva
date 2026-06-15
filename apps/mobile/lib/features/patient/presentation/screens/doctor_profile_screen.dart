@@ -50,7 +50,7 @@ class DoctorProfileScreen extends StatelessWidget {
                   CircleAvatar(
                     radius: 40,
                     backgroundColor: AppTheme.surfaceColor,
-                    child: Icon(Icons.person, size: 50, color: AppTheme.textSecondary.withOpacity(0.8)),
+                    child: Icon(Icons.person, size: 50, color: AppTheme.textSecondary),
                   ),
                   const SizedBox(height: 16),
                   Text(
@@ -60,7 +60,7 @@ class DoctorProfileScreen extends StatelessWidget {
                   const SizedBox(height: 4),
                   Text(
                     specialty,
-                    style: TextStyle(fontSize: 16, color: AppTheme.textSecondary.withOpacity(0.8)),
+                    style: TextStyle(fontSize: 16, color: AppTheme.textSecondary),
                   ),
                   const SizedBox(height: 8),
                   Row(
@@ -68,10 +68,10 @@ class DoctorProfileScreen extends StatelessWidget {
                     children: [
                       Text(
                         '$experience years experience',
-                        style: TextStyle(fontSize: 14, color: AppTheme.textSecondary.withOpacity(0.8)),
+                        style: TextStyle(fontSize: 14, color: AppTheme.textSecondary),
                       ),
                       const SizedBox(width: 8),
-                      Text('•', style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8))),
+                      Text('•', style: TextStyle(color: AppTheme.textSecondary)),
                       const SizedBox(width: 8),
                       Text(
                         rating.toString(),
@@ -151,7 +151,7 @@ class DoctorProfileScreen extends StatelessWidget {
                       const Icon(Icons.star_border, color: AppTheme.primaryColor, size: 20),
                       Text(
                         ' ($reviews reviews)',
-                        style: TextStyle(fontSize: 16, color: AppTheme.textSecondary.withOpacity(0.8), fontWeight: FontWeight.bold),
+                        style: TextStyle(fontSize: 16, color: AppTheme.textSecondary, fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),

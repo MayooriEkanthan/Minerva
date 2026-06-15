@@ -61,7 +61,7 @@ class CustomCalendarGrid extends StatelessWidget {
                 .map((day) => Text(
                       day,
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            color: AppTheme.textSecondary.withOpacity(0.8),
+                            color: AppTheme.textSecondary,
                             fontSize: 12,
                           ),
                     ))
@@ -85,7 +85,7 @@ class CustomCalendarGrid extends StatelessWidget {
                 return Center(
                   child: Text(
                     prevMonthDay.toString(),
-                    style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8)),
+                    style: TextStyle(color: AppTheme.textSecondary),
                   ),
                 );
               }

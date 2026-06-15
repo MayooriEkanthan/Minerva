@@ -182,7 +182,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                           Text(
                             'YOUR HEALTH DATA',
                             style: TextStyle(
-                              color: AppTheme.textSecondary.withOpacity(0.8),
+                              color: AppTheme.textSecondary,
                               fontWeight: FontWeight.bold,
                               fontSize: 14,
                               letterSpacing: 1.2,
@@ -265,7 +265,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                     Text(
                       'NOTIFICATIONS',
                       style: TextStyle(
-                        color: AppTheme.textSecondary.withOpacity(0.8),
+                        color: AppTheme.textSecondary,
                         fontWeight: FontWeight.bold,
                         fontSize: 14,
                         letterSpacing: 1.2,

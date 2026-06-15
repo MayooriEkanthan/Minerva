@@ -68,7 +68,7 @@ class AuthSelectionScreen extends StatelessWidget {
               Text(
                 "Your identity is protected.",
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: AppTheme.textSecondary.withOpacity(0.8),
+                      color: AppTheme.textSecondary,
                       fontSize: 12,
                     ),
               ),

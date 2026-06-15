@@ -163,7 +163,7 @@ class _DoctorPatientsScreenState extends State<DoctorPatientsScreen> {
           child: Text(
             title,
             style: TextStyle(
-              color: isSelected ? Colors.white : AppTheme.textSecondary.withOpacity(0.8),
+              color: isSelected ? Colors.white : AppTheme.textSecondary,
               fontSize: 12,
               fontWeight: FontWeight.w600,
             ),
@@ -192,7 +192,7 @@ class _DoctorPatientsScreenState extends State<DoctorPatientsScreen> {
           const SizedBox(height: 8),
           Text(
             title,
-            style: TextStyle(fontSize: 12, color: AppTheme.textSecondary.withOpacity(0.8)),
+            style: TextStyle(fontSize: 12, color: AppTheme.textSecondary),
           ),
           const SizedBox(height: 16),
           Container(
@@ -247,12 +247,12 @@ class _DoctorPatientsScreenState extends State<DoctorPatientsScreen> {
           const SizedBox(height: 12),
           Text(
             '"Dr. Sharma was incredibly patient and\nempathetic. I felt truly heard and\nunderstood throughout our session.\nHighly recommend!"',
-            style: TextStyle(fontSize: 12, color: AppTheme.textSecondary.withOpacity(0.8), height: 1.5),
+            style: TextStyle(fontSize: 12, color: AppTheme.textSecondary, height: 1.5),
           ),
           const SizedBox(height: 12),
           Text(
             '- Anonymous Patient (Mar 10)',
-            style: TextStyle(fontSize: 10, color: AppTheme.textSecondary.withOpacity(0.8)),
+            style: TextStyle(fontSize: 10, color: AppTheme.textSecondary),
           ),
         ],
       ),
@@ -320,9 +320,9 @@ class _DoctorPatientsScreenState extends State<DoctorPatientsScreen> {
             ],
           ),
           const SizedBox(height: 12),
-          Text('Health Issue: $issue', style: TextStyle(fontSize: 12, color: AppTheme.textSecondary.withOpacity(0.8))),
+          Text('Health Issue: $issue', style: TextStyle(fontSize: 12, color: AppTheme.textSecondary)),
           const SizedBox(height: 4),
-          Text('Scheduled: $time', style: TextStyle(fontSize: 12, color: AppTheme.textSecondary.withOpacity(0.8))),
+          Text('Scheduled: $time', style: TextStyle(fontSize: 12, color: AppTheme.textSecondary)),
           const SizedBox(height: 16),
           Row(
             children: [
@@ -353,15 +353,15 @@ class _DoctorPatientsScreenState extends State<DoctorPatientsScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(name, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: AppTheme.textSecondary)),
-              Text('Reminder', style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 10)),
+              Text('Reminder', style: TextStyle(color: AppTheme.textSecondary, fontSize: 10)),
             ],
           ),
           const SizedBox(height: 12),
-          Text('Health Issue: $issue', style: TextStyle(fontSize: 12, color: AppTheme.textSecondary.withOpacity(0.8))),
+          Text('Health Issue: $issue', style: TextStyle(fontSize: 12, color: AppTheme.textSecondary)),
           const SizedBox(height: 4),
-          Text('Scheduled: $time', style: TextStyle(fontSize: 12, color: AppTheme.textSecondary.withOpacity(0.8))),
+          Text('Scheduled: $time', style: TextStyle(fontSize: 12, color: AppTheme.textSecondary)),
           const SizedBox(height: 4),
-          Text(duration, style: TextStyle(fontSize: 12, color: AppTheme.textSecondary.withOpacity(0.8))),
+          Text(duration, style: TextStyle(fontSize: 12, color: AppTheme.textSecondary)),
           const SizedBox(height: 16),
           Align(
             alignment: Alignment.centerRight,

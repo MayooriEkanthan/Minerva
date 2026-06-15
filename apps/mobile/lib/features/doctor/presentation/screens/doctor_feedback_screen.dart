@@ -41,7 +41,7 @@ class DoctorFeedbackScreen extends StatelessWidget {
                     'Overall Rating',
                     style: TextStyle(
                       fontSize: 14,
-                      color: Colors.white.withOpacity(0.8),
+                      color: Colors.white,
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -67,7 +67,7 @@ class DoctorFeedbackScreen extends StatelessWidget {
                     '5 reviews',
                     style: TextStyle(
                       fontSize: 12,
-                      color: Colors.white.withOpacity(0.8),
+                      color: Colors.white,
                     ),
                   ),
                 ],
@@ -205,7 +205,7 @@ class DoctorFeedbackScreen extends StatelessWidget {
         style: TextStyle(
           fontSize: 12,
           fontWeight: isActive ? FontWeight.bold : FontWeight.w500,
-          color: isActive ? AppTheme.textSecondary : AppTheme.textSecondary.withOpacity(0.8),
+          color: isActive ? AppTheme.textSecondary : AppTheme.textSecondary,
         ),
       ),
     );
@@ -266,7 +266,7 @@ class _MockRatingChartPainter extends CustomPainter {
     void drawText(String text, Offset offset) {
       textPainter.text = TextSpan(
         text: text,
-        style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 10),
+        style: TextStyle(color: Colors.white, fontSize: 10),
       );
       textPainter.layout();
       textPainter.paint(canvas, offset);

@@ -239,7 +239,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                   Text(
                     title,
                     style: TextStyle(
-                      color: AppTheme.textSecondary.withOpacity(0.8),
+                      color: AppTheme.textSecondary,
                       fontSize: 10,
                     ),
                   ),
@@ -247,7 +247,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                   Text(
                     currentValue,
                     style: TextStyle(
-                      color: currentValue == 'Any' ? AppTheme.textSecondary.withOpacity(0.8) : AppTheme.primaryColor,
+                      color: currentValue == 'Any' ? AppTheme.textSecondary : AppTheme.primaryColor,
                       fontWeight: currentValue == 'Any' ? FontWeight.normal : FontWeight.bold,
                       fontSize: 12,
                     ),
@@ -256,7 +256,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                 ],
               ),
             ),
-            Icon(Icons.keyboard_arrow_down, color: AppTheme.textSecondary.withOpacity(0.8), size: 16),
+            Icon(Icons.keyboard_arrow_down, color: AppTheme.textSecondary, size: 16),
           ],
         ),
       ),

@@ -23,7 +23,7 @@ class MetricInsightSection extends StatelessWidget {
         Text(
           insightText,
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: AppTheme.textSecondary.withOpacity(0.8),
+                color: AppTheme.textSecondary,
                 height: 1.5,
               ),
         ),
@@ -97,7 +97,7 @@ class MetricInsightSection extends StatelessWidget {
                 Text(
                   tip.description,
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: AppTheme.textSecondary.withOpacity(0.8),
+                        color: AppTheme.textSecondary,
                         height: 1.4,
                       ),
                 ),

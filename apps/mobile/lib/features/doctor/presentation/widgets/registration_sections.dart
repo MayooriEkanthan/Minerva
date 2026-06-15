@@ -40,7 +40,7 @@ class UploadButton extends StatelessWidget {
         label,
         textAlign: TextAlign.center,
         style: TextStyle(
-          color: AppTheme.textSecondary.withOpacity(0.8),
+          color: AppTheme.textSecondary,
           fontWeight: FontWeight.w500,
         ),
       ),
@@ -86,7 +86,7 @@ class ToggleRow extends StatelessWidget {
                   Text(
                     subtitle!,
                     style: TextStyle(
-                      color: AppTheme.textSecondary.withOpacity(0.8),
+                      color: AppTheme.textSecondary,
                       fontSize: 14,
                     ),
                   ),
@@ -122,7 +122,7 @@ class PersonalInfoSection extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Text(
             'This will be kept private; only the doctor\'s auto-generated display name will be visible to patients.',
-            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14),
+            style: TextStyle(color: AppTheme.textSecondary, fontSize: 14),
           ),
         ),
         const SizedBox(height: 8),
@@ -133,7 +133,7 @@ class PersonalInfoSection extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Text(
             'Used for verification and account-related information.',
-            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14),
+            style: TextStyle(color: AppTheme.textSecondary, fontSize: 14),
           ),
         ),
         const SizedBox(height: 8),
@@ -215,7 +215,7 @@ class ProfessionalInfoSection extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Text(
             'For verification of credentials.',
-            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14),
+            style: TextStyle(color: AppTheme.textSecondary, fontSize: 14),
           ),
         ),
         const SizedBox(height: 8),
@@ -306,7 +306,7 @@ class ConsultationPreferenceSection extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Text(
             'A compact availability selector will be provided\nhere for detailed day and time range configuration.',
-            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14),
+            style: TextStyle(color: AppTheme.textSecondary, fontSize: 14),
           ),
         ),
         const SizedBox(height: 8),
@@ -348,7 +348,7 @@ class VerificationAndPrivacySection extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 12.0),
           child: Text(
             'Admin verifies professional credentials to ensure\nauthenticity and build trust.',
-            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14),
+            style: TextStyle(color: AppTheme.textSecondary, fontSize: 14),
           ),
         ),
         Row(
@@ -370,7 +370,7 @@ class VerificationAndPrivacySection extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 12.0),
           child: Text(
             'Ensures the doctor is who they say they are, while\nmaintaining anonymity in consultations.',
-            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14),
+            style: TextStyle(color: AppTheme.textSecondary, fontSize: 14),
           ),
         ),
         
@@ -399,7 +399,7 @@ class VerificationAndPrivacySection extends StatelessWidget {
                   const SizedBox(height: 8),
                   Text(
                     'Ensures the doctor understands and agrees to\nthe platform\'s privacy guidelines and terms.',
-                    style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14),
+                    style: TextStyle(color: AppTheme.textSecondary, fontSize: 14),
                   ),
                 ],
               ),
@@ -430,7 +430,7 @@ class NotificationAndFinalSection extends StatelessWidget {
         const SectionHeader(title: '6. Notification Preferences'),
         Padding(
           padding: const EdgeInsets.only(bottom: 8.0),
-          child: Text('Notification Settings', style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 16)),
+          child: Text('Notification Settings', style: TextStyle(color: AppTheme.textSecondary, fontSize: 16)),
         ),
         ToggleRow(
           title: 'SMS notifications',
@@ -446,7 +446,7 @@ class NotificationAndFinalSection extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Text(
             'For new appointments, consultation reminders, and\npatient feedback.',
-            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14),
+            style: TextStyle(color: AppTheme.textSecondary, fontSize: 14),
           ),
         ),
         const SizedBox(height: 16),
@@ -457,7 +457,7 @@ class NotificationAndFinalSection extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Text(
             'Safety feature for doctors.',
-            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14),
+            style: TextStyle(color: AppTheme.textSecondary, fontSize: 14),
           ),
         ),
         
@@ -488,7 +488,7 @@ class NotificationAndFinalSection extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Text(
             'Enter the verification code to activate the account.',
-            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14),
+            style: TextStyle(color: AppTheme.textSecondary, fontSize: 14),
           ),
         ),
         const SizedBox(height: 32),

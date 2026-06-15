@@ -38,7 +38,7 @@ class MockChart extends StatelessWidget {
                     label,
                     style: TextStyle(
                       fontSize: 10,
-                      color: AppTheme.textSecondary.withOpacity(0.8),
+                      color: AppTheme.textSecondary,
                     ),
                   ))
               .toList(),

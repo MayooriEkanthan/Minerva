@@ -70,7 +70,7 @@ class _PeriodTrackerScreenState extends State<PeriodTrackerScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Next Period:', style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8))),
+                Text('Next Period:', style: TextStyle(color: AppTheme.textSecondary)),
                 const Text('5 days', style: TextStyle(color: AppTheme.primaryColor, fontWeight: FontWeight.bold)),
               ],
             ),
@@ -78,7 +78,7 @@ class _PeriodTrackerScreenState extends State<PeriodTrackerScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Average Cycle Length:', style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8))),
+                Text('Average Cycle Length:', style: TextStyle(color: AppTheme.textSecondary)),
                 const Text('28 days', style: TextStyle(color: AppTheme.primaryColor, fontWeight: FontWeight.bold)),
               ],
             ),
@@ -129,7 +129,7 @@ class _PeriodTrackerScreenState extends State<PeriodTrackerScreen> {
                       const SizedBox(width: 12),
                       Text(
                         'Your data is private and secure.',
-                        style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8)),
+                        style: TextStyle(color: AppTheme.textSecondary),
                       ),
                     ],
                   ),
@@ -158,7 +158,7 @@ class _PeriodTrackerScreenState extends State<PeriodTrackerScreen> {
         const SizedBox(width: 4),
         Text(
           label,
-          style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 12),
+          style: TextStyle(color: AppTheme.textSecondary, fontSize: 12),
         ),
       ],
     );
@@ -170,7 +170,7 @@ class _PeriodTrackerScreenState extends State<PeriodTrackerScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(label, style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8))),
+          Text(label, style: TextStyle(color: AppTheme.textSecondary)),
           Switch(
             value: value,
             onChanged: onChanged,

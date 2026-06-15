@@ -55,7 +55,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       height: 120,
                       width: 120,
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
+                        color: Colors.white,
                         shape: BoxShape.circle,
                       ),
                       child: const Icon(
@@ -86,7 +86,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 child: Text(
                                   'Tap to Logout (Testing)',
                                   style: TextStyle(
-                                    color: Colors.white.withOpacity(0.8),
+                                    color: Colors.white,
                                     fontSize: 12,
                                   ),
                                 ),
@@ -127,7 +127,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   Text(
                     'PRIVACY CONTROLS',
                     style: TextStyle(
-                      color: AppTheme.textSecondary.withOpacity(0.8),
+                      color: AppTheme.textSecondary,
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
                       letterSpacing: 1.2,
@@ -184,7 +184,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   Text(
                     'USER PREFERENCES',
                     style: TextStyle(
-                      color: AppTheme.textSecondary.withOpacity(0.8),
+                      color: AppTheme.textSecondary,
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
                       letterSpacing: 1.2,
@@ -220,7 +220,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   Text(
                     'SUPPORT & ACCOUNT',
                     style: TextStyle(
-                      color: AppTheme.textSecondary.withOpacity(0.8),
+                      color: AppTheme.textSecondary,
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
                       letterSpacing: 1.2,
@@ -305,7 +305,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 const SizedBox(height: 4),
                 Text(
                   subtitle,
-                  style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14),
+                  style: TextStyle(color: AppTheme.textSecondary, fontSize: 14),
                 ),
               ],
             ),

@@ -31,7 +31,7 @@ class DoctorProfileHeader extends StatelessWidget {
                 'General Physician | Telehealth\nSpecialist',
                 style: TextStyle(
                   fontSize: 12,
-                  color: Colors.white.withOpacity(0.9),
+                  color: Colors.white,
                 ),
               ),
               const SizedBox(height: 8),
