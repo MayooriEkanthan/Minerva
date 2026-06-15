@@ -22,7 +22,7 @@ class DoctorSignUpScreen extends StatelessWidget {
           'Sign up',
           style: TextStyle(
             color: AppTheme.textSecondary,
-            fontSize: 18,
+            fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -54,7 +54,7 @@ class DoctorSignUpScreen extends StatelessWidget {
                       'Back',
                       style: TextStyle(
                         color: AppTheme.textSecondary,
-                        fontSize: 16,
+                        fontSize: 18,
                       ),
                     ),
                   ),
@@ -88,7 +88,7 @@ class DoctorSignUpScreen extends StatelessWidget {
                 'Back to Login',
                 style: TextStyle(
                   color: AppTheme.textSecondary,
-                  fontSize: 16,
+                  fontSize: 18,
                 ),
               ),
             ),

@@ -16,6 +16,7 @@ import '../../features/patient/presentation/screens/payment_checkout_screen.dart
 import '../../features/patient/presentation/screens/card_payment_screen.dart';
 import '../../features/patient/presentation/screens/gpay_payment_screen.dart';
 import '../../features/patient/presentation/screens/apple_pay_payment_screen.dart';
+import '../../features/doctor/presentation/screens/doctor_period_tracker_screen.dart';
 
 final appRouter = GoRouter(
   initialLocation: '/',
@@ -58,6 +59,10 @@ final appRouter = GoRouter(
     GoRoute(
       path: '/period-tracker',
       builder: (context, state) => const PeriodTrackerScreen(),
+    ),
+    GoRoute(
+      path: '/doctor-period-tracker',
+      builder: (context, state) => const DoctorPeriodTrackerScreen(),
     ),
     GoRoute(
       path: '/analytics',

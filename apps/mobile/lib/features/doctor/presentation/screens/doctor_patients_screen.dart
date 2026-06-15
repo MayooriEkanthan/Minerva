@@ -16,30 +16,59 @@ class _DoctorPatientsScreenState extends State<DoctorPatientsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.backgroundColor,
+      backgroundColor: AppTheme.surfaceColor,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppTheme.primaryColor,
         elevation: 0,
-        leadingWidth: 120,
-        leading: const Padding(
-          padding: EdgeInsets.only(left: 16.0),
-          child: MinervaLogo(),
+        title: const Row(
+          children: [
+            MinervaLogo(size: 32, showText: false),
+            SizedBox(width: 8),
+            Text(
+              'Patients',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
         ),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.search, color: AppTheme.textSecondary),
-            onPressed: () {},
+          Container(
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              shape: BoxShape.circle,
+            ),
+            child: IconButton(
+              icon: const Icon(Icons.search, color: AppTheme.primaryColor),
+              onPressed: () {},
+            ),
           ),
-          const SizedBox(width: 8),
+          const SizedBox(width: 24),
         ],
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Stack(
           children: [
-            const DoctorProfileHeader(),
-            const SizedBox(height: 24),
+            Container(
+              height: 200,
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                color: AppTheme.primaryColor,
+                borderRadius: BorderRadius.vertical(bottom: Radius.circular(40)),
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+              child: const DoctorProfileHeader(),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 140),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const SizedBox(height: 24),
             
             // Stats Grid
             Row(
@@ -106,6 +135,10 @@ class _DoctorPatientsScreenState extends State<DoctorPatientsScreen> {
             _buildNotificationList(),
             
             const SizedBox(height: 120), // Bottom padding
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),

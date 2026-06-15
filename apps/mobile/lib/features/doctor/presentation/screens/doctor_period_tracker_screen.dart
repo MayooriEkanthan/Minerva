@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/widgets/minerva_logo.dart';
-import '../widgets/custom_calendar_grid.dart';
-import '../widgets/symptom_chip.dart';
+import '../../../patient/presentation/widgets/custom_calendar_grid.dart';
+import '../../../patient/presentation/widgets/symptom_chip.dart';
 
-class PeriodTrackerScreen extends StatefulWidget {
-  const PeriodTrackerScreen({super.key});
+class DoctorPeriodTrackerScreen extends StatefulWidget {
+  const DoctorPeriodTrackerScreen({super.key});
 
   @override
-  State<PeriodTrackerScreen> createState() => _PeriodTrackerScreenState();
+  State<DoctorPeriodTrackerScreen> createState() => _DoctorPeriodTrackerScreenState();
 }
 
-class _PeriodTrackerScreenState extends State<PeriodTrackerScreen> {
+class _DoctorPeriodTrackerScreenState extends State<DoctorPeriodTrackerScreen> {
   bool _periodStartReminder = true;
   bool _contraceptionReminder = false;
   bool _medicationReminder = true;

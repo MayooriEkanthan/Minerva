@@ -20,15 +20,15 @@ class _DoctorSettingsScreenState extends State<DoctorSettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.backgroundColor,
+      backgroundColor: AppTheme.surfaceColor,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppTheme.primaryColor,
         elevation: 0,
         centerTitle: true,
         title: const Text(
           'Settings',
           style: TextStyle(
-            color: AppTheme.textSecondary,
+            color: Colors.white,
             fontSize: 16,
             fontWeight: FontWeight.bold,
           ),
@@ -70,7 +70,7 @@ class _DoctorSettingsScreenState extends State<DoctorSettingsScreen> {
             style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
-              color: AppTheme.textSecondary,
+              color: Colors.white,
             ),
           ),
           const SizedBox(height: 24),
@@ -222,7 +222,7 @@ class _DoctorSettingsScreenState extends State<DoctorSettingsScreen> {
           label,
           style: TextStyle(
             fontSize: 10,
-            color: AppTheme.textSecondary.withOpacity(0.8),
+            color: Colors.white.withOpacity(0.8),
           ),
         ),
         const SizedBox(height: 8),
@@ -236,13 +236,13 @@ class _DoctorSettingsScreenState extends State<DoctorSettingsScreen> {
           child: Row(
             children: [
               const SizedBox(width: 16),
-              Icon(icon, color: AppTheme.textSecondary, size: 20),
+              Icon(icon, color: Colors.white, size: 20),
               const SizedBox(width: 12),
               Expanded(
                 child: TextFormField(
                   initialValue: initialValue,
                   style: const TextStyle(
-                    color: AppTheme.textSecondary,
+                    color: Colors.white,
                     fontSize: 14,
                   ),
                   decoration: const InputDecoration(
@@ -275,7 +275,7 @@ class _DoctorSettingsScreenState extends State<DoctorSettingsScreen> {
                 style: const TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
-                  color: AppTheme.textSecondary,
+                  color: Colors.white,
                 ),
               ),
               const SizedBox(height: 4),
@@ -283,7 +283,7 @@ class _DoctorSettingsScreenState extends State<DoctorSettingsScreen> {
                 subtitle,
                 style: TextStyle(
                   fontSize: 10,
-                  color: AppTheme.textSecondary.withOpacity(0.8),
+                  color: Colors.white.withOpacity(0.8),
                   height: 1.5,
                 ),
               ),

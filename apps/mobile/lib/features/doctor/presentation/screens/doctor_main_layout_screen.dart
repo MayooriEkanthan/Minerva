@@ -38,7 +38,7 @@ class _DoctorMainLayoutScreenState extends State<DoctorMainLayoutScreen> {
             left: 0,
             right: 0,
             child: Container(
-              height: 80,
+              padding: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom),
               decoration: BoxDecoration(
                 color: Colors.white,
                 boxShadow: [
@@ -49,15 +49,18 @@ class _DoctorMainLayoutScreenState extends State<DoctorMainLayoutScreen> {
                   ),
                 ],
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  _buildNavItem(0, Icons.favorite_border, 'Home'),
-                  _buildNavItem(1, Icons.group_outlined, 'Patients'),
-                  _buildNavItem(2, Icons.chat_bubble_outline, 'Consult'),
-                  _buildNavItem(3, Icons.star_border, 'Feedback'),
-                  _buildNavItem(4, Icons.settings_outlined, 'Settings'),
-                ],
+              child: SizedBox(
+                height: 80,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    _buildNavItem(0, Icons.favorite_border, 'Home'),
+                    _buildNavItem(1, Icons.group_outlined, 'Patients'),
+                    _buildNavItem(2, Icons.chat_bubble_outline, 'Consult'),
+                    _buildNavItem(3, Icons.star_border, 'Feedback'),
+                    _buildNavItem(4, Icons.settings_outlined, 'Settings'),
+                  ],
+                ),
               ),
             ),
           ),

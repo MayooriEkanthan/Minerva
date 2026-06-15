@@ -11,36 +11,74 @@ class DoctorHomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.backgroundColor,
+      backgroundColor: AppTheme.surfaceColor,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppTheme.primaryColor,
         elevation: 0,
-        leadingWidth: 120,
-        leading: const Padding(
-          padding: EdgeInsets.only(left: 16.0),
-          child: MinervaLogo(),
+        title: const Row(
+          children: [
+            MinervaLogo(size: 32, showText: false),
+            SizedBox(width: 8),
+            Text(
+              'Minerva',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
         ),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.notifications_none, color: AppTheme.textSecondary),
-            onPressed: () {},
+          Container(
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              shape: BoxShape.circle,
+            ),
+            child: IconButton(
+              icon: const Icon(Icons.notifications_none, color: AppTheme.primaryColor),
+              onPressed: () {},
+            ),
           ),
-          IconButton(
-            icon: const Icon(Icons.calendar_today_outlined, color: AppTheme.primaryColor),
-            onPressed: () {
-              context.push('/period-tracker');
-            },
+          const SizedBox(width: 12),
+          Container(
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              shape: BoxShape.circle,
+            ),
+            child: IconButton(
+              icon: const Icon(Icons.calendar_today_outlined, color: AppTheme.primaryColor),
+              onPressed: () {
+                context.push('/doctor-period-tracker');
+              },
+            ),
           ),
-          const SizedBox(width: 8),
+          const SizedBox(width: 24),
         ],
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.fromLTRB(24.0, 24.0, 24.0, 80.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Stack(
           children: [
-            // Doctor Profile Header
-            const DoctorProfileHeader(),
+            // Curved pink header
+            Container(
+              height: 200,
+              width: double.infinity,
+              decoration: const BoxDecoration(
+                color: AppTheme.primaryColor,
+                borderRadius: BorderRadius.vertical(bottom: Radius.circular(40)),
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+              child: const DoctorProfileHeader(),
+            ),
+            
+            // Overlapping content
+            Padding(
+              padding: const EdgeInsets.only(top: 140),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(24.0, 0, 24.0, 80.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
             
             const SizedBox(height: 32),
             
@@ -55,11 +93,13 @@ class DoctorHomeScreen extends StatelessWidget {
             const SizedBox(height: 16),
             
             // Reused Patient Health Grid
-            Row(
-              children: [
-                const Expanded(
-                  child: HealthDataCard(
-                    title: 'Heart Rate',
+            SizedBox(
+              height: 160,
+              child: Row(
+                children: [
+                  const Expanded(
+                    child: HealthDataCard(
+                      title: 'Heart Rate',
                     value: '72 bpm',
                     icon: Icons.favorite_border,
                     color: Color(0xFF7B8DFF), // Blue
@@ -76,12 +116,15 @@ class DoctorHomeScreen extends StatelessWidget {
                 ),
               ],
             ),
+            ),
             const SizedBox(height: 16),
-            Row(
-              children: [
-                const Expanded(
-                  child: HealthDataCard(
-                    title: 'Sleep',
+            SizedBox(
+              height: 160,
+              child: Row(
+                children: [
+                  const Expanded(
+                    child: HealthDataCard(
+                      title: 'Sleep',
                     value: '7.5 hrs',
                     icon: Icons.nightlight_round,
                     color: Color(0xFFFFB28A), // Orange
@@ -98,12 +141,15 @@ class DoctorHomeScreen extends StatelessWidget {
                 ),
               ],
             ),
+            ),
             const SizedBox(height: 16),
-            Row(
-              children: [
-                const Expanded(
-                  child: HealthDataCard(
-                    title: 'Blood Pressure',
+            SizedBox(
+              height: 160,
+              child: Row(
+                children: [
+                  const Expanded(
+                    child: HealthDataCard(
+                      title: 'Blood Pressure',
                     value: '120/80',
                     icon: Icons.water_drop_outlined,
                     color: Color(0xFF4ADE80), // Green
@@ -143,8 +189,13 @@ class DoctorHomeScreen extends StatelessWidget {
                 ),
               ],
             ),
+            ),
             
             const SizedBox(height: 120), // Bottom padding for navbar
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),

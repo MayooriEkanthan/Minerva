@@ -8,9 +8,9 @@ class DoctorConsultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppTheme.backgroundColor,
+      backgroundColor: AppTheme.surfaceColor,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppTheme.primaryColor,
         elevation: 0,
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -18,7 +18,7 @@ class DoctorConsultScreen extends StatelessWidget {
             const Text(
               'Consultation with',
               style: TextStyle(
-                color: AppTheme.textSecondary,
+                color: Colors.white,
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
               ),
@@ -26,7 +26,7 @@ class DoctorConsultScreen extends StatelessWidget {
             Text(
               'Luna_4829',
               style: TextStyle(
-                color: AppTheme.textSecondary.withOpacity(0.8),
+                color: Colors.white.withOpacity(0.8),
                 fontSize: 14,
               ),
             ),
@@ -34,15 +34,15 @@ class DoctorConsultScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.edit_note, color: AppTheme.textSecondary),
+            icon: const Icon(Icons.edit_note, color: Colors.white),
             onPressed: () {},
           ),
           IconButton(
-            icon: const Icon(Icons.mic_off_outlined, color: AppTheme.textSecondary),
+            icon: const Icon(Icons.mic_off_outlined, color: Colors.white),
             onPressed: () {},
           ),
           IconButton(
-            icon: const Icon(Icons.videocam_off_outlined, color: AppTheme.textSecondary),
+            icon: const Icon(Icons.videocam_off_outlined, color: Colors.white),
             onPressed: () {},
           ),
           const SizedBox(width: 8),
@@ -68,7 +68,7 @@ class DoctorConsultScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: AppTheme.textSecondary,
+                      color: Colors.white,
                     ),
                   ),
                   const SizedBox(height: 24),
@@ -88,12 +88,12 @@ class DoctorConsultScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
-                        Icon(Icons.chat_bubble_outline, color: AppTheme.textSecondary, size: 20),
+                        Icon(Icons.chat_bubble_outline, color: Colors.white, size: 20),
                         SizedBox(width: 8),
                         Text(
                           'Start Chat',
                           style: TextStyle(
-                            color: AppTheme.textSecondary,
+                            color: Colors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
                           ),
@@ -123,7 +123,7 @@ class DoctorConsultScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: AppTheme.textSecondary,
+                      color: Colors.white,
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -133,7 +133,7 @@ class DoctorConsultScreen extends StatelessWidget {
                         'Waiting',
                         style: TextStyle(
                           fontSize: 12,
-                          color: AppTheme.textSecondary.withOpacity(0.8),
+                          color: Colors.white.withOpacity(0.8),
                         ),
                       ),
                       const SizedBox(width: 16),
@@ -142,7 +142,7 @@ class DoctorConsultScreen extends StatelessWidget {
                           'Awaiting patient to join\nthe consultation.',
                           style: TextStyle(
                             fontSize: 12,
-                            color: AppTheme.textSecondary.withOpacity(0.8),
+                            color: Colors.white.withOpacity(0.8),
                           ),
                         ),
                       ),
@@ -161,7 +161,7 @@ class DoctorConsultScreen extends StatelessWidget {
               'Patient identity is anonymized for your privacy.',
               style: TextStyle(
                 fontSize: 12,
-                color: AppTheme.textSecondary.withOpacity(0.8),
+                color: Colors.white.withOpacity(0.8),
               ),
             ),
             const SizedBox(height: 48), // Padding above bottom nav bar

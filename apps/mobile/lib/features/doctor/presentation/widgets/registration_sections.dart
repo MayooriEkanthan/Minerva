@@ -13,7 +13,7 @@ class SectionHeader extends StatelessWidget {
       child: Text(
         title,
         style: const TextStyle(
-          fontSize: 18,
+          fontSize: 20,
           fontWeight: FontWeight.bold,
           color: AppTheme.textSecondary,
         ),
@@ -77,7 +77,7 @@ class ToggleRow extends StatelessWidget {
                   title,
                   style: const TextStyle(
                     color: AppTheme.textSecondary,
-                    fontSize: 14,
+                    fontSize: 16,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -87,7 +87,7 @@ class ToggleRow extends StatelessWidget {
                     subtitle!,
                     style: TextStyle(
                       color: AppTheme.textSecondary.withOpacity(0.8),
-                      fontSize: 12,
+                      fontSize: 14,
                     ),
                   ),
                 ],
@@ -115,29 +115,29 @@ class PersonalInfoSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SectionHeader(title: '1. Personal Information'),
-        const Text('Doctor\'s full name', style: TextStyle(color: AppTheme.textSecondary, fontSize: 12)),
+        const Text('Doctor\'s full name', style: TextStyle(color: AppTheme.textSecondary, fontSize: 14)),
         const SizedBox(height: 8),
         const CustomTextField(hintText: 'Dr. John Doe'),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Text(
             'This will be kept private; only the doctor\'s auto-generated display name will be visible to patients.',
-            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 12),
+            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14),
           ),
         ),
         const SizedBox(height: 8),
-        const Text('Email', style: TextStyle(color: AppTheme.textSecondary, fontSize: 12)),
+        const Text('Email', style: TextStyle(color: AppTheme.textSecondary, fontSize: 14)),
         const SizedBox(height: 8),
         const CustomTextField(hintText: 'john.doe@example.com'),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Text(
             'Used for verification and account-related information.',
-            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 12),
+            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14),
           ),
         ),
         const SizedBox(height: 8),
-        const Text('Phone (optional)', style: TextStyle(color: AppTheme.textSecondary, fontSize: 12)),
+        const Text('Phone (optional)', style: TextStyle(color: AppTheme.textSecondary, fontSize: 14)),
         const SizedBox(height: 8),
         Row(
           children: [
@@ -153,7 +153,7 @@ class PersonalInfoSection extends StatelessWidget {
                 alignment: Alignment.center,
                 child: const Text(
                   'Send confirmation code',
-                  style: TextStyle(color: AppTheme.textSecondary, fontSize: 12, fontWeight: FontWeight.bold),
+                  style: TextStyle(color: AppTheme.textSecondary, fontSize: 14, fontWeight: FontWeight.bold),
                 ),
               ),
             ),
@@ -170,7 +170,7 @@ class PersonalInfoSection extends StatelessWidget {
             const SizedBox(width: 8),
             const Text(
               'Enable SMS verification',
-              style: TextStyle(color: AppTheme.textSecondary, fontSize: 12, fontWeight: FontWeight.w500),
+              style: TextStyle(color: AppTheme.textSecondary, fontSize: 14, fontWeight: FontWeight.w500),
             ),
           ],
         ),
@@ -189,7 +189,7 @@ class ProfessionalInfoSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SectionHeader(title: '2. Professional Information'),
-        const Text('Medical License Number', style: TextStyle(color: AppTheme.textSecondary, fontSize: 12)),
+        const Text('Medical License Number', style: TextStyle(color: AppTheme.textSecondary, fontSize: 14)),
         const SizedBox(height: 8),
         Row(
           children: [
@@ -205,7 +205,7 @@ class ProfessionalInfoSection extends StatelessWidget {
                 alignment: Alignment.center,
                 child: const Text(
                   'Upload license document',
-                  style: TextStyle(color: AppTheme.textSecondary, fontSize: 12),
+                  style: TextStyle(color: AppTheme.textSecondary, fontSize: 14),
                 ),
               ),
             ),
@@ -215,11 +215,11 @@ class ProfessionalInfoSection extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Text(
             'For verification of credentials.',
-            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 12),
+            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14),
           ),
         ),
         const SizedBox(height: 8),
-        const Text('Specialization', style: TextStyle(color: AppTheme.textSecondary, fontSize: 12)),
+        const Text('Specialization', style: TextStyle(color: AppTheme.textSecondary, fontSize: 14)),
         const SizedBox(height: 8),
         Container(
           width: double.infinity,
@@ -234,11 +234,11 @@ class ProfessionalInfoSection extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 16),
-        const Text('Years of Experience', style: TextStyle(color: AppTheme.textSecondary, fontSize: 12)),
+        const Text('Years of Experience', style: TextStyle(color: AppTheme.textSecondary, fontSize: 14)),
         const SizedBox(height: 8),
         const CustomTextField(hintText: '5'),
         const SizedBox(height: 16),
-        const Text('Workplace(s)', style: TextStyle(color: AppTheme.textSecondary, fontSize: 12)),
+        const Text('Workplace(s)', style: TextStyle(color: AppTheme.textSecondary, fontSize: 14)),
         const SizedBox(height: 8),
         Row(
           children: [
@@ -254,7 +254,7 @@ class ProfessionalInfoSection extends StatelessWidget {
                 alignment: Alignment.center,
                 child: const Text(
                   'Upload workplace certifications',
-                  style: TextStyle(color: AppTheme.textSecondary, fontSize: 12),
+                  style: TextStyle(color: AppTheme.textSecondary, fontSize: 14),
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -276,7 +276,7 @@ class ConsultationPreferenceSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SectionHeader(title: '3. Consultation Preference'),
-        const Text('Consultation Method', style: TextStyle(color: AppTheme.textSecondary, fontSize: 12)),
+        const Text('Consultation Method', style: TextStyle(color: AppTheme.textSecondary, fontSize: 14)),
         const SizedBox(height: 8),
         Container(
           width: double.infinity,
@@ -291,7 +291,7 @@ class ConsultationPreferenceSection extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 16),
-        const Text('Available hours', style: TextStyle(color: AppTheme.textSecondary, fontSize: 12)),
+        const Text('Available hours', style: TextStyle(color: AppTheme.textSecondary, fontSize: 14)),
         const SizedBox(height: 8),
         const CustomTextField(hintText: 'Mon-Fri, 9:00 AM - 5:00 PM'),
         const SizedBox(height: 8),
@@ -306,11 +306,11 @@ class ConsultationPreferenceSection extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Text(
             'A compact availability selector will be provided\nhere for detailed day and time range configuration.',
-            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 12),
+            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14),
           ),
         ),
         const SizedBox(height: 8),
-        const Text('Rate per minute (optional)', style: TextStyle(color: AppTheme.textSecondary, fontSize: 12)),
+        const Text('Rate per minute (optional)', style: TextStyle(color: AppTheme.textSecondary, fontSize: 14)),
         const SizedBox(height: 8),
         const CustomTextField(hintText: 'e.g , 2.50'),
       ],
@@ -332,7 +332,7 @@ class VerificationAndPrivacySection extends StatelessWidget {
         Row(
           children: [
             const Expanded(
-              child: Text('Professional Certifications', style: TextStyle(color: AppTheme.textSecondary, fontSize: 14)),
+              child: Text('Professional Certifications', style: TextStyle(color: AppTheme.textSecondary, fontSize: 16)),
             ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
@@ -348,13 +348,13 @@ class VerificationAndPrivacySection extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 12.0),
           child: Text(
             'Admin verifies professional credentials to ensure\nauthenticity and build trust.',
-            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 12),
+            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14),
           ),
         ),
         Row(
           children: [
             const Expanded(
-              child: Text('Identity Verification', style: TextStyle(color: AppTheme.textSecondary, fontSize: 14)),
+              child: Text('Identity Verification', style: TextStyle(color: AppTheme.textSecondary, fontSize: 16)),
             ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
@@ -370,7 +370,7 @@ class VerificationAndPrivacySection extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 12.0),
           child: Text(
             'Ensures the doctor is who they say they are, while\nmaintaining anonymity in consultations.',
-            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 12),
+            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14),
           ),
         ),
         
@@ -394,12 +394,12 @@ class VerificationAndPrivacySection extends StatelessWidget {
                 children: [
                   const Text(
                     'I agree to the \'Terms of Service\' and \'Privacy\nPolicy\'',
-                    style: TextStyle(color: AppTheme.textSecondary, fontSize: 14),
+                    style: TextStyle(color: AppTheme.textSecondary, fontSize: 16),
                   ),
                   const SizedBox(height: 8),
                   Text(
                     'Ensures the doctor understands and agrees to\nthe platform\'s privacy guidelines and terms.',
-                    style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 12),
+                    style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14),
                   ),
                 ],
               ),
@@ -430,7 +430,7 @@ class NotificationAndFinalSection extends StatelessWidget {
         const SectionHeader(title: '6. Notification Preferences'),
         Padding(
           padding: const EdgeInsets.only(bottom: 8.0),
-          child: Text('Notification Settings', style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14)),
+          child: Text('Notification Settings', style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 16)),
         ),
         ToggleRow(
           title: 'SMS notifications',
@@ -446,23 +446,23 @@ class NotificationAndFinalSection extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Text(
             'For new appointments, consultation reminders, and\npatient feedback.',
-            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 12),
+            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14),
           ),
         ),
         const SizedBox(height: 16),
-        const Text('Emergency Contact (optional)', style: TextStyle(color: AppTheme.textSecondary, fontSize: 12)),
+        const Text('Emergency Contact (optional)', style: TextStyle(color: AppTheme.textSecondary, fontSize: 14)),
         const SizedBox(height: 8),
         const CustomTextField(hintText: 'Emergency Contact'),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Text(
             'Safety feature for doctors.',
-            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 12),
+            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14),
           ),
         ),
         
         const SectionHeader(title: '7. Final Verification Step'),
-        const Text('Enter verification code', style: TextStyle(color: AppTheme.textSecondary, fontSize: 12)),
+        const Text('Enter verification code', style: TextStyle(color: AppTheme.textSecondary, fontSize: 14)),
         const SizedBox(height: 8),
         Row(
           children: [
@@ -478,7 +478,7 @@ class NotificationAndFinalSection extends StatelessWidget {
                 alignment: Alignment.center,
                 child: const Text(
                   'Resend code',
-                  style: TextStyle(color: AppTheme.textSecondary, fontSize: 14, fontWeight: FontWeight.bold),
+                  style: TextStyle(color: AppTheme.textSecondary, fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
             ),
@@ -488,7 +488,7 @@ class NotificationAndFinalSection extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Text(
             'Enter the verification code to activate the account.',
-            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 12),
+            style: TextStyle(color: AppTheme.textSecondary.withOpacity(0.8), fontSize: 14),
           ),
         ),
         const SizedBox(height: 32),
