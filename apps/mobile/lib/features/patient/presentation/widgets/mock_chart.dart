@@ -37,7 +37,7 @@ class MockChart extends StatelessWidget {
               .map((label) => Text(
                     label,
                     style: TextStyle(
-                      fontSize: 10,
+                      fontSize: 14,
                       color: AppTheme.textSecondary,
                     ),
                   ))

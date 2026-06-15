@@ -30,7 +30,7 @@ class DoctorProfileHeader extends StatelessWidget {
               Text(
                 'General Physician | Telehealth\nSpecialist',
                 style: TextStyle(
-                  fontSize: 12,
+                  fontSize: 14,
                   color: Colors.white,
                 ),
               ),
@@ -45,7 +45,7 @@ class DoctorProfileHeader extends StatelessWidget {
                   'Available Now',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 12,
+                    fontSize: 14,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

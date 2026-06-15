@@ -132,7 +132,7 @@ class DoctorConsultScreen extends StatelessWidget {
                       Text(
                         'Waiting',
                         style: TextStyle(
-                          fontSize: 12,
+                          fontSize: 14,
                           color: Colors.white,
                         ),
                       ),
@@ -141,7 +141,7 @@ class DoctorConsultScreen extends StatelessWidget {
                         child: Text(
                           'Awaiting patient to join\nthe consultation.',
                           style: TextStyle(
-                            fontSize: 12,
+                            fontSize: 14,
                             color: Colors.white,
                           ),
                         ),
@@ -160,7 +160,7 @@ class DoctorConsultScreen extends StatelessWidget {
             Text(
               'Patient identity is anonymized for your privacy.',
               style: TextStyle(
-                fontSize: 12,
+                fontSize: 14,
                 color: Colors.white,
               ),
             ),

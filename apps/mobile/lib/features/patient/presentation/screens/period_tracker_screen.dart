@@ -158,7 +158,7 @@ class _PeriodTrackerScreenState extends State<PeriodTrackerScreen> {
         const SizedBox(width: 4),
         Text(
           label,
-          style: TextStyle(color: AppTheme.textSecondary, fontSize: 12),
+          style: TextStyle(color: AppTheme.textSecondary, fontSize: 14),
         ),
       ],
     );

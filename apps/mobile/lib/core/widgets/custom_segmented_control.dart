@@ -52,7 +52,7 @@ class _CustomSegmentedControlState extends State<CustomSegmentedControl> {
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                         color: isSelected ? Colors.white : AppTheme.textSecondary,
                         fontWeight: isSelected ? FontWeight.bold : FontWeight.w600,
-                        fontSize: 12,
+                        fontSize: 14,
                       ),
                 ),
               ),

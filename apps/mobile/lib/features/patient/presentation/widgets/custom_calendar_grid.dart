@@ -62,7 +62,7 @@ class CustomCalendarGrid extends StatelessWidget {
                       day,
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                             color: AppTheme.textSecondary,
-                            fontSize: 12,
+                            fontSize: 14,
                           ),
                     ))
                 .toList(),

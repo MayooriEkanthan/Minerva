@@ -117,7 +117,7 @@ class _ConsultScreenState extends State<ConsultScreen> {
                           'Enhance patient privacy during calls.',
                           style: TextStyle(
                             color: AppTheme.textSecondary,
-                            fontSize: 12,
+                            fontSize: 14,
                           ),
                         ),
                       ],
@@ -192,7 +192,7 @@ class _ConsultScreenState extends State<ConsultScreen> {
               description,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 12,
+                fontSize: 14,
                 color: AppTheme.textSecondary,
                 height: 1.4,
               ),

@@ -289,7 +289,7 @@ class DoctorProfileScreen extends StatelessWidget {
                   'Verified',
                   style: TextStyle(
                     color: Colors.green,
-                    fontSize: 12,
+                    fontSize: 14,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

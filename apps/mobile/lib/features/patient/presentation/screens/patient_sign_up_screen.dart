@@ -125,7 +125,7 @@ class _PatientSignUpScreenState extends State<PatientSignUpScreen> {
             Text(
               'Optional — used only for verification, kept private.',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    fontSize: 12,
+                    fontSize: 14,
                     color: AppTheme.textSecondary,
                   ),
             ),

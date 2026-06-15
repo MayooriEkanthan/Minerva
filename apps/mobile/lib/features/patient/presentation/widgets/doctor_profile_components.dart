@@ -82,7 +82,7 @@ class ExperienceCard extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             dateRange,
-            style: TextStyle(color: AppTheme.textSecondary, fontSize: 12),
+            style: TextStyle(color: AppTheme.textSecondary, fontSize: 14),
           ),
           const SizedBox(height: 8),
           Text(
@@ -147,7 +147,7 @@ class ReviewCard extends StatelessWidget {
                     ),
                     Text(
                       timeAgo,
-                      style: TextStyle(color: AppTheme.textSecondary, fontSize: 12),
+                      style: TextStyle(color: AppTheme.textSecondary, fontSize: 14),
                     ),
                   ],
                 ),

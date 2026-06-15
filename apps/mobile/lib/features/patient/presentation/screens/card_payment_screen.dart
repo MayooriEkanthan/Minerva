@@ -117,8 +117,8 @@ class _CardPaymentScreenState extends State<CardPaymentScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('CARD HOLDER', style: TextStyle(color: Colors.white70, fontSize: 12)),
-                      Text('EXPIRES', style: TextStyle(color: Colors.white70, fontSize: 12)),
+                      Text('CARD HOLDER', style: TextStyle(color: Colors.white70, fontSize: 14)),
+                      Text('EXPIRES', style: TextStyle(color: Colors.white70, fontSize: 14)),
                     ],
                   ),
                 ],

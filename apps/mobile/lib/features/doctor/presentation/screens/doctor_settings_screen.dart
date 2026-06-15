@@ -221,7 +221,7 @@ class _DoctorSettingsScreenState extends State<DoctorSettingsScreen> {
         Text(
           label,
           style: TextStyle(
-            fontSize: 10,
+            fontSize: 14,
             color: Colors.white,
           ),
         ),
@@ -282,7 +282,7 @@ class _DoctorSettingsScreenState extends State<DoctorSettingsScreen> {
               Text(
                 subtitle,
                 style: TextStyle(
-                  fontSize: 10,
+                  fontSize: 14,
                   color: Colors.white,
                   height: 1.5,
                 ),

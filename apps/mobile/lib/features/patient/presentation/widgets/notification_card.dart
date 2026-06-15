@@ -76,7 +76,7 @@ class NotificationCard extends StatelessWidget {
                     Text(
                       timestamp,
                       style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            fontSize: 12,
+                            fontSize: 14,
                             color: AppTheme.textSecondary,
                           ),
                     ),
@@ -118,7 +118,7 @@ class NotificationCard extends StatelessWidget {
           ),
           child: Text(
             text,
-            style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
           ),
         ),
       ),

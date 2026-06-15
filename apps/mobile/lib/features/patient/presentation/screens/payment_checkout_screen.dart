@@ -128,7 +128,7 @@ class _PaymentCheckoutScreenState extends State<PaymentCheckoutScreen> {
             const SizedBox(height: 8),
             const Text(
               '* Minimum charge is 30 minutes. You can end the call earlier, but the base fee applies.',
-              style: TextStyle(color: Color(0xFF424242), fontSize: 12),
+              style: TextStyle(color: Color(0xFF424242), fontSize: 14),
             ),
             const SizedBox(height: 32),
 

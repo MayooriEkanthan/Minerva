@@ -66,7 +66,7 @@ class DoctorFeedbackScreen extends StatelessWidget {
                   Text(
                     '5 reviews',
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 14,
                       color: Colors.white,
                     ),
                   ),
@@ -203,7 +203,7 @@ class DoctorFeedbackScreen extends StatelessWidget {
       child: Text(
         text,
         style: TextStyle(
-          fontSize: 12,
+          fontSize: 14,
           fontWeight: isActive ? FontWeight.bold : FontWeight.w500,
           color: isActive ? AppTheme.textSecondary : AppTheme.textSecondary,
         ),
@@ -221,7 +221,7 @@ class DoctorFeedbackScreen extends StatelessWidget {
       child: Text(
         text,
         style: const TextStyle(
-          fontSize: 12,
+          fontSize: 14,
           color: Colors.white,
           fontWeight: FontWeight.w500,
         ),
@@ -266,7 +266,7 @@ class _MockRatingChartPainter extends CustomPainter {
     void drawText(String text, Offset offset) {
       textPainter.text = TextSpan(
         text: text,
-        style: TextStyle(color: Colors.white, fontSize: 10),
+        style: TextStyle(color: Colors.white, fontSize: 14),
       );
       textPainter.layout();
       textPainter.paint(canvas, offset);

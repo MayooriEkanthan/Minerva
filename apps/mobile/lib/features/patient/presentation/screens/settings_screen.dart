@@ -87,7 +87,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                   'Tap to Logout (Testing)',
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 12,
+                                    fontSize: 14,
                                   ),
                                 ),
                               ),

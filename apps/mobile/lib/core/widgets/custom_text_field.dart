@@ -55,7 +55,7 @@ class CustomTextField extends StatelessWidget {
           Text(
             helperText!,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  fontSize: 12,
+                  fontSize: 14,
                   color: AppTheme.textSecondary,
                 ),
           ),

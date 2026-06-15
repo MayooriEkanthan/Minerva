@@ -144,7 +144,7 @@ class _DoctorAnalyticsScreenState extends State<DoctorAnalyticsScreen> {
             children: [
               Container(width: 8, height: 8, decoration: const BoxDecoration(color: Color(0xFF6B7BFF), shape: BoxShape.circle)),
               const SizedBox(width: 8),
-              Text('Heart Rate (BPM)', style: TextStyle(color: AppTheme.textSecondary, fontSize: 12)),
+              Text('Heart Rate (BPM)', style: TextStyle(color: AppTheme.textSecondary, fontSize: 14)),
             ],
           ),
         ),
@@ -347,7 +347,7 @@ class _DoctorAnalyticsScreenState extends State<DoctorAnalyticsScreen> {
             children: [
               Container(width: 8, height: 8, decoration: const BoxDecoration(color: Colors.redAccent, shape: BoxShape.circle)),
               const SizedBox(width: 8),
-              Text('Blood Pressure (mmHg)', style: TextStyle(color: AppTheme.textSecondary, fontSize: 12)),
+              Text('Blood Pressure (mmHg)', style: TextStyle(color: AppTheme.textSecondary, fontSize: 14)),
             ],
           ),
         ),

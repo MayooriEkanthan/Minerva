@@ -240,7 +240,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                     title,
                     style: TextStyle(
                       color: AppTheme.textSecondary,
-                      fontSize: 10,
+                      fontSize: 14,
                     ),
                   ),
                   const SizedBox(height: 2),
@@ -249,7 +249,7 @@ class _DoctorsScreenState extends State<DoctorsScreen> {
                     style: TextStyle(
                       color: currentValue == 'Any' ? AppTheme.textSecondary : AppTheme.primaryColor,
                       fontWeight: currentValue == 'Any' ? FontWeight.normal : FontWeight.bold,
-                      fontSize: 12,
+                      fontSize: 14,
                     ),
                     overflow: TextOverflow.ellipsis,
                   ),

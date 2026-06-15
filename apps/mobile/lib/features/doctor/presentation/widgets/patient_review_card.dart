@@ -79,7 +79,7 @@ class _PatientReviewCardState extends State<PatientReviewCard> {
                   Text(
                     widget.date,
                     style: TextStyle(
-                      fontSize: 10,
+                      fontSize: 14,
                       color: AppTheme.textSecondary,
                     ),
                   ),
@@ -103,7 +103,7 @@ class _PatientReviewCardState extends State<PatientReviewCard> {
           Text(
             widget.reviewText,
             style: TextStyle(
-              fontSize: 12,
+              fontSize: 14,
               color: AppTheme.textSecondary,
               height: 1.5,
             ),
@@ -124,7 +124,7 @@ class _PatientReviewCardState extends State<PatientReviewCard> {
                   const Text(
                     'Your Reply:',
                     style: TextStyle(
-                      fontSize: 10,
+                      fontSize: 14,
                       fontWeight: FontWeight.bold,
                       color: AppTheme.textSecondary,
                     ),
@@ -133,7 +133,7 @@ class _PatientReviewCardState extends State<PatientReviewCard> {
                   Text(
                     _submittedReply!,
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 14,
                       color: AppTheme.textSecondary,
                     ),
                   ),
@@ -153,11 +153,11 @@ class _PatientReviewCardState extends State<PatientReviewCard> {
                     ),
                     child: TextField(
                       controller: _replyController,
-                      style: const TextStyle(fontSize: 12),
+                      style: const TextStyle(fontSize: 14),
                       decoration: InputDecoration(
                         hintText: 'Reply to review...',
                         hintStyle: TextStyle(
-                          fontSize: 12,
+                          fontSize: 14,
                           color: AppTheme.textSecondary,
                         ),
                         border: InputBorder.none,

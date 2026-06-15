@@ -108,7 +108,7 @@ class _DoctorPatientsScreenState extends State<DoctorPatientsScreen> {
                 ),
                 Text(
                   'View All',
-                  style: TextStyle(color: AppTheme.primaryColor.withOpacity(0.5), fontSize: 12, fontWeight: FontWeight.bold),
+                  style: TextStyle(color: AppTheme.primaryColor.withOpacity(0.5), fontSize: 14, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -164,7 +164,7 @@ class _DoctorPatientsScreenState extends State<DoctorPatientsScreen> {
             title,
             style: TextStyle(
               color: isSelected ? Colors.white : AppTheme.textSecondary,
-              fontSize: 12,
+              fontSize: 14,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -192,7 +192,7 @@ class _DoctorPatientsScreenState extends State<DoctorPatientsScreen> {
           const SizedBox(height: 8),
           Text(
             title,
-            style: TextStyle(fontSize: 12, color: AppTheme.textSecondary),
+            style: TextStyle(fontSize: 14, color: AppTheme.textSecondary),
           ),
           const SizedBox(height: 16),
           Container(
@@ -204,7 +204,7 @@ class _DoctorPatientsScreenState extends State<DoctorPatientsScreen> {
             alignment: Alignment.center,
             child: const Text(
               'View Details',
-              style: TextStyle(fontSize: 10, color: AppTheme.textSecondary, fontWeight: FontWeight.w500),
+              style: TextStyle(fontSize: 14, color: AppTheme.textSecondary, fontWeight: FontWeight.w500),
             ),
           ),
         ],
@@ -232,7 +232,7 @@ class _DoctorPatientsScreenState extends State<DoctorPatientsScreen> {
               ),
               Text(
                 'View All Reviews',
-                style: TextStyle(fontSize: 10, color: AppTheme.primaryColor.withOpacity(0.5), fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 14, color: AppTheme.primaryColor.withOpacity(0.5), fontWeight: FontWeight.bold),
               ),
             ],
           ),
@@ -247,12 +247,12 @@ class _DoctorPatientsScreenState extends State<DoctorPatientsScreen> {
           const SizedBox(height: 12),
           Text(
             '"Dr. Sharma was incredibly patient and\nempathetic. I felt truly heard and\nunderstood throughout our session.\nHighly recommend!"',
-            style: TextStyle(fontSize: 12, color: AppTheme.textSecondary, height: 1.5),
+            style: TextStyle(fontSize: 14, color: AppTheme.textSecondary, height: 1.5),
           ),
           const SizedBox(height: 12),
           Text(
             '- Anonymous Patient (Mar 10)',
-            style: TextStyle(fontSize: 10, color: AppTheme.textSecondary),
+            style: TextStyle(fontSize: 14, color: AppTheme.textSecondary),
           ),
         ],
       ),
@@ -315,14 +315,14 @@ class _DoctorPatientsScreenState extends State<DoctorPatientsScreen> {
                   color: AppTheme.primaryColorLight.withOpacity(0.3),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: const Text('Appointment', style: TextStyle(color: AppTheme.primaryColor, fontSize: 10, fontWeight: FontWeight.bold)),
+                child: const Text('Appointment', style: TextStyle(color: AppTheme.primaryColor, fontSize: 14, fontWeight: FontWeight.bold)),
               ),
             ],
           ),
           const SizedBox(height: 12),
-          Text('Health Issue: $issue', style: TextStyle(fontSize: 12, color: AppTheme.textSecondary)),
+          Text('Health Issue: $issue', style: TextStyle(fontSize: 14, color: AppTheme.textSecondary)),
           const SizedBox(height: 4),
-          Text('Scheduled: $time', style: TextStyle(fontSize: 12, color: AppTheme.textSecondary)),
+          Text('Scheduled: $time', style: TextStyle(fontSize: 14, color: AppTheme.textSecondary)),
           const SizedBox(height: 16),
           Row(
             children: [
@@ -353,15 +353,15 @@ class _DoctorPatientsScreenState extends State<DoctorPatientsScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(name, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: AppTheme.textSecondary)),
-              Text('Reminder', style: TextStyle(color: AppTheme.textSecondary, fontSize: 10)),
+              Text('Reminder', style: TextStyle(color: AppTheme.textSecondary, fontSize: 14)),
             ],
           ),
           const SizedBox(height: 12),
-          Text('Health Issue: $issue', style: TextStyle(fontSize: 12, color: AppTheme.textSecondary)),
+          Text('Health Issue: $issue', style: TextStyle(fontSize: 14, color: AppTheme.textSecondary)),
           const SizedBox(height: 4),
-          Text('Scheduled: $time', style: TextStyle(fontSize: 12, color: AppTheme.textSecondary)),
+          Text('Scheduled: $time', style: TextStyle(fontSize: 14, color: AppTheme.textSecondary)),
           const SizedBox(height: 4),
-          Text(duration, style: TextStyle(fontSize: 12, color: AppTheme.textSecondary)),
+          Text(duration, style: TextStyle(fontSize: 14, color: AppTheme.textSecondary)),
           const SizedBox(height: 16),
           Align(
             alignment: Alignment.centerRight,
@@ -387,7 +387,7 @@ class _DoctorPatientsScreenState extends State<DoctorPatientsScreen> {
         text,
         style: TextStyle(
           color: textColor,
-          fontSize: 12,
+          fontSize: 14,
           fontWeight: FontWeight.w600,
         ),
       ),
