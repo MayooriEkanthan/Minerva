@@ -59,6 +59,13 @@ class DoctorConsultScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.03),
+                    blurRadius: 10,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,7 +75,7 @@ class DoctorConsultScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: AppTheme.textSecondary,
                     ),
                   ),
                   const SizedBox(height: 24),
@@ -88,12 +95,12 @@ class DoctorConsultScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
-                        Icon(Icons.chat_bubble_outline, color: Colors.white, size: 20),
+                        Icon(Icons.chat_bubble_outline, color: AppTheme.primaryColor, size: 20),
                         SizedBox(width: 8),
                         Text(
                           'Start Chat',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: AppTheme.primaryColor,
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
                           ),
@@ -114,6 +121,13 @@ class DoctorConsultScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(16),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.03),
+                    blurRadius: 10,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -123,17 +137,18 @@ class DoctorConsultScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: AppTheme.textSecondary,
                     ),
                   ),
                   const SizedBox(height: 16),
                   Row(
                     children: [
-                      Text(
+                      const Text(
                         'Waiting',
                         style: TextStyle(
                           fontSize: 14,
-                          color: Colors.white,
+                          color: AppTheme.primaryColor,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                       const SizedBox(width: 16),
@@ -142,7 +157,7 @@ class DoctorConsultScreen extends StatelessWidget {
                           'Awaiting patient to join\nthe consultation.',
                           style: TextStyle(
                             fontSize: 14,
-                            color: Colors.white,
+                            color: AppTheme.textSecondary,
                           ),
                         ),
                       ),
@@ -157,11 +172,11 @@ class DoctorConsultScreen extends StatelessWidget {
             const Spacer(),
             
             // Bottom Disclaimer
-            Text(
+            const Text(
               'Patient identity is anonymized for your privacy.',
               style: TextStyle(
                 fontSize: 14,
-                color: Colors.white,
+                color: AppTheme.textSecondary,
               ),
             ),
             const SizedBox(height: 48), // Padding above bottom nav bar
