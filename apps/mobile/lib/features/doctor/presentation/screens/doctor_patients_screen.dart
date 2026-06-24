@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/widgets/minerva_logo.dart';
 import '../widgets/doctor_profile_header.dart';
+import '../../data/models/doctor_notification_model.dart';
 
 class DoctorPatientsScreen extends StatefulWidget {
   const DoctorPatientsScreen({super.key});
@@ -12,6 +13,46 @@ class DoctorPatientsScreen extends StatefulWidget {
 
 class _DoctorPatientsScreenState extends State<DoctorPatientsScreen> {
   int _selectedTabIndex = 0; // 0 = All, 1 = Appointments, 2 = Reminders
+
+  final List<DoctorNotificationModel> _mockNotifications = const [
+    DoctorNotificationModel(
+      id: '1',
+      patientName: 'Patient L. Smith',
+      issue: 'Dermatology Follow-up',
+      time: 'Today, 10:30 AM',
+      type: DoctorNotificationType.appointment,
+    ),
+    DoctorNotificationModel(
+      id: '2',
+      patientName: 'Patient A. Johnson',
+      issue: 'Dental Checkup',
+      time: 'Tomorrow, 2:00 PM',
+      type: DoctorNotificationType.reminder,
+      duration: '15 mins before',
+    ),
+    DoctorNotificationModel(
+      id: '3',
+      patientName: 'Anonymous R. Davies',
+      issue: 'Orthopedic Review',
+      time: 'Tomorrow, 3:30 PM',
+      type: DoctorNotificationType.appointment,
+    ),
+    DoctorNotificationModel(
+      id: '4',
+      patientName: 'Patient C. White',
+      issue: 'Annual Physical',
+      time: 'Wednesday, 9:00 AM',
+      type: DoctorNotificationType.reminder,
+      duration: '30 mins before',
+    ),
+    DoctorNotificationModel(
+      id: '5',
+      patientName: 'Patient K. Brown',
+      issue: 'Pediatric Consultation',
+      time: 'Wednesday, 11:00 AM',
+      type: DoctorNotificationType.appointment,
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -260,37 +301,44 @@ class _DoctorPatientsScreenState extends State<DoctorPatientsScreen> {
   }
 
   Widget _buildNotificationList() {
-    // A mock list mixing Appointments and Reminders based on the images
-    return Column(
-      children: [
-        _buildAppointmentCard(
-          name: 'Patient L. Smith',
-          issue: 'Dermatology Follow-up',
-          time: 'Today, 10:30 AM',
+    final filteredNotifications = _mockNotifications.where((notification) {
+      if (_selectedTabIndex == 0) return true;
+      if (_selectedTabIndex == 1) return notification.type == DoctorNotificationType.appointment;
+      if (_selectedTabIndex == 2) return notification.type == DoctorNotificationType.reminder;
+      return false;
+    }).toList();
+
+    if (filteredNotifications.isEmpty) {
+      return const Padding(
+        padding: EdgeInsets.symmetric(vertical: 32.0),
+        child: Center(
+          child: Text('No notifications in this category.', style: TextStyle(color: AppTheme.textSecondary)),
         ),
-        _buildReminderCard(
-          name: 'Patient A. Johnson',
-          issue: 'Dental Checkup',
-          time: 'Tomorrow, 2:00 PM',
-          duration: '15 mins before',
-        ),
-        _buildAppointmentCard(
-          name: 'Anonymous R. Davies',
-          issue: 'Orthopedic Review',
-          time: 'Tomorrow, 3:30 PM',
-        ),
-        _buildReminderCard(
-          name: 'Patient C. White',
-          issue: 'Annual Physical',
-          time: 'Wednesday, 9:00 AM',
-          duration: '30 mins before',
-        ),
-        _buildAppointmentCard(
-          name: 'Patient K. Brown',
-          issue: 'Pediatric Consultation',
-          time: 'Wednesday, 11:00 AM',
-        ),
-      ],
+      );
+    }
+
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      padding: EdgeInsets.zero,
+      itemCount: filteredNotifications.length,
+      itemBuilder: (context, index) {
+        final notification = filteredNotifications[index];
+        if (notification.type == DoctorNotificationType.appointment) {
+          return _buildAppointmentCard(
+            name: notification.patientName,
+            issue: notification.issue,
+            time: notification.time,
+          );
+        } else {
+          return _buildReminderCard(
+            name: notification.patientName,
+            issue: notification.issue,
+            time: notification.time,
+            duration: notification.duration ?? '',
+          );
+        }
+      },
     );
   }
 

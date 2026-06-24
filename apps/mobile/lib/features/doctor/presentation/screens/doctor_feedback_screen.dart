@@ -1,9 +1,49 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../widgets/patient_review_card.dart';
+import '../../data/models/review_model.dart';
 
 class DoctorFeedbackScreen extends StatelessWidget {
   const DoctorFeedbackScreen({super.key});
+
+  final List<ReviewModel> _mockReviews = const [
+    ReviewModel(
+      id: '1',
+      patientName: 'Patient Alpha_7',
+      date: '2026-06-13',
+      rating: 5.0,
+      reviewText: 'Dr. Evelyn was incredibly attentive and thorough. Felt very comfortable discussing my concerns. Highly recommended!',
+    ),
+    ReviewModel(
+      id: '2',
+      patientName: 'Patient Beta_2',
+      date: '2026-06-11',
+      rating: 4.0,
+      reviewText: 'Good consultation, clear explanations. Just a small delay in starting, but overall a positive experience.',
+      doctorReply: 'Thank you for your feedback! We are working to minimize any wait times and appreciate your understanding.',
+    ),
+    ReviewModel(
+      id: '3',
+      patientName: 'Patient Gamma_9',
+      date: '2026-06-08',
+      rating: 5.0,
+      reviewText: 'Excellent listener and provided clear, actionable advice. Very professional and empathetic.',
+    ),
+    ReviewModel(
+      id: '4',
+      patientName: 'Patient Delta_1',
+      date: '2026-06-05',
+      rating: 3.0,
+      reviewText: 'The consultation was okay, but I felt a bit rushed. The advice was generally helpful.',
+    ),
+    ReviewModel(
+      id: '5',
+      patientName: 'Patient Epsilon_5',
+      date: '2026-06-01',
+      rating: 5.0,
+      reviewText: 'Outstanding support and a very pleasant experience. Dr. Evelyn truly cares.',
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -146,36 +186,24 @@ class DoctorFeedbackScreen extends StatelessWidget {
             const SizedBox(height: 16),
             
             // List of Reviews
-            const PatientReviewCard(
-              name: 'Patient Alpha_7',
-              date: '2026-06-13',
-              rating: 5.0,
-              reviewText: 'Dr. Evelyn was incredibly attentive and thorough. Felt very comfortable discussing my concerns. Highly recommended!',
-            ),
-            const PatientReviewCard(
-              name: 'Patient Beta_2',
-              date: '2026-06-11',
-              rating: 4.0,
-              reviewText: 'Good consultation, clear explanations. Just a small delay in starting, but overall a positive experience.',
-              initialReply: 'Thank you for your feedback! We are working to minimize any wait times and appreciate your understanding.',
-            ),
-            const PatientReviewCard(
-              name: 'Patient Gamma_9',
-              date: '2026-06-08',
-              rating: 5.0,
-              reviewText: 'Excellent listener and provided clear, actionable advice. Very professional and empathetic.',
-            ),
-            const PatientReviewCard(
-              name: 'Patient Delta_1',
-              date: '2026-06-05',
-              rating: 3.0,
-              reviewText: 'The consultation was okay, but I felt a bit rushed. The advice was generally helpful.',
-            ),
-            const PatientReviewCard(
-              name: 'Patient Epsilon_5',
-              date: '2026-06-01',
-              rating: 5.0,
-              reviewText: 'Outstanding support and a very pleasant experience. Dr. Evelyn truly cares.',
+            ListView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              padding: EdgeInsets.zero,
+              itemCount: _mockReviews.length,
+              itemBuilder: (context, index) {
+                final review = _mockReviews[index];
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 16.0),
+                  child: PatientReviewCard(
+                    name: review.patientName,
+                    date: review.date,
+                    rating: review.rating,
+                    reviewText: review.reviewText,
+                    initialReply: review.doctorReply,
+                  ),
+                );
+              },
             ),
             
             const SizedBox(height: 120), // Bottom padding
