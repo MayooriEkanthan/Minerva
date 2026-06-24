@@ -37,11 +37,11 @@ class DoctorFeedbackScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  Text(
+                  const Text(
                     'Overall Rating',
                     style: TextStyle(
                       fontSize: 14,
-                      color: Colors.white,
+                      color: AppTheme.textSecondary,
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -63,11 +63,11 @@ class DoctorFeedbackScreen extends StatelessWidget {
                     )),
                   ),
                   const SizedBox(height: 8),
-                  Text(
+                  const Text(
                     '5 reviews',
                     style: TextStyle(
                       fontSize: 14,
-                      color: Colors.white,
+                      color: AppTheme.textSecondary,
                     ),
                   ),
                 ],
@@ -118,7 +118,7 @@ class DoctorFeedbackScreen extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: AppTheme.textSecondary,
                     ),
                   ),
                   const SizedBox(height: 24),
@@ -140,7 +140,7 @@ class DoctorFeedbackScreen extends StatelessWidget {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: AppTheme.textSecondary,
               ),
             ),
             const SizedBox(height: 16),
@@ -222,7 +222,7 @@ class DoctorFeedbackScreen extends StatelessWidget {
         text,
         style: const TextStyle(
           fontSize: 14,
-          color: Colors.white,
+          color: AppTheme.textSecondary,
           fontWeight: FontWeight.w500,
         ),
       ),
@@ -266,7 +266,7 @@ class _MockRatingChartPainter extends CustomPainter {
     void drawText(String text, Offset offset) {
       textPainter.text = TextSpan(
         text: text,
-        style: TextStyle(color: Colors.white, fontSize: 14),
+        style: const TextStyle(color: AppTheme.textSecondary, fontSize: 14),
       );
       textPainter.layout();
       textPainter.paint(canvas, offset);

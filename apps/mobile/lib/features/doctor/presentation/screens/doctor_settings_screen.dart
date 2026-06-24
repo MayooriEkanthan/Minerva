@@ -70,7 +70,7 @@ class _DoctorSettingsScreenState extends State<DoctorSettingsScreen> {
             style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: AppTheme.textSecondary,
             ),
           ),
           const SizedBox(height: 24),
@@ -220,9 +220,9 @@ class _DoctorSettingsScreenState extends State<DoctorSettingsScreen> {
       children: [
         Text(
           label,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 14,
-            color: Colors.white,
+            color: AppTheme.textSecondary,
           ),
         ),
         const SizedBox(height: 8),
@@ -236,13 +236,13 @@ class _DoctorSettingsScreenState extends State<DoctorSettingsScreen> {
           child: Row(
             children: [
               const SizedBox(width: 16),
-              Icon(icon, color: Colors.white, size: 20),
+              Icon(icon, color: AppTheme.textSecondary, size: 20),
               const SizedBox(width: 12),
               Expanded(
                 child: TextFormField(
                   initialValue: initialValue,
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: AppTheme.textSecondary,
                     fontSize: 14,
                   ),
                   decoration: const InputDecoration(
@@ -275,15 +275,15 @@ class _DoctorSettingsScreenState extends State<DoctorSettingsScreen> {
                 style: const TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
-                  color: Colors.white,
+                  color: AppTheme.textSecondary,
                 ),
               ),
               const SizedBox(height: 4),
               Text(
                 subtitle,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 14,
-                  color: Colors.white,
+                  color: AppTheme.textSecondary,
                   height: 1.5,
                 ),
               ),
