@@ -3,8 +3,9 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/widgets/minerva_logo.dart';
 import '../../../../core/widgets/custom_segmented_control.dart';
+import '../../data/models/notification_model.dart';
 import '../widgets/health_data_card.dart';
-import '../widgets/notification_card.dart';
+import '../widgets/notification_list_widget.dart';
 
 class PatientHomeScreen extends StatefulWidget {
   const PatientHomeScreen({super.key});
@@ -22,6 +23,33 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
   String _activity = 'Active';
   String _bloodPressure = '120/80';
 
+  final List<NotificationModel> _mockNotifications = [
+    const NotificationModel(
+      id: '1',
+      title: 'Appointment Confirmed',
+      description: 'Your appointment with Dr. Anya has been confirmed for 2026-06-15.',
+      timestamp: '6/15/2026, 2:00:00 PM',
+      icon: Icons.calendar_today_outlined,
+      type: NotificationType.appointment,
+    ),
+    const NotificationModel(
+      id: '2',
+      title: 'Consultation Scheduled',
+      description: 'Your voice consultation is scheduled for tomorrow at 10 AM.',
+      timestamp: '6/16/2026, 10:00:00 AM',
+      icon: Icons.chat_bubble_outline,
+      type: NotificationType.consultation,
+    ),
+    const NotificationModel(
+      id: '3',
+      title: 'Platform Update',
+      description: 'Exciting new features have been added to Minerva! Check them out.',
+      timestamp: '6/17/2026, 11:45:00 AM',
+      icon: Icons.campaign_outlined,
+      type: NotificationType.update,
+    ),
+  ];
+
   Future<void> _showEditDialog(String title, String currentValue, Function(String) onSave) async {
     final controller = TextEditingController(text: currentValue);
     return showDialog(
@@ -31,9 +59,9 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
           title: Text('Edit $title'),
           content: TextField(
             controller: controller,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               hintText: 'Enter new value',
-              focusedBorder: const UnderlineInputBorder(
+              focusedBorder: UnderlineInputBorder(
                 borderSide: BorderSide(color: AppTheme.primaryColor),
               ),
             ),
@@ -131,7 +159,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                 children: [
                   SizedBox(height: 16),
                   // Greeting
-                  const Text(
+                  Text(
                     'Hello,\nMinervaUser',
                     style: TextStyle(
                       color: Colors.white,
@@ -140,9 +168,9 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                       height: 1.2,
                     ),
                   ),
-                  const SizedBox(height: 16),
+                  SizedBox(height: 16),
                   // Description
-                  const Text(
+                  Text(
                     'This is a safe space where you can talk freely about your health. No one knows who you are. Only care, not judgment.',
                     style: TextStyle(
                       color: Colors.white,
@@ -179,7 +207,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             'YOUR HEALTH DATA',
                             style: TextStyle(
                               color: AppTheme.textSecondary,
@@ -262,7 +290,7 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                     const SizedBox(height: 32),
                     
                     // Notifications Section
-                    Text(
+                    const Text(
                       'NOTIFICATIONS',
                       style: TextStyle(
                         color: AppTheme.textSecondary,
@@ -282,38 +310,11 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                     ),
                     const SizedBox(height: 24),
                     
-                    if (_selectedNotificationTab == 0 || _selectedNotificationTab == 1)
-                      NotificationCard(
-                        title: 'Appointment Confirmed',
-                        description: 'Your appointment with Dr. Anya has been confirmed for 2026-06-15.',
-                        timestamp: '6/15/2026, 2:00:00 PM',
-                        icon: Icons.calendar_today_outlined,
-                        onMarkAsRead: () {},
-                        onViewDetails: () {},
-                        onDelete: () {},
-                      ),
-                      
-                    if (_selectedNotificationTab == 0 || _selectedNotificationTab == 2)
-                      NotificationCard(
-                        title: 'Consultation Scheduled',
-                        description: 'Your voice consultation is scheduled for tomorrow at 10 AM.',
-                        timestamp: '6/16/2026, 10:00:00 AM',
-                        icon: Icons.chat_bubble_outline,
-                        onMarkAsRead: () {},
-                        onViewDetails: () {},
-                        onDelete: () {},
-                      ),
-                      
-                    if (_selectedNotificationTab == 0)
-                      NotificationCard(
-                        title: 'Platform Update',
-                        description: 'Exciting new features have been added to Minerva! Check them out.',
-                        timestamp: '6/17/2026, 11:45:00 AM',
-                        icon: Icons.campaign_outlined,
-                        onMarkAsRead: () {},
-                        onViewDetails: () {},
-                        onDelete: () {},
-                      ),
+                    NotificationListWidget(
+                      notifications: _mockNotifications,
+                      selectedTab: _selectedNotificationTab,
+                    ),
+                    
                     const SizedBox(height: 40),
                   ],
                 ),
