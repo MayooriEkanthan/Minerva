@@ -5,17 +5,8 @@ import '../../../../core/widgets/minerva_logo.dart';
 import '../../../patient/presentation/widgets/custom_calendar_grid.dart';
 import '../../../patient/presentation/widgets/symptom_chip.dart';
 
-class DoctorPeriodTrackerScreen extends StatefulWidget {
-  const DoctorPeriodTrackerScreen({super.key});
-
-  @override
-  State<DoctorPeriodTrackerScreen> createState() => _DoctorPeriodTrackerScreenState();
-}
-
-class _DoctorPeriodTrackerScreenState extends State<DoctorPeriodTrackerScreen> {
-  bool _periodStartReminder = true;
-  bool _contraceptionReminder = false;
-  bool _medicationReminder = true;
+class PatientPeriodTrackerViewScreen extends StatelessWidget {
+  const PatientPeriodTrackerViewScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +39,7 @@ class _DoctorPeriodTrackerScreenState extends State<DoctorPeriodTrackerScreen> {
           children: [
             // Calendar Section
             Text(
-              'Period Tracker',
+              'Patient Period Tracker',
               style: Theme.of(context).textTheme.displayMedium?.copyWith(fontSize: 20, color: AppTheme.textSecondary),
             ),
             const SizedBox(height: 16),
@@ -84,9 +75,9 @@ class _DoctorPeriodTrackerScreenState extends State<DoctorPeriodTrackerScreen> {
             ),
             const SizedBox(height: 32),
             
-            // Log Symptoms Section
+            // Logged Symptoms Section
             Text(
-              'Log Symptoms',
+              'Reported Symptoms',
               style: Theme.of(context).textTheme.displayMedium?.copyWith(fontSize: 18, color: AppTheme.textSecondary),
             ),
             const SizedBox(height: 16),
@@ -103,17 +94,6 @@ class _DoctorPeriodTrackerScreenState extends State<DoctorPeriodTrackerScreen> {
             ),
             const SizedBox(height: 32),
             
-            // Reminders Section
-            Text(
-              'Reminders',
-              style: Theme.of(context).textTheme.displayMedium?.copyWith(fontSize: 18, color: AppTheme.textSecondary),
-            ),
-            const SizedBox(height: 16),
-            _buildSwitchRow('Period Start', _periodStartReminder, (val) => setState(() => _periodStartReminder = val)),
-            _buildSwitchRow('Contraception', _contraceptionReminder, (val) => setState(() => _contraceptionReminder = val)),
-            _buildSwitchRow('Medication', _medicationReminder, (val) => setState(() => _medicationReminder = val)),
-            const SizedBox(height: 32),
-            
             // Info Section
             Container(
               padding: const EdgeInsets.all(16),
@@ -128,7 +108,7 @@ class _DoctorPeriodTrackerScreenState extends State<DoctorPeriodTrackerScreen> {
                       const Icon(Icons.lock_outline, color: AppTheme.textSecondary),
                       const SizedBox(width: 12),
                       Text(
-                        'Your data is private and secure.',
+                        'Patient data is confidential and secure.',
                         style: TextStyle(color: AppTheme.textSecondary),
                       ),
                     ],
@@ -161,23 +141,6 @@ class _DoctorPeriodTrackerScreenState extends State<DoctorPeriodTrackerScreen> {
           style: TextStyle(color: AppTheme.textSecondary, fontSize: 14),
         ),
       ],
-    );
-  }
-
-  Widget _buildSwitchRow(String label, bool value, ValueChanged<bool> onChanged) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(label, style: TextStyle(color: AppTheme.textSecondary)),
-          Switch(
-            value: value,
-            onChanged: onChanged,
-            activeColor: AppTheme.primaryColor,
-          ),
-        ],
-      ),
     );
   }
 }
